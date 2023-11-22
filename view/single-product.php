@@ -23,6 +23,30 @@
   </div>
 </nav>
 <!-- breadcrumb-section end -->
+<style>
+        .thetich {
+          text-align: center;
+          align-items: center;
+          border: 1px solid #d1d5db;
+          border-radius: 8px;
+          color: #444;
+          display: column;
+          font-size: 14px;
+          justify-content: center;
+          margin: 0 25px 0;
+          overflow: hidden;
+          padding: 5px 0px;
+          width: 20%;
+        }
+        .thetich:hover{
+          color:orangered;
+          border-color: orangered;
+        }
+        .product{
+          display:none;
+        }
+        
+      </style>
 <!-- product-single start -->
 <section class="product-single theme1 pt-60">
   <div class="container">
@@ -39,162 +63,120 @@
               </div>
             </div>
             <!-- single-product end -->
-            <div class="single-product">
-              <div class="product-thumb">
-                <img src="view/assets/img/slider/thumb/2.jpg" alt="product-thumb" />
-              </div>
-            </div>
-            <!-- single-product end -->
-            <div class="single-product">
-              <div class="product-thumb">
-                <img src="view/assets/img/slider/thumb/3.jpg" alt="product-thumb" />
-              </div>
-            </div>
-            <!-- single-product end -->
-            <div class="single-product">
-              <div class="product-thumb">
-                <img src="view/assets/img/slider/thumb/4.jpg" alt="product-thumb" />
-              </div>
-            </div>
             <!-- single-product end -->
           </div>
-        </div>
-        <div class="product-sync-nav single-product">
-          <div class="single-product">
-            <div class="product-thumb">
-              <a href="javascript:void(0)">
-                <img src="view/assets/img/slider/thumb/1.1.jpg" alt="product-thumb" /></a>
-            </div>
-          </div>
-          <!-- single-product end -->
-          <div class="single-product">
-            <div class="product-thumb">
-              <a href="javascript:void(0)">
-                <img src="view/assets/img/slider/thumb/2.1.jpg" alt="product-thumb" /></a>
-            </div>
-          </div>
-          <!-- single-product end -->
-          <div class="single-product">
-            <div class="product-thumb">
-              <a href="javascript:void(0)"><img src="view/assets/img/slider/thumb/3.1.jpg" alt="product-thumb" /></a>
-            </div>
-          </div>
-          <!-- single-product end -->
-          <div class="single-product">
-            <div class="product-thumb">
-              <a href="javascript:void(0)"><img src="view/assets/img/slider/thumb/4.1.jpg" alt="product-thumb" /></a>
-            </div>
-          </div>
-          <!-- single-product end -->
         </div>
       </div>
       <div class="col-lg-6">
-        <div class="single-product-info">
-          <div class="single-product-head">
-            <h2 class="title mb-20">Originals Windbreaker Winter Face Cream</h2>
-          </div>
-          <div class="d-flex align-items-center mb-30">
-            <a class="thetich" href="#">
-              <strong>100ML</strong> <br>
-              <p>590.000 đ</p>
-            </a>
-            <a class="thetich" href="#">
-              <strong>100ML</strong> <br>
-              <p>590.000 đ</p>
-            </a>
-            <a class="thetich" href="#">
-              <strong>100ML</strong> <br>
-              <p>590.000 đ</p>
-            </a>
-            
-          </div>
-          <style>
-            .thetich {
-              text-align: center;
-              align-items: center;
-              border: 1px solid #d1d5db;
-              border-radius: 8px;
-              color: #444;
-              display: column;
-              font-size: 14px;
-              justify-content: center;
-              margin: 0 25px 0;
-              overflow: hidden;
-              padding: 5px 0px;
-              width: 20%;
-            }
-          </style>
-          <div class="product-body mb-40">
+          <span style="color:red"><?=$thongbao??""?></span>
+          <?php 
+            $sp_tt =loadall_sanpham_thetich_view($_GET['id_sanpham']);
+            foreach($sp_tt as $sp): 
+            extract($sp);
+          ?>
+          <div class="single-product-info product">
+            <div class="single-product-head">
+              <h2 class="title mb-20"><?=$ten?></h2>
+            </div>
             <div class="d-flex align-items-center mb-30">
-              <span class="product-price me-2"><del class="del">$23.90</del>
-                <span class="onsale">$21.51</span></span>
-              <span class="badge position-static bg-dark rounded-0">Save 10%</span>
+              <?php 
+                $thetich_in_sanpham =load_thetich_in_sanpham($idsp);
+                $i=-1;
+                foreach($thetich_in_sanpham as $tt){
+                  $i++;
+                  $check= $gia==$tt["gia"]?"style='color:orangered;border-color: orangered;'":"";
+                  echo '<span class="thetich" onclick="showthetich('.$i.')" '.$check.'>
+                        <strong>'.$tt["thetich"].'</strong> <br>
+                        <p>'.$tt["gia"].' VNĐ</p>
+                      </span>
+                      <input type="hidden" name="id_sanpham_thetich" value='.$tt["id"].'>';
+                  
+                }
+              ?> 
+      
+            
+              <!-- <span class="thetich" href="#">
+                <strong>100ML</strong> <br>
+                <p>590.000 đ</p>
+              </span>
+              <span class="thetich" href="#">
+                <strong>100ML</strong> <br>
+                <p>590.000 đ</p>
+              </span> -->
             </div>
-          </div>
-          <div class="product-footer">
-            <div class="product-count style d-flex flex-column flex-sm-row mt-30 mb-30">
-              <div class="count d-flex">
-                <input type="number" min="1" max="10" step="1" value="1" />
-                <div class="button-group">
-                  <button class="count-btn increment">
-                    <i class="fas fa-chevron-up"></i>
-                  </button>
-                  <button class="count-btn decrement">
-                    <i class="fas fa-chevron-down"></i>
-                  </button>
-                </div>
+            <div class="product-body mb-40">
+              <div class="d-flex align-items-center mb-30">
+                <span class="product-price me-2"><del class="del"><?=$giaao =$gia+10/100*$gia ." VNĐ";?></del>
+                  <span class="onsale"><?=$gia ." VNĐ";?></span></span>
+                <span class="badge position-static bg-dark rounded-0">Sale 10%</span>
               </div>
-              <div>
-                <button class="btn btn-dark btn--xl mt-5 mt-sm-0">
-                  <span class="me-2"><i class="ion-android-add"></i></span>
-                  Add to cart
-                </button>
-              </div>
-              <div style="margin-left: 20px;">
-                <button class="btn btn-dark btn--xl mt-5 mt-sm-0">
-                  <span class="me-2"><i class="ion-android-add"></i></span>
-                  Add to cart
-                </button>
-              </div>
+              <span>Còn lại: <?=$soluong?></span>
             </div>
-            <p>
-              Block out the haters with the fresh adidas® Originals Kaval
-              Windbreaker Face Cream.
-            </p>
-            <ul>
-              <li>Part of the Kaval Collection.</li>
-              <li>
-                Regular fit is eased, but not sloppy, and perfect for any
-                activity.
-              </li>
-              <li>
-                Plain-woven Face Cream specifically constructed for freedom of
-                movement.
-              </li>
-            </ul>
-            <!-- <div class="addto-whish-list">
-                <a href="#"><i class="icon-heart"></i> Add to wishlist</a>
-                <a href="#"><i class="icon-shuffle"></i> Add to compare</a>
-              </div> -->
-            <div class="pro-social-links mt-10">
-              <ul class="d-flex align-items-center">
-                <li class="share">Share</li>
-                <li>
-                  <a href="#"><i class="ion-social-facebook"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="ion-social-twitter"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="ion-social-google"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="ion-social-pinterest"></i></a>
-                </li>
+            <div class="product-footer">
+                <form action="index.php?act=sanphamct&id_sanpham=<?=$id_sanpham?>" method="post">
+                  <div class="product-count style d-flex flex-column flex-sm-row mt-30 mb-30">
+                    <div class="count d-flex">
+                      <input type="number" name="soluong" min="1" max="<?=$soluong?>" step="1" value="1" readonly />
+                      <div class="button-group">
+                        <span class="count-btn increment">
+                          <i class="fas fa-chevron-up"></i>
+                        </span>
+                        <span class="count-btn decrement">
+                          <i class="fas fa-chevron-down"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <div>
+                      <button type="submit" name="themgiohang">
+                        <span class="btn btn-dark btn--xl mt-5 mt-sm-0">
+                          <span class="me-2"><i class="ion-android-add"></i></span>
+                          Thêm Vào Giỏ Hàng
+                        </span>
+                      </button>
+                    </div>
+                    <div style="margin-left: 20px;">
+                      <button type="submit" name="muangay">
+                        <span class="btn btn-dark btn--xl mt-5 mt-sm-0" type="submit">
+                          <span class="me-2"><i class="ion-android-add"></i></span>
+                          Mua Ngay
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                  <input type="hidden" name="id_sanpham_thetich" value="<?=$id?>">
+                </form>
+              <p>
+                Mô tả:<?=$mota?>
+              </p>
+              <ul>
+                <li>Xuất xứ: <?=$xuatxu?></li>
+                <li>Phong cách: <?=$phongcach?></li>
               </ul>
+              <!-- <div class="addto-whish-list">
+                  <a href="#"><i class="icon-heart"></i> Add to wishlist</a>
+                  <a href="#"><i class="icon-shuffle"></i> Add to compare</a>
+                </div> -->
+              <div class="pro-social-links mt-10">
+                <ul class="d-flex align-items-center">
+                  <li class="share">Share</li>
+                  <li>
+                    <a href="#"><i class="ion-social-facebook"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="ion-social-twitter"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="ion-social-google"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="ion-social-pinterest"></i></a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
+
+        <?php endforeach; ?>
       </div>
     </div>
   </div>
@@ -686,6 +668,17 @@
   </div>
 </section>
 <!-- new arrival section end -->
+<script>
+  let index= 0;
+  function showthetich(index){
+    let thetich = document.getElementsByClassName('product');
+    for(let i of thetich){
+        i.style.display="none";
+    }
+    thetich[index].style.display="block";
+  }
+   showthetich(0);
+</script>
 
 <?php
 include "view/footer.php";

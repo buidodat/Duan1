@@ -249,7 +249,7 @@
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
               <div class="product-slider-init theme1 slick-nav">
                 <?php 
-                  $listspnew= sanphamnew_in_danhmuc($dm['id']);
+                  $listspnew= top5_sanphamnew_in_danhmuc($dm['id']);
                   foreach($listspnew as $spnew):
                 ?>
                 <div class="slider-item">
@@ -258,7 +258,7 @@
                       <div class="media flex-column">
                         <div class="product-thumbnail position-relative" style="width: 300px;height: 300px;">
                           <span class="badge badge-danger top-right">New</span>
-                          <a href="single-product.html">
+                          <a href="index.php?act=sanphamct&id_sanpham=<?=$spnew['id']?>">
                             <img class="first-img" src="upload/<?=$spnew['hinh']?>" alt="thumbnail" />
                           </a>
                           <!-- product links -->
@@ -288,7 +288,7 @@
                         <div class="media-body">
                           <div class="product-desc">
                             <h3 class="title">
-                              <a href="shop-grid-4-column.html"><?=$spnew['tensp']?></a>
+                              <a href="index.php?act=sanphamct&id_sanpham=<?=$spnew['id']?>"><?=$spnew['tensp']?></a>
                             </h3>
                             <div class="star-rating">
                               <span class="ion-ios-star"></span>
@@ -298,7 +298,7 @@
                               <span class="ion-ios-star de-selected"></span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
-                              <span class="product-price">$11.90</span>
+                              <span class="product-price"><?=$spnew['giamin']. " VNĐ"?></span>
                               <button class="pro-btn" data-bs-toggle="modal" data-bs-target="#add-to-cart">
                                 <i class="icon-basket"></i>
                               </button>

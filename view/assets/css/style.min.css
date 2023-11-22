@@ -9,6 +9,9 @@ body {
     color: #565656;
     overflow-x: hidden
 }
+.thongbao{
+    color:red;
+}
 
 @media screen and (max-width:1199px) {
     .container {

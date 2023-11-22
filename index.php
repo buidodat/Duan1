@@ -2,6 +2,7 @@
 include "view/header.php";
 include "model/danhmuc.php";
 include "model/sanpham.php";
+include "model/giohang.php";
 include "model/pdo.php";
 include "global.php";
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
@@ -16,6 +17,18 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             break;
 
         case 'sanphamct':
+            $id_sanpham = $_GET['id_sanpham'];
+            if($_SERVER['REQUEST_METHOD'] == 'POST' &&isset($_POST['themgiohang'])){
+                extract($_POST);
+                $check = check_giohang($id_sanpham_thetich,1);
+                if(is_array($check)){
+                    $soluong +=$check['soluong'];
+                    update_giohang($soluong,$check['id']);
+                }else{
+                    insert_giohang($id_sanpham_thetich,$soluong,1);
+                }
+                $thongbao ="**Bạn đã thêm vào giỏ hàng thành công";
+            }
             include "view/single-product.php";
             break;
 
