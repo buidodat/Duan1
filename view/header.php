@@ -10,10 +10,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <meta name="description" content="" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Looki - Beauty & Cosmetics eCommerce Bootstrap 5 Template</title>
   <!-- Favicon -->
+  
   <link rel="shortcut icon" type="image/x-icon" href="view/assets/logo/logomoi.png" />
-
+  
   <!--********************************** 
       all css files   
   *************************************-->
@@ -205,30 +207,34 @@
                       <i class="icon-magnifier"></i>
                     </a>
                   </li>
-                  <li>
-                    <a href="compare.html">
-                      <span class="position-relative">
-                        <i class="icon-shuffle"></i>
-                        <span class="badge cbdg1">1</span>
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="offcanvas-toggle" href="#offcanvas-wishlist">
-                      <span class="position-relative">
-                        <i class="icon-heart"></i>
-                        <span class="badge cbdg1">3</span>
-                      </span>
-                    </a>
-                  </li>
+                  
+                
                   <li class="mr-xl-0 cart-block position-relative">
                     <a class="offcanvas-toggle" href="#offcanvas-cart">
                       <span class="position-relative">
-                        <i class="icon-bag"></i>
-                        <span class="badge cbdg1">3</span>
+                        
+                      <i class="fa-solid fa-heart fa-l" style="color: #020203;"></i>
+
                       </span>
                     </a>
                   </li>
+                       
+                
+                  <li class="mr-xl-0 cart-block position-relative">
+                    <a class="offcanvas-toggle" href="#offcanvas-cart">
+                      <span class="position-relative">
+                        
+                      <i class="fa-solid fa-cart-shopping  fa-l" style="color: #000000;"></i>
+
+
+                      </span>
+                    </a>
+                  </li>
+                  <span class="position-relative">
+                  <!-- <i class="fa-solid fa-user"></i> -->
+                  <i class="fa-solid fa-user fa-xl" style="color: #0d0d0d;" ></i>
+
+                        </span>
                   <!-- cart block end -->
                 </ul>
               </div>
