@@ -21,6 +21,7 @@
 <!-- breadcrumb-section end -->
 <!-- product tab start -->
 <section class="whish-list-section theme1 pt-80 pb-80">
+<form action="" method="post">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -82,7 +83,7 @@
                     <span class="trash"><i class="fas fa-trash-alt"></i> </span></a>
                 </td>
                 <td class="text-center">
-                  <a href="#" class="btn btn-dark btn--lg">Mua Ngay</a>
+                  <a href="index.php?act=thanhtoan&id_giohang=<?=$id?>" class="btn btn-dark btn--lg">Mua Ngay</a>
                 </td>
               </tr>
               <?php endforeach ?>
@@ -93,9 +94,10 @@
     </div>
     <div class="Place-order mt-25" style="text-align:right">
             <a class="btn btn--lg btn-primary me-3" href="#">Cập Nhật Giỏ Hàng</a>
-            <a class="btn btn--lg btn-primary my-2 my-sm-0" href="#">Mua Tất Cả</a>
+            <a class="btn btn--lg btn-primary my-2 my-sm-0" href="index.php?act=thanhtoan&&buy-all-products=all-cart" >Mua Tất Cả</a>
           </div>
   </div>
+</form>
 </section>
 <!-- product tab end -->
 

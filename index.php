@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "model/danhmuc.php";
 include "model/sanpham.php";
 include "model/giohang.php";
@@ -37,6 +38,13 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             break;
         
         case 'thanhtoan':
+            if(isset($_GET['id_giohang'])&&$_GET['id_giohang']){
+                $listsanpham =mua1_giohang(1,$_GET['id_giohang']);
+            }
+            if(isset($_GET['buy-all-products'])&&$_GET['buy-all-products']){
+                $listsanpham =loadall_giohang(1);
+            }
+            $tonggia=tonggia(1);
             include "view/checkout.php";
             break;
     

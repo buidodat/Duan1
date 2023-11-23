@@ -71,13 +71,13 @@
                   <input type="text" />
                 </div>
               </div>
-              <div class="col-lg-12">
+              <!-- <div class="col-lg-12">
               <label  class="lb">Phương thức vận chuyển:</label>
                 <div class="nut_radio" >
                   <input type="radio" class="ip" name="ppvc" id=""> Giao hàng tận nơi
                   <div class="phivc">100d</div>
                 </div>
-              </div>
+              </div> -->
               <div class="col-lg-12 pttt">
               <label class="lb">Phương thức thanh toán:</label>
                 <div class="nut_radio" >
@@ -138,14 +138,17 @@
               </div>
               <div class="your-order-middle">
                 <ul>
+                  <?php 
+                    foreach($listsanpham as $sp):
+                      extract($sp);
+                  ?>
                   <li>
-                    <span class="order-middle-left">Product Name X 1</span>
-                    <span class="order-price">$329 </span>
+                    <span class="order-middle-left"><?=$ten." - ".$thetich?> </span>
+                    
+                    <span class="order-price"><?="x".$soluong;?></span>
+                    <span class="order-price"><?=$gia*$soluong. " VNĐ"?></span>
                   </li>
-                  <li>
-                    <span class="order-middle-left">Product Name X 1</span>
-                    <span class="order-price">$329 </span>
-                  </li>
+                  <?php endforeach ?>
                 </ul>
               </div>
               <div class="your-order-bottom">
@@ -157,7 +160,7 @@
               <div class="your-order-total">
                 <ul>
                   <li class="order-total">Thành tiền</li>
-                  <li>$329</li>
+                  <li><?=$tonggia. " VNĐ"?></li>
                 </ul>
               </div>
               <div class="magiamgia">
@@ -171,7 +174,7 @@
             </div>
           </div>
           <div class="Place-order mt-25">
-            <a class="btn btn--xl btn-block btn-primary" href="#">Place Order</a>
+            <a class="btn btn--xl btn-block btn-primary" href="#">Hoàn Tất Đặt Hàng</a>
           </div>
         </div>
       </div>

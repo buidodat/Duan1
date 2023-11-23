@@ -1,10 +1,19 @@
 <?php 
     function loadall_giohang($id){
-        $sql = "select hinh,ten,thetich,sanpham_thetich.soluong as conlai ,giohang.soluong ,gia from giohang 
+        $sql = "select giohang.id ,hinh,ten,thetich,sanpham_thetich.soluong as conlai ,giohang.soluong,gia from giohang 
         join sanpham_thetich on giohang.id_sanpham_thetich =  sanpham_thetich.id
         join sanpham on sanpham.id = sanpham_thetich.id_sanpham
         join thetich on thetich.id = sanpham_thetich.id_thetich
         where id_taikhoan=$id";
+        $giohang = pdo_query($sql);
+        return $giohang; 
+    }
+    function mua1_giohang($id_taikhoan,$id_giohang){
+        $sql = "select giohang.id ,hinh,ten,thetich,sanpham_thetich.soluong as conlai ,giohang.soluong,gia from giohang 
+        join sanpham_thetich on giohang.id_sanpham_thetich =  sanpham_thetich.id
+        join sanpham on sanpham.id = sanpham_thetich.id_sanpham
+        join thetich on thetich.id = sanpham_thetich.id_thetich
+        where id_taikhoan=$id_taikhoan and giohang.id=$id_giohang";
         $giohang = pdo_query($sql);
         return $giohang; 
     }
@@ -28,5 +37,12 @@
         where id_taikhoan =$id_taikhoan";
         $check= pdo_query_one($sql);
         return $check['tongsoluong'];
+    }
+    function tonggia($id_taikhoan){
+        $sql="SELECT sum(giohang.soluong*gia) as tonggia FROM giohang 
+        join sanpham_thetich on giohang.id_sanpham_thetich =  sanpham_thetich.id
+        where id_taikhoan =$id_taikhoan";
+        $check= pdo_query_one($sql);
+        return $check['tonggia'];
     }
 ?>
