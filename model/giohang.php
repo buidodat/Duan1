@@ -23,3 +23,10 @@
         $sql= "UPDATE giohang SET soluong =$soluong where id =$id";
         pdo_execute($sql); 
     }
+    function check_soluong_cart($id_taikhoan){
+        $sql="SELECT sum(soluong) as tongsoluong FROM giohang 
+        where id_taikhoan =$id_taikhoan";
+        $check= pdo_query_one($sql);
+        return $check['tongsoluong'];
+    }
+?>

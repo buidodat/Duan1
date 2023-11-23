@@ -1,10 +1,10 @@
 <?php
-include "view/header.php";
 include "model/danhmuc.php";
 include "model/sanpham.php";
 include "model/giohang.php";
 include "model/pdo.php";
 include "global.php";
+include "view/header.php";
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
     switch ($act) {

@@ -212,9 +212,7 @@
                   <li class="mr-xl-0 cart-block position-relative">
                     <a class="offcanvas-toggle" href="#offcanvas-cart">
                       <span class="position-relative">
-                        
                       <i class="fa-solid fa-heart fa-l" style="color: #020203;"></i>
-
                       </span>
                     </a>
                   </li>
@@ -223,9 +221,8 @@
                   <li class="mr-xl-0 cart-block position-relative">
                     <a class="offcanvas-toggle" href="#offcanvas-cart">
                       <span class="position-relative">
-                        
                       <i class="fa-solid fa-cart-shopping  fa-l" style="color: #000000;"></i>
-
+                      <span class="badge cbdg1"><?=check_soluong_cart(1)??0;?></span>
 
                       </span>
                     </a>
