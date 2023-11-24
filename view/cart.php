@@ -21,7 +21,6 @@
 <!-- breadcrumb-section end -->
 <!-- product tab start -->
 <section class="whish-list-section theme1 pt-80 pb-80">
-<form action="" method="post">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -42,7 +41,6 @@
             </thead>
             <tbody>
             <?php 
-              $listgiohang =loadall_giohang(1);
               foreach($listgiohang as $giohang):
                 extract($giohang);
              ?>
@@ -79,8 +77,9 @@
                 </td>
 
                 <td class="text-center">
-                  <a href="#">
-                    <span class="trash"><i class="fas fa-trash-alt"></i> </span></a>
+                  <a href="index.php?act=xoagiohang&id_giohang=<?=$id?>" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này chứ ?')">
+                    <span class="trash"><i class="fas fa-trash-alt"></i> </span>
+                  </a>
                 </td>
                 <td class="text-center">
                   <a href="index.php?act=thanhtoan&id_giohang=<?=$id?>" class="btn btn-dark btn--lg">Mua Ngay</a>
@@ -94,10 +93,10 @@
     </div>
     <div class="Place-order mt-25" style="text-align:right">
             <a class="btn btn--lg btn-primary me-3" href="#">Cập Nhật Giỏ Hàng</a>
-            <a class="btn btn--lg btn-primary my-2 my-sm-0" href="index.php?act=thanhtoan&&buy-all-products=all-cart" >Mua Tất Cả</a>
+            <a class="btn btn--lg btn-primary my-2 my-sm-0" href="index.php?act=thanhtoan" >Mua Tất Cả</a>
           </div>
   </div>
-</form>
+
 </section>
 <!-- product tab end -->
 

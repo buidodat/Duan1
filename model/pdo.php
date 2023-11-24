@@ -14,6 +14,8 @@ function pdo_execute($sql){
         $conn = pdo_get_connection();
         $stmt = $conn->prepare($sql);
         $stmt->execute($sql_args);
+        $lastInsertedId = $conn->lastInsertId();
+        return $lastInsertedId;
     }
     catch(PDOException $e){
         throw $e;

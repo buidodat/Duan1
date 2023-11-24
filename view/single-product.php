@@ -70,7 +70,6 @@
       <div class="col-lg-6">
           <span style="color:red"><?=$thongbao??""?></span>
           <?php 
-            $sp_tt =loadall_sanpham_thetich_view($_GET['id_sanpham']);
             foreach($sp_tt as $sp): 
             extract($sp);
           ?>
@@ -80,7 +79,6 @@
             </div>
             <div class="d-flex align-items-center mb-30">
               <?php 
-                $thetich_in_sanpham =load_thetich_in_sanpham($idsp);
                 $i=-1;
                 foreach($thetich_in_sanpham as $tt){
                   $i++;
@@ -113,7 +111,7 @@
               <span>Còn lại: <?=$soluong?></span>
             </div>
             <div class="product-footer">
-                <form action="index.php?act=sanphamct&id_sanpham=<?=$id_sanpham?>" method="post">
+                <form action="index.php?act=themvaogiohang&id_sanpham=<?=$id_sanpham?>" method="post">
                   <div class="product-count style d-flex flex-column flex-sm-row mt-30 mb-30">
                     <div class="count d-flex">
                       <input type="number" name="soluong" min="1" max="<?=$soluong?>" step="1" value="1" readonly />
