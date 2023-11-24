@@ -1,9 +1,14 @@
 
 <?php
+session_start();
+include "../global.php";
+if(isset($user) && $user['id']==1){ 
+ 
   include "../model/pdo.php";
   include "../model/danhmuc.php";
   include "../model/sanpham.php";
-  include "../model/thetich.php";
+  include "../model/taikhoan.php";
+  include "../model/thetich.php";;
   include "header.php";
   if(isset($_GET['act'])&&($_GET['act']!="")){
       $act=$_GET['act'];
@@ -158,6 +163,39 @@
           $id_sanpham = $_GET['id_sanpham'];
           header("location:index.php?act=danh-sach-bien-the&id_sanpham=$id_sanpham");
           break;
+        case "quan-ly-tai-khoan":
+          $listtaikhoan = loadall_taikhoan();
+          include "taikhoan/quan-ly-tai-khoan.php";
+          break;
+          case "sua-tai-khoan":
+          if(isset($_GET['id'])&& ($_GET['id'])>0){
+              $taikhoan = loadone_taikhoan($_GET['id']);
+          }
+          $listtaikhoan = loadall_taikhoan();
+          include "taikhoan/cap-nhat-tai-khoan.php";
+          break;
+          case "cap-nhat-tai-khoan":
+          if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
+              $id = $_POST['id'];
+              $hoten = $_POST['hoten'];
+              $email = $_POST['email'];
+              $sdt = $_POST['sdt'];
+              $matkhau = $_POST['matkhau'];
+              $diachi = $_POST['diachi'];
+              $capbac = $_POST['capbac'];
+              // extract($taikhoan);
+              update_taikhoan($id, $hoten, $email, $sdt, $matkhau, $diachi, $capbac);
+              $thongbao = 'Cập nhật tài khoản thành công';
+          }
+          $listtaikhoan = loadall_taikhoan();
+          include "taikhoan/cap-nhat-tai-khoan.php";
+        case 'xoa-tai-khoan':
+          if(isset($_GET['id'])&&($_GET['id'])){
+              delete_taikhoan($_GET['id']);
+          }
+          $listtaikhoan = loadall_taikhoan();
+          include 'taikhoan/quan-ly-tai-khoan.php';
+          break;
           
         case "quan-ly-khach-hang":
           include "quan-ly-khac-hang.php";
@@ -171,5 +209,13 @@
       include "home.php";
   }
   include "footer.php";
+}else{
+  echo '<div style="margin:120px 30%">
+        <img src="da4242" alt="">
+        <h1 style="font-size:170px;padding 0;margin:0;">504</h1>
+        <h2>Bạn không có quyền truy cập trang web</h2>
+    </div>';
+}
+
 ?> 
 

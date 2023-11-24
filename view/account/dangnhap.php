@@ -50,7 +50,7 @@
                     <br>
                     <?php
                     if ($capbac == 1) { ?>
-                      <a href="/admin/index.php">Đăng nhập admin</a>
+                      <a href="admin/index.php">Đăng nhập admin</a>
                     <?php
                     }
                     ?>

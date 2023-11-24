@@ -63,7 +63,10 @@
                     <a class="" href="index.php?act=giohang">
                       <span class="position-relative">
                       <i class="fa-solid fa-cart-shopping  fa-l" style="color: #000000;"></i>
-                      <span class="badge cbdg1"><?=check_soluong_cart($user['id'])??"";?></span>
+                      <span class="badge cbdg1">
+                        <?=$giohang??"0";
+                        ?>
+                      </span>
                       </span>
                     </a>
                   </li>

@@ -7,6 +7,10 @@ include "model/donhang.php";
 include "model/danhmuc.php";
 include "model/sanpham.php";
 include "model/pdo.php";
+if(isset($user['id'])){
+    $id_user =$user['id'];
+    $giohang =check_soluong_cart($id_user);
+}
 include "view/header.php";
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
@@ -62,7 +66,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             $tong_gia_don_hang=tong_gia_don_hang($user['id'],$id_giohang);
             ///bấm nút đặt hàng
             if(isset($_POST['dathang'])){
-                $donhang = $_SESSION['donhang'];
                 extract($_POST);
                 $checkid =insert_donhang($id_taikhoan, $ten_nguoinhan, $email_nguoinhan,
                 $sdt_nguoinhan, $diachi_nguoinhan, $pttt,
@@ -173,7 +176,39 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             }
             include "view/account/quenmk.php";
             break;
-
+        case "quan-ly-tai-khoan":
+            $listtaikhoan = loadall_taikhoan();
+            include "taikhoan/quan-ly-tai-khoan.php";
+            break;
+            case "sua-tai-khoan":
+            if(isset($_GET['id'])&& ($_GET['id'])>0){
+                $taikhoan = loadone_taikhoan($_GET['id']);
+            }
+            $listtaikhoan = loadall_taikhoan();
+            include "taikhoan/cap-nhat-tai-khoan.php";
+            break;
+        case "cap-nhat-tai-khoan":
+            if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
+                $id = $_POST['id'];
+                $hoten = $_POST['hoten'];
+                $email = $_POST['email'];
+                $sdt = $_POST['sdt'];
+                $matkhau = $_POST['matkhau'];
+                $diachi = $_POST['diachi'];
+                $capbac = $_POST['capbac'];
+                // extract($taikhoan);
+                update_taikhoan($id, $hoten, $email, $sdt, $matkhau, $diachi, $capbac);
+                $thongbao = 'Cập nhật tài khoản thành công';
+            }
+            $listtaikhoan = loadall_taikhoan();
+            include "taikhoan.php/cap-nhat-tai-khoan.php";
+        case 'xoa-tai-khoan':
+            if(isset($_GET['id'])&&($_GET['id'])){
+                delete_taikhoan($_GET['id']);
+            }
+            $listtaikhoan = loadall_taikhoan();
+            include 'taikhoan.php/quan-ly-tai-khoan.php';
+            break;
         case 'thoat':
             session_unset();
             include "view/account/dangnhap.php";
