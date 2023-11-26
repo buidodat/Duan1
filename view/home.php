@@ -146,102 +146,11 @@
       <div class="section-title text-center">
         <h2 class="title pb-3 mb-3"><?=$dm['ten']?></h2>
         <p class="text">
-          "Mỗi gói hàng như một gói quà!"
+          "<?=$dm['slogan']?>"
         </p>
       </div>
     </div>
-    <!-- common banner  start -->
-  <!-- <div class="common-banner bg-white">
     <div class="container">
-      <div class="row">
-        <div class="col-md-6 mb-30">
-          <div class="banner-thumb">
-            <a
-              href="shop-grid-4-column.html"  
-              class="zoom-in d-block overflow-hidden"
-            >
-              <img src="view/assets/img/banner/1.jpg" alt="banner-thumb-naile" />
-            </a>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 mb-30">
-          <div class="banner-thumb">
-            <a
-              href="shop-grid-4-column.html"
-              class="zoom-in d-block overflow-hidden"
-            >
-              <img src="view/assets/img/banner/2.jpg" alt="banner-thumb-naile" />
-            </a>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 mb-30">
-          <div class="banner-thumb">
-            <a
-              href="shop-grid-4-column.html"
-              class="zoom-in d-block overflow-hidden"
-            >
-              <img src="view/assets/img/banner/3.jpg" alt="banner-thumb-naile" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-    <!-- common banner  end -->
-    <div class="container">
-      <!-- <div class="product-tab-nav mb-50">
-        <div class="row align-items-center">
-          
-          <div class="col-12">
-            <nav class="product-tab-menu theme1">
-            <ul
-              class="nav nav-pills justify-content-center"
-              id="pills-tab"
-              role="tablist"
-            >
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  id="pills-home-tab"
-                  data-bs-toggle="pill"
-                  href="#pills-home"
-                  role="tab"
-                  aria-controls="pills-home"
-                  aria-selected="true"
-                  >new products</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  id="pills-profile-tab"
-                  data-bs-toggle="pill"
-                  href="#pills-profile"
-                  role="tab"
-                  aria-controls="pills-profile"
-                  aria-selected="false"
-                  >onsale</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  id="pills-contact-tab"
-                  data-bs-toggle="pill"
-                  href="#pills-contact"
-                  role="tab"
-                  aria-controls="pills-contact"
-                  aria-selected="false"
-                  >upcoming products</a
-                >
-              </li>
-            </ul>
-          </nav>
-          </div> 
-        </div>
-      </div> -->
-      <!-- product-tab-nav end -->
-
       <div class="row">
         <div class="col-12">
           <div class="tab-content" id="pills-tabContent">

@@ -7,15 +7,15 @@
       <div class="col-12">
         <div class="section-title text-center">
           <h2 class="title pb-4 text-dark text-capitalize">
-            Beauty & Cosmetics
+            <?=$name_dm?>
           </h2>
         </div>
       </div>
       <div class="col-12">
         <ol class="breadcrumb bg-transparent m-0 p-0 align-items-center justify-content-center">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
           <li class="breadcrumb-item active" aria-current="page">
-            Beauty & Cosmetics
+          <?=$name_dm?>
           </li>
         </ol>
       </div>
@@ -59,7 +59,7 @@
           <div class="product-sync-init mb-20">
             <div class="single-product">
               <div class="product-thumb">
-                <img src="view/assets/img/slider/thumb/1.jpg" alt="product-thumb" />
+                <img src="upload/<?=$hinhanh?>" alt="product-thumb" />
               </div>
             </div>
             <!-- single-product end -->
@@ -144,7 +144,7 @@
                   <input type="hidden" name="id_sanpham_thetich" value="<?=$id?>">
                 </form>
               <p>
-                Mô tả:<?=$mota?>
+                Mô tả: <?=$mota?>
               </p>
               <ul>
                 <li>Xuất xứ: <?=$xuatxu?></li>

@@ -74,7 +74,7 @@
     }
     
     function top5_sanphamnew_in_danhmuc($iddm){
-        $sql = "SELECT sanpham.id ,sanpham.ten as tensp ,danhmuc.ten as tendm,hinh,xuatxu,phongcach,soluong ,gia,sum(soluong) as tongsoluong ,max(gia) as giamax,min(gia) as giamin from sanpham
+        $sql = "SELECT slogan,sanpham.id ,sanpham.ten as tensp ,danhmuc.ten as tendm,hinh,xuatxu,phongcach,soluong ,gia,sum(soluong) as tongsoluong ,max(gia) as giamax,min(gia) as giamin from sanpham
         left join sanpham_thetich on sanpham.id = sanpham_thetich.id_sanpham  
         left join thetich on thetich.id = sanpham_thetich.id_thetich
         join danhmuc on sanpham.iddm = danhmuc.id
@@ -91,5 +91,22 @@
         where id_sanpham = $id and trangthai =1";
         $thetich = pdo_query($sql);
         return $thetich; 
+    }
+    function hinhanh_sanpham($id_sanpham){
+        $sql = "SELECT hinh FROM  sanpham 
+        WHERE sanpham.id = $id_sanpham";
+        $hinh = pdo_query_one($sql);
+        return $hinh['hinh'];
+    }
+    function loadall_sanpham_thetich_chitiet(){
+        $sql = "SELECT slogan,sanpham.id ,sanpham.ten as tensp ,danhmuc.ten as tendm,hinh,xuatxu,phongcach,mota,soluong ,gia,sum(soluong) as tongsoluong ,max(gia) as giamax,min(gia) as giamin from sanpham
+        left join sanpham_thetich on sanpham.id = sanpham_thetich.id_sanpham  
+        left join thetich on thetich.id = sanpham_thetich.id_thetich
+        join danhmuc on sanpham.iddm = danhmuc.id
+        where trangthai = 1
+        group by sanpham.id
+        order by sanpham.id asc ";
+        $spnew = pdo_query($sql);
+        return $spnew;
     }
 ?>

@@ -32,6 +32,25 @@
               <li class="active ml-0">
                 <a href="index.php" class="ps-0">Home</a>
               </li>
+              <li class="position-static">
+                <a href="index.php?act=cuahang">Shop <i class="ion-ios-arrow-down"></i></a>
+                <ul class="sub-menu">
+                  <?php foreach($listdm as $dm):?>
+                  <li><a href="index.php?act=cuahang&iddm=<?=$dm['id']?>"><?=$dm['ten']?></a></li>
+                  <?php endforeach ?>
+                </ul>
+              </li>
+              <li>
+                <a href="#">Pages <i class="ion-ios-arrow-down"></i></a>
+                <ul class="sub-menu">
+                  <li><a href="index.php?act=gioithieu">About Page</a></li>
+                  <li><a href="index.php?act=giohang">Cart Page</a></li>
+                  <li><a href="index.php?act=thanhtoan">Checkout Page</a></li>
+                  <li><a href="index.php?act=dangnhap">Login & Register Page</a></li>
+                  <li><a href="index.php?act=taikhoanuser">Account Page</a></li>
+                  <li><a href="index.php?act=spyeuthich">Wishlist Page</a></li>
+                </ul>
+              </li>
               <li>
                 <a href="index.php?act=thongtin">Blog</a>
               </li>

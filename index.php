@@ -11,11 +11,17 @@
         $id_user =$taikhoan['id'];
         $giohang =check_soluong_cart($id_user);
     }
+    $listdm =loadall_danhmuc();
     include "view/header.php";
     if (isset($_GET['act']) && ($_GET['act'] != "")) {
         $act = $_GET['act'];
         switch ($act) {
             case 'cuahang':
+                if(isset($_GET['iddm'])&&$_GET['iddm']>0){
+                    $iddm = $_GET['iddm'];
+                    $namedm=" In ".check_name_danhmuc($iddm);
+                }
+                $listsp =loadall_sanpham_thetich_chitiet();
                 include "view/shop.php";
                 break;
             case 'gioithieu':
@@ -25,6 +31,8 @@
                 $id_sanpham = $_GET['id_sanpham'];
                 $sp_tt =loadall_sanpham_thetich_view($id_sanpham);
                 $thetich_in_sanpham =load_thetich_in_sanpham($id_sanpham);
+                $name_dm=name_danhmuc($id_sanpham);
+                $hinhanh =hinhanh_sanpham($id_sanpham);
                 include "view/single-product.php";
                 break;
                 

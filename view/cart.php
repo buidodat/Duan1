@@ -82,7 +82,7 @@
                   </a>
                 </td>
                 <td class="text-center">
-                  <a href="index.php?act=thanhtoan&id_giohang=<?=$id?>" class="btn btn-dark btn--lg">Mua Ngay</a>
+                  <a href="index.php?act=thanhtoan&id_giohang=<?=$id?>" class="btn btn-dark btn--lg">Đặt Hàng</a>
                 </td>
               </tr>
               <?php endforeach ?>
@@ -93,7 +93,7 @@
     </div>
     <div class="Place-order mt-25" style="text-align:right">
             <a class="btn btn--lg btn-primary me-3" href="#">Cập Nhật Giỏ Hàng</a>
-            <a class="btn btn--lg btn-primary my-2 my-sm-0" href="index.php?act=thanhtoan" >Mua Tất Cả</a>
+            <a class="btn btn--lg btn-primary my-2 my-sm-0" href="index.php?act=thanhtoan" >Đặt Hàng</a>
           </div>
   </div>
 
