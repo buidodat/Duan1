@@ -98,14 +98,33 @@
         $hinh = pdo_query_one($sql);
         return $hinh['hinh'];
     }
-    function loadall_sanpham_thetich_chitiet(){
+    function loadall_sanpham_thetich_chitiet($iddm=0,$loc=0){
         $sql = "SELECT slogan,sanpham.id ,sanpham.ten as tensp ,danhmuc.ten as tendm,hinh,xuatxu,phongcach,mota,soluong ,gia,sum(soluong) as tongsoluong ,max(gia) as giamax,min(gia) as giamin from sanpham
         left join sanpham_thetich on sanpham.id = sanpham_thetich.id_sanpham  
         left join thetich on thetich.id = sanpham_thetich.id_thetich
         join danhmuc on sanpham.iddm = danhmuc.id
-        where trangthai = 1
-        group by sanpham.id
-        order by sanpham.id asc ";
+        where trangthai = 1 ";
+        if($iddm>0){
+            $sql .=" and iddm =$iddm";
+        }
+        $sql .=" group by sanpham.id";
+        switch ($loc) {
+            case 'sap-xep-tang':
+                $sql .=" order by sanpham.ten asc ";
+                break;
+            case 'sap-xep-giam':
+                $sql .=" order by sanpham.ten desc ";
+                break;
+            case 'gia-tang-dan':
+                $sql .=" order by giamin asc ";
+                break;
+            case 'gia-giam-dan':
+                $sql .=" order by giamin desc ";
+                break;
+            case 0: 
+                $sql .=" order by sanpham.id asc ";
+        }
+        
         $spnew = pdo_query($sql);
         return $spnew;
     }

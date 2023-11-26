@@ -17,11 +17,17 @@
         $act = $_GET['act'];
         switch ($act) {
             case 'cuahang':
+                // gán trước nếu không có đỡ lỗi dòng 30
+                $iddm = 0 ; $loc ="";
                 if(isset($_GET['iddm'])&&$_GET['iddm']>0){
                     $iddm = $_GET['iddm'];
                     $namedm=" In ".check_name_danhmuc($iddm);
                 }
-                $listsp =loadall_sanpham_thetich_chitiet();
+                // chức năng xắp xếp
+                if(isset($_GET['loc'])&&$_GET['loc']!=""){
+                    $loc = $_GET['loc'];
+                }
+                $listsp =loadall_sanpham_thetich_chitiet($iddm,$loc);
                 include "view/shop.php";
                 break;
             case 'gioithieu':

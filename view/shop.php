@@ -49,17 +49,23 @@
         </div>
         <div class="col-12 col-md-6 position-relative">
           <div class="shop-grid-button d-flex align-items-center">
-            <span class="sort-by">Sort by:</span>
+            <span class="sort-by">Sắp xếp theo:</span>
             <button class="d-flex justify-content-between" type="button" id="dropdownMenuButton"
               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Relevance <span class="ion-android-arrow-dropdown"></span>
+              Mức độ liên quan <span class="ion-android-arrow-dropdown"></span>
             </button>
             <div class="dropdown-menu shop-grid-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Relevance</a>
-              <a class="dropdown-item" href="#"> Name, A to Z</a>
-              <a class="dropdown-item" href="#"> Name, Z to A</a>
-              <a class="dropdown-item" href="#"> Price, low to high</a>
-              <a class="dropdown-item" href="#"> Price, high to low</a>
+              <?php 
+                $check_dm="";
+                if(isset($_GET['iddm'])){
+                  $check_dm="&iddm=".$_GET['iddm'];
+                }
+              ?>
+              <a class="dropdown-item" href="index.php?act=cuahang<?=$check_dm?>">Mức độ liên quan</a>
+              <a class="dropdown-item" href="index.php?act=cuahang<?=$check_dm?>&loc=sap-xep-tang">Tên từ A đến Z</a>
+              <a class="dropdown-item" href="index.php?act=cuahang<?=$check_dm?>&loc=sap-xep-giam">Tên từ Z đến A</a>
+              <a class="dropdown-item" href="index.php?act=cuahang<?=$check_dm?>&loc=gia-tang-dan">Giá tăng dần</a>
+              <a class="dropdown-item" href="index.php?act=cuahang<?=$check_dm?>&loc=gia-giam-dan">Giá giảm dần</a>
             </div>
           </div>
         </div>
