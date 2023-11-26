@@ -29,7 +29,7 @@
       <div class="col-lg-7 col-md-12 ms-auto me-auto">
         <div class="login-register-wrapper">
           <div class="login-register-tab-list nav">
-            <a class="active" href="#lg1">
+            <a class="active" href="">
               <h4>Đăng nhập</h4>
             </a>
             <a href="index.php?act=dangky">
@@ -41,19 +41,12 @@
               <div class="login-form-container">
                 <div class="login-register-form">
                   <?php
-                  if (isset($_SESSION['hoten'])) {
-                    extract(($_SESSION['hoten']));
+                  if (isset($_SESSION['taikhoan'])) {
+                    extract(($_SESSION['taikhoan']));
                   ?>
                     <a href="index.php?act=quenmk">Quên mật khẩu</a>
                     <br>
                     <a href="index.php?act=edit_tk">Cập nhật tài khoản</a>
-                    <br>
-                    <?php
-                    if ($capbac == 1) { ?>
-                      <a href="admin/index.php">Đăng nhập admin</a>
-                    <?php
-                    }
-                    ?>
                     <br>
                     <a href="index.php?act=thoat">Thoát</a>
                   <?php

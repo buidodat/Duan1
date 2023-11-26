@@ -40,8 +40,8 @@
               <div class="login-form-container">
                 <div class="login-register-form">
                 <?php
-                if (isset($_SESSION['hoten']) && (is_array($_SESSION['hoten']))) {
-                    extract($_SESSION['hoten']);
+                if (isset($_SESSION['taikhoan']) && (is_array($_SESSION['taikhoan']))) {
+                    extract($_SESSION['taikhoan']);
                     // echo '<pre>';
                     // print_r($_SESSION);
                     // echo '</pre>';

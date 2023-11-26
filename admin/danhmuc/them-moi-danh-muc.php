@@ -18,6 +18,12 @@
                 <input class="form-control" type="text" name="ten">
               </div>
           </div>
+          <div class="row">
+              <div class="form-group col-md-3">
+                <label class="control-label">Slogan</label>
+                <input class="form-control" type="text" name="slogan">
+              </div>
+          </div>
           <input type="submit" class="btn btn-save" value="Lưu Lại" name="themmoi">
           <a class="btn btn-cancel" href="index.php?act=danh-sach-danh-muc">Hủy bỏ</a>
           </form>

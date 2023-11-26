@@ -50,7 +50,7 @@
 
 <!-- checkout area start -->
 <?php 
-  extract($user);
+  extract($taikhoan);
 ?>
 <form action="" method="post">
 <div class="check-out-section pt-80 pb-80">

@@ -271,14 +271,8 @@
                               </a>
                             </li>
                             <li>
-                              <a class="action" href="#" data-bs-toggle="modal" data-bs-target="#compare">
-                                <span data-bs-toggle="tooltip" data-placement="bottom" title="Add to compare"
-                                  class="icon-shuffle"></span>
-                              </a>
-                            </li>
-                            <li>
-                              <a class="action" href="#" data-bs-toggle="modal" data-bs-target="#quick-view">
-                                <span data-bs-toggle="tooltip" data-placement="bottom" title="Quick view"
+                              <a class="action" href="index.php?act=sanphamct&id_sanpham=<?=$spnew['id']?>" >
+                                <span data-bs-toggle="tooltip" data-placement="bottom" title="Xem chi tiết"
                                   class="icon-magnifier"></span>
                               </a>
                             </li>
@@ -298,10 +292,14 @@
                               <span class="ion-ios-star de-selected"></span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
-                              <span class="product-price"><?=$spnew['giamin']. " VNĐ"?></span>
-                              <button class="pro-btn" data-bs-toggle="modal" data-bs-target="#add-to-cart">
-                                <i class="icon-basket"></i>
-                              </button>
+                            <?php
+                              $gia = $spnew['giamin']." - ".$spnew['giamax'];
+                              if($spnew['giamin'] == $spnew['giamax']){
+                                $gia = $spnew['giamin'];
+                              }
+                              $gia.=" VNĐ";
+                            ?> 
+                              <span class="product-price"><?=$gia?></span>
                             </div>
                           </div>
                         </div>

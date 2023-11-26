@@ -1,5 +1,5 @@
 
-        <div class="app-title">
+<div class="app-title">
             <ul class="app-breadcrumb breadcrumb side">
                 <li class="breadcrumb-item active"><a href="#"><b>Danh sách Danh Mục</b></a></li>
             </ul>
@@ -16,12 +16,18 @@
                                 Tạo mới danh mục</a>
                             </div>
                           </div>
+                          <?php
+                          if(isset($thongbao) && $thongbao!=""){
+                                  echo '<p style = " color:red " >'.$thongbao.'</p>';
+                          }
+                          ?>
                         <table class="table table-hover table-bordered" id="sampleTable">
                             <thead>
                                 <tr>
                                     <th width="10"><input type="checkbox" id="all"></th>
                                     <th>Mã danh mục</th>
                                     <th>Tên danh mục</th>
+                                    <th>Slogan</th>
                                     <th>Chức năng</th>
                                 </tr>
                             </thead>
@@ -36,6 +42,7 @@
                                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
                                     <td><?=$id?></td>
                                     <td><?=$ten?></td>
+                                    <td><?=$slogan?></td>
                                     <td>
                                         <a onclick="return confirm('Bạn có chắc chắn muốn xóa')" href="<?=$xoadm?>" ;>
                                             <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"

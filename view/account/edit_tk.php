@@ -36,14 +36,14 @@
               <div class="login-form-container">
                 <div class="login-register-form">
                 <?php
-                if (isset($_SESSION['hoten']) && (is_array($_SESSION['hoten']))) {
-                    extract($_SESSION['hoten']);
+                if (isset($_SESSION['taikhoan']) && (is_array($_SESSION['taikhoan']))) {
+                    extract($_SESSION['taikhoan']);
                     // echo '<pre>';
                     // print_r($_SESSION);
                     // echo '</pre>';
                 }
                 ?>
-                <form action="index.php?act=edit_taikhoan" method="POST">
+                <form action="index.php?act=edit_tk" method="POST">
                     <h4>Tên đăng nhập</h4>
                     <input type="text" name="hoten" value="<?= $hoten ?>" placeholder="Nhập vào tên">
                     <h4>Email</h4>
