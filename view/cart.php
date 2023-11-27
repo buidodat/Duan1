@@ -92,7 +92,6 @@
       </div>
     </div>
     <div class="Place-order mt-25" style="text-align:right">
-            <a class="btn btn--lg btn-primary me-3" href="#">Cập Nhật Giỏ Hàng</a>
             <a class="btn btn--lg btn-primary my-2 my-sm-0" href="index.php?act=thanhtoan" >Đặt Hàng</a>
           </div>
   </div>

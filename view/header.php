@@ -37,7 +37,7 @@
                 <ul class="sub-menu">
                   <?php foreach($listdm as $dm):?>
                   <li><a href="index.php?act=cuahang&iddm=<?=$dm['id']?>"><?=$dm['ten']?></a></li>
-                  <?php endforeach ?>
+                  <?php endforeach ;?>
                 </ul>
               </li>
               <li>
@@ -64,7 +64,7 @@
               <div class="cart-block-links theme1 d-none d-sm-block">
                 <ul class="d-flex">
                   <li>
-                    <a href="javascript:void(0)" class="search search-toggle">
+                    <a href="" class="search search-toggle">
                       <i class="icon-magnifier"></i>
                     </a>
                   </li>

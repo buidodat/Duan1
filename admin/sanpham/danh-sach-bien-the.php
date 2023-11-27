@@ -8,7 +8,35 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="tile">
-                <h3 class="tile-title"><?=$sanpham['ten']??''?></h3>
+                    <style>
+                        .sanphamchitiet{
+                            width:50%;
+                        }
+                        .list{
+                            padding: 0;
+                            margin: 0;
+                        }
+                        .list li{
+                            list-style-type:none;
+                            padding: 0;
+                            margin: 0;
+                        }
+                        .list p{
+                            padding: 0;
+                            margin: 0;
+                        }
+                    </style>
+                    <div class="chitietsanpham" style="width:50%;padding:20px">
+                        <h5><?=$sanpham['ten']??''?></h5>
+                        <ul class="list">
+                            <p><b>Mô tả:</b><?=$sanpham['mota']??""?></p>
+                            <li><b>Xuất xứ:</b><?=$sanpham['xuatxu']??""?></li>
+                            <li><b>Phong cách:</b><?=$sanpham['phongcach']??""?></li>
+                            <li><b>Hình ảnh:</b></li>
+                        </ul>
+                        <img src="../upload/<?=$sanpham['hinh']??""?>" alt="" width="200px" >
+                    </div>
+                <h3 class="tile-title"></h3>
                     <div class="tile-body">
                         <div class="row element-button">
                             <div class="col-sm-2">

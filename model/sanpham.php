@@ -1,6 +1,6 @@
 <?php
     function loadall_sanpham_thetich($id_sanpham){
-        $sql = "SELECT sanpham_thetich.id, sanpham.id as idsp ,sanpham_thetich.id_thetich,sanpham.ten ,hinh ,thetich,soluong ,gia,trangthai ,danhmuc.ten as tendm from sanpham_thetich
+        $sql = "SELECT sanpham_thetich.id, sanpham.id as idsp ,sanpham_thetich.id_thetich,sanpham.ten ,hinh ,mota,xuatxu,phongcach,thetich,soluong ,gia,trangthai ,danhmuc.ten as tendm from sanpham_thetich
                 join thetich on thetich.id = sanpham_thetich.id_thetich
                 join sanpham on sanpham.id = sanpham_thetich.id_sanpham
                 join danhmuc on danhmuc.id = sanpham.iddm

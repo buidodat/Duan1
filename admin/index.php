@@ -3,16 +3,20 @@
 session_start();
 include "../global.php";
 if(isset($taikhoan)){
-  if( $taikhoan['id']==1){
+  if( $taikhoan['capbac']==1){
     include "../model/pdo.php";
     include "../model/danhmuc.php";
     include "../model/sanpham.php";
     include "../model/taikhoan.php";
-    include "../model/thetich.php";;
+    include "../model/thetich.php";
     include "header.php";
     if(isset($_GET['act'])&&($_GET['act']!="")){
         $act=$_GET['act'];
         switch($act){
+          case 'thoat':
+            session_unset();
+            header("location:index.php");
+            break;
           ////////////-------QUản--------\\\\\\\\\\\\
           ////////////-----  Lý  --------\\\\\\\\\\\\
           ////////////-------Danh--------\\\\\\\\\\\\

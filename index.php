@@ -1,4 +1,5 @@
 <?php
+ob_start();
     session_start();
     include "global.php";
     include "model/giohang.php";
@@ -7,8 +8,8 @@
     include "model/danhmuc.php";
     include "model/sanpham.php";
     include "model/pdo.php";
-    if(isset($taikhoan['id'])){
-        $id_user =$taikhoan['id'];
+    if(isset($taikhoan['capbac'])){
+        $id_user =$taikhoan['capbac'];
         $giohang =check_soluong_cart($id_user);
     }
     $listdm =loadall_danhmuc();
@@ -159,7 +160,7 @@
                     } else if($matkhau!== $check_user){
                     $error['matkhau'] =  "Mật khẩu không trùng khớp";
                     }
-                    if($_SESSION['taikhoan']['id']==1){
+                    if(isset($_SESSION['taikhoan'])&&$_SESSION['taikhoan']['capbac']==1){
                         header("location:admin");
                     }
                 }
@@ -249,5 +250,6 @@
     } else {
         include "view/home.php";
     }
+exit();
 
 ?>

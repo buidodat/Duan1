@@ -145,18 +145,18 @@
                   <li><?=$tong_gia_don_hang. " VNĐ"?></li>
                 </ul>
               </div>
-              <div class="magiamgia">
+              <!-- <div class="magiamgia">
                 <div class="nhap">
                   <input type="text" name="" id="" placeholder="Nhập mã giảm giá">
                 </div> 
                 <div class="apdung">
                   <input type="submit" value="Áp dụng">
                 </div>          
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="Place-order mt-25">
-            <input type="text" name="id_taikhoan" value="<?=$id?>">
+
             <input type="hidden" name="tongtien" value="<?=$tong_gia_don_hang?>">
             <button type="submit" name="dathang"><span class="btn btn--xl btn-block btn-primary" >Hoàn Tất Đặt Hàng</span></button>
           </div>

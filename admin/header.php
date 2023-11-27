@@ -32,7 +32,7 @@
 
 
       <!-- User Menu-->
-      <li><a class="app-nav__item" href="/index.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+      <li><a class="app-nav__item" href="index.php?act=thoat"><i class='bx bx-log-out bx-rotate-180'></i> </a>
 
       </li>
     </ul>
@@ -43,7 +43,7 @@
     <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="/images/hay.jpg" width="50px"
         alt="User Image">
       <div>
-        <p class="app-sidebar__user-name"><b>Bùi Đỗ Đạt</b></p>
+        <p class="app-sidebar__user-name"><b>ADMIN</b></p>
         <p class="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
       </div>
     </div>
