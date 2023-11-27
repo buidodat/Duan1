@@ -15,12 +15,20 @@
                                 Tạo mới sản phẩm</a>
                             </div>
                         </div>
-                        <div>
-                            <input type="text" name="seach">
-                            <select name="danhmuc" >
-                                <option value="">Chọn danh mục</option>
+                        <div >
+                        <form action="index.php?act=danh-sach-san-pham" method="post">
+                            <select name="iddm" id="" style="height: 26px; margin-left: 10px; border:solid 1px #dee2e6">
+                                <option value="0" selected>Tất Cả</option>
+                                <?php
+                                foreach ($listdanhmuc as $danhmuc) {
+                                    extract($danhmuc);
+                                    echo '<option value="'.$id.'">'.$ten.'</option>';
+                                }
+                                ?>
                             </select>
-                            <a href=""><button type="button">tìm kiếm</button></a>
+                            <input style="width: 75%; float: left;border:solid 1px #dee2e6" type="text" name="kyw" id="">
+                            <input style="width: 15%; float: right; backgroud-color:blue; border:solid 1px #dee2e6" type="submit" name="listok" value="OK">
+                        </form>
                         </div>
                         <!-- //form tìm kiếm -->
                         <table class="table table-hover table-bordered" id="sampleTable">
@@ -62,7 +70,7 @@
                                         <?=$tongsoluong==''?"Chưa nhập biến thể":($tongsoluong==0?"Hết Hàng":"Còn Hàng");?>
                                         </span>
                                     </td>
-                                    <td><?=$giamin==$giamax?$giamin:$giamin." ~ ".$giamax;?>đ</td>
+                                    <td><?=$giamin==$giamax?$giamin:$giamin." - ".$giamax;?>đ</td>
                                     <td><?=$tendm?></td>
                                     <td>
                                         <a href="<?=$suasp?>">

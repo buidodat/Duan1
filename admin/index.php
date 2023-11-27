@@ -71,7 +71,14 @@ if(isset($taikhoan)){
           ////////////------ Sản --------\\\\\\\\\\\\
           ////////////-------Phẩm--------\\\\\\\\\\\\
           case "danh-sach-san-pham":
-              $listsanpham = loadall_sanpham();
+              $listdanhmuc = loadall_danhmuc();
+              $kyw = "";
+              $iddm = 0;
+              if (isset($_POST['listok']) && ($_POST['listok'])) {
+                $kyw = $_POST['kyw'];   
+                $iddm = $_POST['iddm'];
+              }
+              $listsanpham = loadall_sanpham($kyw,$iddm);
               include "sanpham/danh-sach-san-pham.php";
               break;
           case "them-moi-san-pham":

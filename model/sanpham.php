@@ -46,15 +46,20 @@
         VALUES ('$ten', '$hinh', '$xuatxu' , '$phongcach' , '$mota', $iddm)";
         pdo_execute($sql); 
     }
-    function loadall_sanpham(){
+    function loadall_sanpham($kyw,$iddm =0){
         $sql = "SELECT sanpham.id,sanpham_thetich.id as id_bienthe ,sanpham.ten as tensp ,danhmuc.ten as tendm,hinh,xuatxu,phongcach,soluong ,gia,sum(soluong) as tongsoluong ,max(gia) as giamax,min(gia) as giamin from sanpham
-            left join sanpham_thetich on sanpham.id = sanpham_thetich.id_sanpham  
-            left join thetich on thetich.id = sanpham_thetich.id_thetich
-            join danhmuc on sanpham.iddm = danhmuc.id
-            group by sanpham.id
-            order by sanpham.id asc ";
-            $listsanpham = pdo_query($sql);
-            return $listsanpham;
+        left join sanpham_thetich on sanpham.id = sanpham_thetich.id_sanpham  
+        left join thetich on thetich.id = sanpham_thetich.id_thetich
+        join danhmuc on sanpham.iddm = danhmuc.id ";
+        if($iddm>0){
+            $sql .=" where iddm=$iddm";
+        }
+        if($kyw!=""){
+           $sql .= " where sanpham.ten like '%$kyw%'";
+        }
+        $sql .= " group by sanpham.id order by sanpham.id asc ";
+        $listsanpham = pdo_query($sql);
+        return $listsanpham;
     }
 
     function loadone_sanpham($id){

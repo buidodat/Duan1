@@ -8,8 +8,8 @@ ob_start();
     include "model/danhmuc.php";
     include "model/sanpham.php";
     include "model/pdo.php";
-    if(isset($taikhoan['capbac'])){
-        $id_user =$taikhoan['capbac'];
+    if(isset($taikhoan['id'])){
+        $id_user =$taikhoan['id'];
         $giohang =check_soluong_cart($id_user);
     }
     $listdm =loadall_danhmuc();
@@ -82,7 +82,7 @@ ob_start();
                 ///bấm nút đặt hàng
                 if(isset($_POST['dathang'])){
                     extract($_POST);
-                    $checkid =insert_donhang($id_taikhoan, $ten_nguoinhan, $email_nguoinhan,
+                    $checkid =insert_donhang($taikhoan['id'], $ten_nguoinhan, $email_nguoinhan,
                     $sdt_nguoinhan, $diachi_nguoinhan, $pttt,
                     $tongtien, $ghichu);
                     $id_donhang =$checkid;
