@@ -11,7 +11,6 @@
                     <div class="tile-body">
                         <div class="row element-button">
                             <div class="col-sm-2">
-              
                               <a class="btn btn-add btn-sm" href="index.php?act=them-moi-danh-muc" title="Thêm"><i class="fas fa-plus"></i>
                                 Tạo mới danh mục</a>
                             </div>

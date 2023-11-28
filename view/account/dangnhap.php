@@ -44,9 +44,12 @@
                   if (isset($_SESSION['taikhoan'])) {
                     extract(($_SESSION['taikhoan']));
                   ?>
-                    <a href="index.php?act=quenmk">Quên mật khẩu</a>
+                    
+                    <a href="index.php?act=don-hang-cua-ban">Đơn hàng của bạn</a>
                     <br>
                     <a href="index.php?act=edit_tk">Cập nhật tài khoản</a>
+                    <br>
+                    <a href="index.php?act=quenmk">Quên mật khẩu</a>
                     <br>
                     <a href="index.php?act=thoat">Thoát</a>
                   <?php
@@ -71,6 +74,7 @@
                       <div class="button-box">
                         <div class="login-toggle-btn">
                           <!-- <input id="remember" type="checkbox" /> -->
+                          
                           <a href="index.php?act=edit_tk">Cập nhật tài khoản</a>
 
                           <a href="index.php?act=quenmk">Quên mật khẩu?</a>

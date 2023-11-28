@@ -126,9 +126,9 @@
                     foreach($listsanpham as $sp):
                   ?>
                   <li>
-                    <span class="order-middle-left"><?=$sp['ten']." - ".$sp['thetich']?> </span>
-                    <span class="order-price"><?="x".$sp['soluong'];?></span>
-                    <span class="order-price"><?=$sp['gia']*$sp['soluong']. " VNĐ"?></span>
+                    <span class="order-middle-left" style="width:60%"><?=$sp['ten']." - ".$sp['thetich']?> </span>
+                    <span class="order-price"><?="x".$sp['soluong']."   ";?></span>
+                    <span class="order-price"><?=number_format($sp['gia']*$sp['soluong'],0,",","."). " <u>đ</u>"?></span>
                   </li>
                   <?php endforeach ?>
                 </ul>
@@ -142,7 +142,7 @@
               <div class="your-order-total">
                 <ul>
                   <li class="order-total">Thành tiền</li>
-                  <li><?=$tong_gia_don_hang. " VNĐ"?></li>
+                  <li><?=number_format($tong_gia_don_hang,0,",","."). " <u>đ</u>"?></li>
                 </ul>
               </div>
               <!-- <div class="magiamgia">
