@@ -8,6 +8,7 @@ if(isset($taikhoan)){
     include "../model/danhmuc.php";
     include "../model/sanpham.php";
     include "../model/taikhoan.php";
+    include "../model/donhang.php";
     include "../model/thetich.php";
     include "header.php";
     if(isset($_GET['act'])&&($_GET['act']!="")){
@@ -214,11 +215,9 @@ if(isset($taikhoan)){
             $listtaikhoan = loadall_taikhoan();
             include 'taikhoan/quan-ly-tai-khoan.php';
             break;
-            
-          case "quan-ly-khach-hang":
-            include "quan-ly-khac-hang.php";
-            break;
-          case "quan-ly-don-hang":
+          case "danh-sach-don-hang":
+            $list_dh=loadall_donhang_admin();
+            include "donhang/danh-sach-don-hang.php";
             break;
           case "bao-cao-thong-ke":
             break;

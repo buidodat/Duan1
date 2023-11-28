@@ -88,7 +88,7 @@ ob_start();
                     $id_donhang =$checkid;
                     foreach($listsanpham as $sp){
                         extract($sp);
-                        insert_donhangchitiet($id_donhang,$id_sanpham_thetich,$soluong);
+                        insert_donhangchitiet($id_donhang,$id_sanpham_thetich,$soluong,$gia);
                         ///sau khi đặt hàng thành công thì xóa giỏ hàng
                         delete_giohang($id);
                     }
@@ -97,7 +97,15 @@ ob_start();
                 include "view/checkout.php";
                 break;
             case 'don-hang-cua-ban':
+                $listdonhang=loadall_donhang($taikhoan['id']);
                 include "view/don-hang-cua-ban.php";
+                break;
+            case 'chi-tiet-don-hang':
+                if(isset($_GET['id_donhang'])){
+                    $id_donhang=$_GET['id_donhang'];
+                    $list_dhct=loadall_donhangchitiet($id_donhang);
+                }
+                include "view/chi-tiet-don-hang.php";
                 break;
             case 'dangky':
                 if (isset($_POST['dangky']) && ($_POST['dangky'])) {
