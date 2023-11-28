@@ -219,6 +219,13 @@ if(isset($taikhoan)){
             $list_dh=loadall_donhang_admin();
             include "donhang/danh-sach-don-hang.php";
             break;
+          case "chi-tiet-don-hang":
+            if(isset($_GET['id_donhang'])){
+              $id_donhang=$_GET['id_donhang'];
+              $list_dhct=loadall_donhangchitiet($id_donhang);
+            }
+            include "donhang/chi-tiet-don-hang.php";
+            break;
           case "bao-cao-thong-ke":
             break;
           }

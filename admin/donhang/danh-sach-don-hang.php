@@ -10,10 +10,6 @@
                 <div class="tile">
                     <div class="tile-body">
                         <div class="row element-button">
-                            <div class="col-sm-2">
-                              <a class="btn btn-add btn-sm" href="index.php?act=them-moi-san-pham" title="Thêm"><i class="fas fa-plus"></i>
-                                Tạo mới sản phẩm</a>
-                            </div>
                         </div>
                         <!-- //form tìm kiếm -->
                         <table class="table table-hover table-bordered" id="sampleTable">
@@ -34,6 +30,8 @@
                                 <?php 
                                     foreach($list_dh as $dh): 
                                         extract($dh);
+                                        $dhct="index.php?act=chi-tiet-don-hang&id_donhang=$id";
+                                        $huy="";
                                 ?>
                                 <tr>
                                     <td><?=$id?></td>
@@ -42,16 +40,33 @@
                                     <td><?=$diachi_nguoinhan?></td>
                                     <td><?=$ghichu?></td>
                                     <td><?=$pttt?></td>
-                                    <td><?=$trangthai_dh?></td>
+                                    <?php 
+                                        $class_ttdh ="";
+                                        switch ($trangthai_dh) {
+                                            case 'Chờ xử lý':
+                                                $class_ttdh ="bg-info";
+                                                break;
+                                            case 'Đang vận chuyển':
+                                                $class_ttdh ="bg-warning";
+                                                break;
+                                            case 'Đã hoàn thành':
+                                                $class_ttdh = "bg-success";
+                                                break;
+                                            case 'Đã hủy':
+                                                $class_ttdh = "bg-danger";
+                                                break;
+                                        }
+                                    ?>
+                                    <td><span class="badge <?=$class_ttdh?>"><?=$trangthai_dh?></span></td>
                                     <td><?=$tongtien?> VNĐ</td>
                                     <td>
-                                        <a href="<?=$danhsachbienthe?>">
-                                            <button class="btn btn-add btn-sm trash" type="button" title="Xem">
+                                        <a href="<?=$dhct?>">
+                                            <button class="btn btn-add btn-sm trash" type="button" title="Xem chi tiết">
                                                 <i class="fas fa-eye"></i>
                                             </button>   
                                         </a>
-                                        <a href="<?=$themmoibienthe?>">
-                                            <button class="btn btn-eye btn-sm trash" type="button" title="Thêm"
+                                        <a href="<?=$huy?>">
+                                            <button class="btn btn-eye btn-sm trash" type="button" title="Hủy Đơn Hàng"
                                                 ><i class="fas fa-ban"></i> 
                                             </button>   
                                         </a>
