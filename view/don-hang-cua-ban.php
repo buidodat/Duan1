@@ -45,19 +45,27 @@
                   <?=$pttt??""?>
                 </td>
                 <td class="text-center" scope="row">
-                  <?=$tongtien??""?>
+                  <?=number_format($tongtien,0,",",".")."<u>đ</u>"??""?>
                 </td>
                 <td class="text-center" scope="row">
                   <?=$ghichu??""?>
                 </td>
                 <td class="text-center " scope="row">
-                  <span class="badge bg-info h1"><?=$trangthai_dh??""?></span>
+                  <span class="trangthai bg-info"><?=$trangthai_dh??""?></span>
                 </td>
                 <td class="text-center">
                   <a href="index.php?act=chi-tiet-don-hang&id_donhang=<?=$id??""?>" class="btn btn-dark btn--lg">Chi Tiết</a>
                 </td>
               </tr>
               <?php endforeach ?>
+              <style>
+                .trangthai{
+                  border-radius: 15px;
+                  color:white;
+                  padding: 1px 5px;
+                  font-size:12px;
+                }
+              </style>
             </tbody>
           </table>
         </div>

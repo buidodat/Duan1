@@ -61,6 +61,9 @@
                                         if($id_trangthai==3){
                                             $noidung = '"Đơn hàng đã hoàn thành"';
                                             $kiemtra = "onclick='return alert(".$noidung.")'";
+                                        }else if($id_trangthai==4){
+                                            $noidung = '"Đơn hàng đã bị hủy"';
+                                            $kiemtra = "onclick='return alert(".$noidung.")'";
                                         }
                                         $huy= "index.php?act=huy-don-hang&id_donhang=$id";
                                     ?>

@@ -30,8 +30,8 @@
       <div class="row align-items-center">
         <div class="col-12 col-md-6 mb-3 mb-md-0">
           <nav class="shop-grid-nav">
-            <ul class="nav nav-pills align-items-center" id="pills-tab" role="tablist">
-              <li class="nav-item">
+            <ul class="nav nav-pills align-items-center" id="pills-tab" role="tablist" >
+              <li class="nav-item" id="xap-xep">
                 <a class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" href="#pills-home" role="tab"
                   aria-controls="pills-home" aria-selected="true">
                   <i class="fa fa-th"></i>
@@ -47,7 +47,7 @@
             </ul>
           </nav>
         </div>
-        <div class="col-12 col-md-6 position-relative">
+        <div class="col-12 col-md-6 position-relative" >
           <div class="shop-grid-button d-flex align-items-center">
             <span class="sort-by">Sắp xếp theo:</span>
             <button class="d-flex justify-content-between" type="button" id="dropdownMenuButton"
@@ -61,11 +61,11 @@
                   $check_dm="&iddm=".$_GET['iddm'];
                 }
               ?>
-              <a class="dropdown-item" href="index.php?act=cuahang<?=$check_dm?>">Mức độ liên quan</a>
-              <a class="dropdown-item" href="index.php?act=cuahang<?=$check_dm?>&loc=sap-xep-tang">Tên từ A đến Z</a>
-              <a class="dropdown-item" href="index.php?act=cuahang<?=$check_dm?>&loc=sap-xep-giam">Tên từ Z đến A</a>
-              <a class="dropdown-item" href="index.php?act=cuahang<?=$check_dm?>&loc=gia-tang-dan">Giá tăng dần</a>
-              <a class="dropdown-item" href="index.php?act=cuahang<?=$check_dm?>&loc=gia-giam-dan">Giá giảm dần</a>
+              <a class="dropdown-item" href="index.php?act=cuahang<?=$check_dm?>#xap-xep">Mức độ liên quan</a>
+              <a class="dropdown-item" href="index.php?act=cuahang<?=$check_dm?>&loc=sap-xep-tang#xap-xep">Tên từ A đến Z</a>
+              <a class="dropdown-item" href="index.php?act=cuahang<?=$check_dm?>&loc=sap-xep-giam#xap-xep">Tên từ Z đến A</a>
+              <a class="dropdown-item" href="index.php?act=cuahang<?=$check_dm?>&loc=gia-tang-dan#xap-xep">Giá tăng dần</a>
+              <a class="dropdown-item" href="index.php?act=cuahang<?=$check_dm?>&loc=gia-giam-dan#xap-xep">Giá giảm dần</a>
             </div>
           </div>
         </div>

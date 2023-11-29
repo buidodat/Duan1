@@ -35,7 +35,8 @@
                                     <td><img src="../upload/<?=$hinh?>" alt="" width="80px"></td>
                                     <td><?=$thetich?></td>
                                     <td><?=$soluong?></td>
-                                    <td><?=$soluong*$gia?></td>
+                                    <?=$giatien=$soluong*$gia?>
+                                    <td><?=number_format($giatien,0,",",".")."<u>đ</u>"?></td>
                                 </tr>
                                 <?php endforeach;?>
                             </tbody>

@@ -42,7 +42,8 @@
                   <?=$soluong??""?>
                 </td>
                 <td class="text-center" scope="row">
-                  <?=$soluong*$gia." VNĐ"??""?>
+                  <?php $giatien=$soluong*$gia?>
+                  <?=number_format($giatien,0,",",".")."<u>đ</u>"??""?>
                 </td>
                 
               </tr>

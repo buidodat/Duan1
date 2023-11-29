@@ -85,7 +85,7 @@
                   $check= $gia==$tt["gia"]?"style='color:orangered;border-color: orangered;'":"";
                   echo '<span class="thetich" onclick="showthetich('.$i.')" '.$check.'>
                         <strong>'.$tt["thetich"].'</strong> <br>
-                        <p>'.$tt["gia"].' VNĐ</p>
+                        <p>'.number_format($tt["gia"],0,",",".").'<u>đ</u></p>
                       </span>
                       <input type="hidden" name="id_sanpham_thetich" value='.$tt["id"].'>';
                   
@@ -104,8 +104,8 @@
             </div>
             <div class="product-body mb-40">
               <div class="d-flex align-items-center mb-30">
-                <span class="product-price me-2"><del class="del"><?=$giaao =$gia+10/100*$gia ." VNĐ";?></del>
-                  <span class="onsale"><?=$gia ." VNĐ";?></span></span>
+                <span class="product-price me-2"><del class="del"><?=$giaao =$gia+10/100*$gia ."<u>đ</u>";?></del>
+                  <span class="onsale"><?=$gia ."<u>đ</u>";?></span></span>
                 <span class="badge position-static bg-dark rounded-0">Sale 10%</span>
               </div>
               <span>Còn lại: <?=$soluong?></span>
@@ -189,14 +189,6 @@
           <nav class="product-tab-menu single-product">
             <ul class="nav nav-pills justify-content-center" id="pills-tab" role="tablist">
               <li class="nav-item">
-                <a class="nav-link" id="pills-home-tab" data-bs-toggle="pill" href="#pills-home" role="tab"
-                  aria-controls="pills-home" aria-selected="true">Description</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" href="#pills-profile" role="tab"
-                  aria-controls="pills-profile" aria-selected="false">Product Details</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link active" id="pills-contact-tab" data-bs-toggle="pill" href="#pills-contact" role="tab"
                   aria-controls="pills-contact" aria-selected="false">Reviews</a>
               </li>
@@ -209,38 +201,6 @@
     <div class="row">
       <div class="col-12">
         <div class="tab-content" id="pills-tabContent">
-          <!-- first tab-pane -->
-          <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-            <div class="single-product-desc">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commo consequat. Duis aute irure dolor in
-                reprehend in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-                in culpa qui officia deserunt
-              </p>
-            </div>
-          </div>
-          <!-- second tab-pane -->
-          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-            <div class="single-product-desc">
-              <div class="product-anotherinfo-wrapper">
-                <ul>
-                  <li><span>Weight</span> 400 g</li>
-                  <li><span>Dimensions</span>10 x 10 x 15 cm</li>
-                  <li><span>Materials</span> 60% cotton, 40% polyester</li>
-                  <li>
-                    <span>Other Info</span> American heirloom jean shorts pug
-                    seitan letterpress
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!-- third tab-pane -->
-          <div class="tab-pane fade show active" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
             <div class="single-product-desc">
               <div class="row">
                 <div class="col-lg-7">
@@ -254,13 +214,6 @@
                           <div class="review-left">
                             <div class="review-name">
                               <h4>White Lewis</h4>
-                            </div>
-                            <div class="rating-product">
-                              <i class="ion-android-star"></i>
-                              <i class="ion-android-star"></i>
-                              <i class="ion-android-star"></i>
-                              <i class="ion-android-star"></i>
-                              <i class="ion-android-star"></i>
                             </div>
                           </div>
                           <div class="review-left">
