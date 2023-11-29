@@ -56,16 +56,23 @@
                                                 $class_ttdh = "bg-danger";
                                                 break;
                                         }
+                                        $noidung = '" Bạn chắn chắn muốn thay đổi trạng thái đơn hàng chứ ?"';
+                                        $kiemtra = "onclick='return confirm(".$noidung.")'";
+                                        if($id_trangthai==3){
+                                            $noidung = '"Đơn hàng đã hoàn thành"';
+                                            $kiemtra = "onclick='return alert(".$noidung.")'";
+                                        }
+                                        $huy= "index.php?act=huy-don-hang&id_donhang=$id";
                                     ?>
-                                    <td><span class="badge <?=$class_ttdh?>"><?=$trangthai_dh?></span></td>
-                                    <td><?=$tongtien?> VNĐ</td>
+                                    <td><a <?=$kiemtra?> href="index.php?act=thay-doi-trang-thai&id_donhang=<?=$id?>&id_trangthai=<?=$id_trangthai?>"><span class="badge <?=$class_ttdh?>"><?=$trangthai_dh?></span></a></td>
+                                    <td><?=number_format($tongtien,0,",",".")."<u>đ</u>"?></td>
                                     <td>
                                         <a href="<?=$dhct?>">
                                             <button class="btn btn-add btn-sm trash" type="button" title="Xem chi tiết">
                                                 <i class="fas fa-eye"></i>
                                             </button>   
                                         </a>
-                                        <a href="<?=$huy?>">
+                                        <a onclick="return confirm('Bạn chắc chắn muốn hủy đơn hàng chứ ?')" href="<?=$huy?>">
                                             <button class="btn btn-eye btn-sm trash" type="button" title="Hủy Đơn Hàng"
                                                 ><i class="fas fa-ban"></i> 
                                             </button>   

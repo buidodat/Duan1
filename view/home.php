@@ -202,11 +202,11 @@
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                             <?php
-                              $gia = $spnew['giamin']." - ".$spnew['giamax'];
+                              $gia = number_format($spnew['giamin'],0,",",".")." - ".number_format($spnew['giamax'],0,",",".");
                               if($spnew['giamin'] == $spnew['giamax']){
-                                $gia = $spnew['giamin'];
+                                $gia = number_format($spnew['giamin'],0,",",".");
                               }
-                              $gia.=" VNĐ";
+                              $gia.=" <u>đ</u>";
                             ?> 
                               <span class="product-price"><?=$gia?></span>
                             </div>

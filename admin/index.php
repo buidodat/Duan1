@@ -219,6 +219,29 @@ if(isset($taikhoan)){
             $list_dh=loadall_donhang_admin();
             include "donhang/danh-sach-don-hang.php";
             break;
+          case "thay-doi-trang-thai":
+            if(isset($_GET['id_donhang'])&&isset($_GET['id_trangthai'])){
+              $id_donhang =$_GET['id_donhang'];
+              $id_trangthai =$_GET['id_trangthai'];
+              switch ($id_trangthai) {
+                case '1':
+                  $id_trangthai=2;
+                  break;
+                case '2':
+                  $id_trangthai=3;
+                  break;
+              }
+              update_donhang($id_trangthai,$id_donhang);
+              header("location:index.php?act=danh-sach-don-hang");
+            }
+            break;
+          case "huy-don-hang":
+            if(isset($_GET['id_donhang'])&&$_GET['id_donhang']>0){
+              $id_donhang=$_GET['id_donhang'];
+              huy_donhang($id_donhang);
+            }
+            header("location:index.php?act=danh-sach-don-hang");
+            break;
           case "chi-tiet-don-hang":
             if(isset($_GET['id_donhang'])){
               $id_donhang=$_GET['id_donhang'];

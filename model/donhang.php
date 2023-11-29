@@ -27,9 +27,17 @@
         return $donhang;  
     }
     function loadall_donhang_admin(){
-        $sql = "SELECT donhang.id,ten_nguoinhan,sdt_nguoinhan,diachi_nguoinhan,pttt,tongtien,ghichu,trangthai_dh,ngaydat FROM `donhang` 
+        $sql = "SELECT donhang.id,ten_nguoinhan,sdt_nguoinhan,diachi_nguoinhan,pttt,tongtien,ghichu,trangthai_dh,ngaydat,id_trangthai FROM `donhang` 
         join trangthaidonhang on trangthaidonhang.id=donhang.id_trangthai";
         $donhang = pdo_query($sql);
         return $donhang;  
+    }function update_donhang($id_trangthai,$id_donhang){
+        $sql = "Update donhang set id_trangthai = $id_trangthai where id = $id_donhang";
+        pdo_execute($sql);
     }
+    function huy_donhang($id_donhang){
+        $sql = "Update donhang set id_trangthai =4 where id = $id_donhang";
+        pdo_execute($sql);
+    }
+
 ?>
