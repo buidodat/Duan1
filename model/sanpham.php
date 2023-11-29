@@ -133,4 +133,9 @@
         $spnew = pdo_query($sql);
         return $spnew;
     }
+    function check_tongkho($id_sanpham_thetich){
+        $sql = "select soluong from sanpham_thetich";
+        $tongkho = pdo_query_one($sql);
+        return $tongkho['soluong'];  
+    }
 ?>

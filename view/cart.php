@@ -60,7 +60,7 @@
                 <td class="text-center">
                   <div class="product-count style">
                     <div class="count d-flex justify-content-center">
-                      <input type="number" min="1" max="<?=$conlai?>" step="1" value="<?=$soluong?>" readonly />
+                      <input type="number" min="1" max="<?=$conlai?>" step="1" value="<?=$soluong?>" />
                       <div class="button-group">
                         <button class="count-btn increment">
                           <i class="fas fa-chevron-up"></i>
@@ -73,7 +73,7 @@
                   </div>
                 </td>
                 <td class="text-center">
-                  <span class="whish-list-price"> <?=$gia?> VNĐ</span>
+                  <span class="whish-list-price"> <?=number_format($gia,0,",",".")."<u>đ</u>"?></span>
                 </td>
 
                 <td class="text-center">

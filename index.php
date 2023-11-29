@@ -47,20 +47,33 @@ ob_start();
                 $id_sanpham = $_GET['id_sanpham'];
                 if(isset($_POST['themgiohang'])){
                     extract($_POST);
-                    $check = check_giohang($id_sanpham_thetich,$taikhoan['id']);
-                    if(is_array($check)){
-                        $soluong +=$check['soluong'];
-                        update_giohang($soluong,$check['id']);  
+                    if(isset($taikhoan['id'])){
+                        $check = check_giohang($id_sanpham_thetich,$taikhoan['id']);// check xem sản phẩm này đã có trong giỏ hàng chưa , nếu đã có thì + thêm số lương khách hàng mới thêm
+                        $tongkho = check_tongkho($id_sanpham_thetich);
+                        if(is_array($check)){
+                            $soluong +=$check['soluong'];
+                            if($soluong>=$tongkho){
+                                $soluong=$tongkho; 
+                            }
+                            update_giohang($soluong,$check['id']); 
+                        }else{
+                            insert_giohang($id_sanpham_thetich,$soluong,$taikhoan['id']);
+                        }
+                        setcookie("thongbao", "Bạn đã thêm vào giỏ hàng thành công", time() + 10);
+                        header("Location:index.php?act=sanphamct&id_sanpham=$id_sanpham");
                     }else{
-                        insert_giohang($id_sanpham_thetich,$soluong,$taikhoan['id']);
+                        include "view/yeu-cau-dang-nhap.php";
                     }
-                    $thongbao ="**Bạn đã thêm vào giỏ hàng thành công";
-                    header("Location:index.php?act=sanphamct&id_sanpham=$id_sanpham");
                 }
                 break;
             case 'giohang':
-                $listgiohang =loadall_giohang($taikhoan['id']);
-                include "view/cart.php";
+                if(isset($taikhoan['id'])){
+                    $listgiohang =loadall_giohang($taikhoan['id']);
+                    include "view/cart.php";
+                }else{
+                    echo "<script> checkdangnhap();</script>";
+                    include "view/yeu-cau-dang-nhap.php";
+                }
                 break;
             //xóa 1 sản phẩm trong giỏ hàng
             case 'xoagiohang':

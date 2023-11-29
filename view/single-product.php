@@ -68,7 +68,7 @@
         </div>
       </div>
       <div class="col-lg-6">
-          <span style="color:red"><?=$thongbao??""?></span>
+          <span style="color:red"><?=$_COOKIE['thongbao']??""?></span>
           <?php 
             foreach($sp_tt as $sp): 
             extract($sp);
@@ -114,7 +114,7 @@
                 <form action="index.php?act=themvaogiohang&id_sanpham=<?=$id_sanpham?>" method="post">
                   <div class="product-count style d-flex flex-column flex-sm-row mt-30 mb-30">
                     <div class="count d-flex">
-                      <input type="number" name="soluong" min="1" max="<?=$soluong?>" step="1" value="1" readonly />
+                      <input type="number" name="soluong" min="1" max="<?=$soluong?>" step="1" value="1"  />
                       <div class="button-group">
                         <span class="count-btn increment">
                           <i class="fas fa-chevron-up"></i>
@@ -133,10 +133,10 @@
                       </button>
                     </div>
                     <div style="margin-left: 20px;">
-                      <button type="submit" name="muangay">
+                      <button type="submit" name="dathang">
                         <span class="btn btn-dark btn--xl mt-5 mt-sm-0" type="submit">
                           <span class="me-2"><i class="ion-android-add"></i></span>
-                          Mua Ngay
+                            Đặt Hàng
                         </span>
                       </button>
                     </div>
