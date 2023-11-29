@@ -19,6 +19,27 @@
   </div>
 </nav>
 <!-- breadcrumb-section end -->
+<style>
+
+
+    input[type="number"] {
+      padding: 5px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      background-color: #f4f4f4;
+      color: #333;
+      outline: none;
+      /* Ẩn mũi tên điều chỉnh số trong Chrome và Safari */
+      -webkit-appearance: textfield;
+    }
+
+    /* Tùy chỉnh khi được focus */
+    input[type="number"]:focus {
+      border-color: #3498db;
+      box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+    }
+  </style>
 <!-- product tab start -->
 <section class="whish-list-section theme1 pt-80 pb-80">
   <div class="container">
@@ -39,7 +60,7 @@
                 <th class="text-center" scope="col">Thanh toán</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="order-cart">
             <?php 
               foreach($listgiohang as $giohang):
                 extract($giohang);
@@ -58,22 +79,22 @@
                   <span class="badge badge-danger position-static"><?=$conlai?></span>
                 </td>
                 <td class="text-center">
-                  <div class="product-count style">
+                  <div class="style">
                     <div class="count d-flex justify-content-center">
-                      <input type="number" min="1" max="<?=$conlai?>" step="1" value="<?=$soluong?>" />
+                      <input id="soluong_<?=$id?>" type="number" min="1" max="<?=$conlai?>" step="1" value="<?=$soluong?>" oninput="updateSoLuong(<?=$id?>,<?=$conlai?>)" />
                       <div class="button-group">
-                        <button class="count-btn increment">
+                        <!-- <button class="count-btn increment">
                           <i class="fas fa-chevron-up"></i>
                         </button>
                         <button class="count-btn decrement">
                           <i class="fas fa-chevron-down"></i>
-                        </button>
+                        </button> -->
                       </div>
                     </div>
                   </div>
                 </td>
                 <td class="text-center">
-                  <span class="whish-list-price"> <?=number_format($gia,0,",",".")."<u>đ</u>"?></span>
+                  <span class="whish-list-price"> <?=number_format($gia*$soluong,0,",",".")."<u>đ</u>"?></span>
                 </td>
 
                 <td class="text-center">
@@ -98,6 +119,35 @@
 
 </section>
 <!-- product tab end -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script >
+  function updateSoLuong(id,conlai){
+    let newSoLuong =$('#soluong_'+id).val();
+    if(newSoLuong<=0){
+      newSoLuong=1;
+    }
+    if(newSoLuong>=conlai){
+      newSoLuong=conlai;
+    }
+    $.ajax({
+      type:'POST',
+      url:'view/update-cart.php',
+      data:{
+        id:id,
+        soluong:newSoLuong
+      },
+      success: function(response){
+        $.post('view/cart-new.php',function(data){
+          $('#order-cart').html(data);
+        })
+      },
+      error: function (error) {
+        console.error('Error:', error);
+      }
+    });
+  }
+</script>
+
 
 <?php
 include "view/footer.php";
