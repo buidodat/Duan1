@@ -92,15 +92,6 @@
                 }
               ?> 
       
-            
-              <!-- <span class="thetich" href="#">
-                <strong>100ML</strong> <br>
-                <p>590.000 đ</p>
-              </span>
-              <span class="thetich" href="#">
-                <strong>100ML</strong> <br>
-                <p>590.000 đ</p>
-              </span> -->
             </div>
             <div class="product-body mb-40">
               <div class="d-flex align-items-center mb-30">
@@ -169,139 +160,74 @@
         <?php endforeach; ?>
       </div>
     </div>
+    <br>
+    <div class="binhluan">
+      <div class="title">
+        <h1> BÌNH LUẬN</h1>
+      </div>
+      <hr>
+      <div class="product_binhluan">
+        <table>
+          <!-- <tr>
+            <th>Nội dung</th>
+          </tr>
+          <tr>
+
+            <th>ID người dùng</th>
+          </tr>
+
+          <tr>
+            <th>Ngày bình luận</th>
+          </tr> -->
+
+          <?php foreach ($binhluan as $value) : ?>
+            <?php extract($value); ?>
+            <br>
+            <table>
+            <tr>
+              <td> <b>Nội dung:</b> <?php echo $noidung ?></td>
+            </tr>
+            <tr>
+            <td> <b>ID người dùng:</b> <?php echo $id_taikhoan?></td>
+            </tr>
+            <tr>
+            <td> <b>Ngày bình luận: </b><?php echo date("Y-m-d", strtotime($ngaybinhluan)) ?></td>
+            </tr>
+            </table>
+            <br>
+            
+          
+        
+          <?php endforeach; ?>
+        </table>
+
+
+
+
+      </div>
+      <div class="form_binhluan">
+        <form action="" method="POST">
+          <input type="hidden" name="id_sanpham" value="<?php echo $_GET['id_sanpham'] ?>">
+          <input type="hidden" name="id_taikhoan"  value="<?php echo isset($_SESSION['hoten']['id']) ? $_SESSION['hoten']['id'] : '' ?>">
+          <?php
+          if (!empty($_SESSION['taikhoan'])) : ?>
+            <input type="text" class="noidung_binhluan" name="noidung" placeholder="Nội dung bình luận">
+            <input type="submit" name="guibinhluan" id="" value="Gửi bình luận">
+          <?php
+          else :
+
+          ?>
+
+            <input type="text" name="" id="" placeholder="Đăng nhập để thực hiện chức năng bình luận" disabled style="width:343px">
+          <?php
+          endif; ?>
+        </form>
+      </div>
+    </div>
   </div>
 </section>
 <!-- product-single end -->
 <!-- product tab start -->
-<div class="product-tab theme1 bg-white pt-60 pb-80">
-  <div class="container">
-    <div class="product-tab-nav">
-      <div class="row align-items-center">
-        <div class="col-12">
-          <nav class="product-tab-menu single-product">
-            <ul class="nav nav-pills justify-content-center" id="pills-tab" role="tablist">
-              <li class="nav-item">
-                <a class="nav-link active" id="pills-contact-tab" data-bs-toggle="pill" href="#pills-contact" role="tab"
-                  aria-controls="pills-contact" aria-selected="false">Reviews</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </div>
-    <!-- product-tab-nav end -->
-    <div class="row">
-      <div class="col-12">
-        <div class="tab-content" id="pills-tabContent">
-            <div class="single-product-desc">
-              <div class="row">
-                <div class="col-lg-7">
-                  <div class="review-wrapper">
-                    <div class="single-review">
-                      <div class="review-img">
-                        <img src="view/assets/img/testimonial-image/1.png" alt="" />
-                      </div>
-                      <div class="review-content">
-                        <div class="review-top-wrap">
-                          <div class="review-left">
-                            <div class="review-name">
-                              <h4>White Lewis</h4>
-                            </div>
-                          </div>
-                          <div class="review-left">
-                            <a href="#">Reply</a>
-                          </div>
-                        </div>
-                        <div class="review-bottom">
-                          <p>
-                            Vestibulum ante ipsum primis aucibus orci
-                            luctustrices posuere cubilia Curae Suspendisse
-                            viverra ed viverra. Mauris ullarper euismod
-                            vehicula. Phasellus quam nisi, congue id nulla.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="single-review child-review">
-                      <div class="review-img">
-                        <img src="view/assets/img/testimonial-image/2.png" alt="" />
-                      </div>
-                      <div class="review-content">
-                        <div class="review-top-wrap">
-                          <div class="review-left">
-                            <div class="review-name">
-                              <h4>White Lewis</h4>
-                            </div>
-                            <div class="rating-product">
-                              <i class="ion-android-star"></i>
-                              <i class="ion-android-star"></i>
-                              <i class="ion-android-star"></i>
-                              <i class="ion-android-star"></i>
-                              <i class="ion-android-star"></i>
-                            </div>
-                          </div>
-                          <div class="review-left">
-                            <a href="#">Reply</a>
-                          </div>
-                        </div>
-                        <div class="review-bottom">
-                          <p>
-                            Vestibulum ante ipsum primis aucibus orci
-                            luctustrices posuere cubilia Curae Sus pen disse
-                            viverra ed viverra. Mauris ullarper euismod
-                            vehicula.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-5">
-                  <div class="ratting-form-wrapper">
-                    <h3>Add a Review</h3>
-                    <div class="ratting-form">
-                      <form action="#">
-                        <div class="star-box">
-                          <span>Your rating:</span>
-                          <div class="rating-product">
-                            <i class="ion-android-star"></i>
-                            <i class="ion-android-star"></i>
-                            <i class="ion-android-star"></i>
-                            <i class="ion-android-star"></i>
-                            <i class="ion-android-star"></i>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="rating-form-style mb-10">
-                              <input placeholder="Name" type="text" />
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="rating-form-style mb-10">
-                              <input placeholder="Email" type="email" />
-                            </div>
-                          </div>
-                          <div class="col-md-12">
-                            <div class="rating-form-style form-submit">
-                              <textarea name="Your Review" placeholder="Message"></textarea>
-                              <input type="submit" value="Submit" />
-                            </div>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- product tab end -->
 <!-- new arrival section start -->
 <section class="theme1 bg-white pb-80">
   <div class="container">

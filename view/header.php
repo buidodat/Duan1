@@ -63,11 +63,75 @@
               <!-- static-media end -->
               <div class="cart-block-links theme1 d-none d-sm-block">
                 <ul class="d-flex">
-                  <li>
-                    <a href="" class="search search-toggle">
-                      <i class="icon-magnifier"></i>
+                  <li> <!--yêu thích-->
+                    <a class="offcanvas-toggle">
+                      <span class="position-relative">
+                        <form id="search-form" action="#" method="post" class="d-flex">
+                          <input type="text" name="kyw" id="search-text" placeholder="Search..." required>
+                          <input type="submit" value="timkiem" id="search-submit">
+                          <button id="search_btn"><i class="icon-magnifier"></i></button>
+                        </form>
+                      </span>
                     </a>
                   </li>
+                  <style>
+                    #search-form {
+                      background: #fff;
+                      border-radius: 30px;
+                      display: flex;
+                      align-items: center;
+                      
+                    }
+                    #search-submit{
+                      border: none;
+                      outline: none;
+                      background: none;
+                      font-size: 15px;
+                      width: 0;
+                      padding: 0;
+                      transition: all 0.5s ease-in-out;
+                      padding-left:5px;
+                      border-radius:3px;
+                      margin-right:2px;
+                      border-color:#d1d5db;
+
+                    }
+                    #search-form:hover #search-text{
+                      width:50px;
+                      display:block
+                    }
+
+                    #search-text {
+                      border: none;
+                      outline: none;
+                      background: none;
+                      font-size: 15px;
+                      width: 0;
+                      padding: 0;
+                      transition: all 0.5s ease-in-out;
+                      padding-left:5px;
+                      border-radius:3px;
+                      margin-right:2px;
+                      border-color:#d1d5db;
+                    }
+
+                    #search-form:hover #search-text,
+                    #search-form #search-text:valid {
+                      /* valid: khi có thông tin thì hover sẽ ko đóng! */
+                      border: 1px solid #d1d5db ;
+                      width: 200px;
+                      /* padding: 10px 0px 10px 15px; */
+                    }
+                    #search_btn {
+                      background-color: #fff;
+                      border: none;
+                      /* padding: 15px 15px; */
+                      font-size: 20px;
+                      cursor: pointer;
+                      border-radius: 50%;
+                      margin-right: 3px;
+                    }
+                  </style>
                 <!-- listlove -->
                   <li class="mr-xl-0 cart-block position-relative">
                     <a class="offcanvas-toggle" href="#offcanvas-cart">
