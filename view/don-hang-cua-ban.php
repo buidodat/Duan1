@@ -28,7 +28,7 @@
               foreach($listdonhang as $key => $donhang):
                 extract($donhang);
              ?>
-              <tr>
+              <tr style="font-size:13px;">
                 <td class="text-center" scope="row">
                   <?=$key+1??""?>
                 </td>
@@ -51,10 +51,10 @@
                   <?=$ghichu??""?>
                 </td>
                 <td class="text-center " scope="row">
-                  <span class="trangthai bg-info"><?=$trangthai_dh??""?></span>
+                  <?=$trangthai_dh??""?>
                 </td>
                 <td class="text-center">
-                  <a href="index.php?act=chi-tiet-don-hang&id_donhang=<?=$id??""?>" class="btn btn-dark btn--lg">Chi Tiết</a>
+                  <a href="index.php?act=chi-tiet-don-hang&id_donhang=<?=$id??""?>" class="btn btn-dark btn--lg">Xem</a>
                 </td>
               </tr>
               <?php endforeach ?>
@@ -63,7 +63,7 @@
                   border-radius: 15px;
                   color:white;
                   padding: 1px 5px;
-                  font-size:12px;
+                  font-size:10px;
                 }
               </style>
             </tbody>

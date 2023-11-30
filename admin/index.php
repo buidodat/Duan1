@@ -133,7 +133,7 @@ if(isset($taikhoan)){
               update_sanpham($id_sanpham,$ten, $hinh, $xuatxu , $phongcach , $mota, $iddm);
               $thongbao= "cập nhật thành công";
             }
-            $listsanpham = loadall_sanpham();
+            $listsanpham = loadall_sanpham("",0);
             include "sanpham/danh-sach-san-pham.php";
             break;
           case "danh-sach-bien-the":

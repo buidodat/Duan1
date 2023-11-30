@@ -1,7 +1,7 @@
 <?php 
-    function insert_donhang($id_taikhoan, $ten_nguoinhan, $email_nguoinhan, $sdt_nguoinhan, $diachi_nguoinhan, $pttt, $tongtien, $ghichu){
-        $sql= "INSERT INTO donhang(id_taikhoan, ten_nguoinhan, email_nguoinhan, sdt_nguoinhan, diachi_nguoinhan, pttt, tongtien,  ghichu)
-         VALUES ($id_taikhoan, '$ten_nguoinhan', '$email_nguoinhan', '$sdt_nguoinhan', '$diachi_nguoinhan', '$pttt', $tongtien,  '$ghichu')";
+    function insert_donhang($id_taikhoan, $ten_nguoinhan, $email_nguoinhan, $sdt_nguoinhan, $diachi_nguoinhan, $id_pttt, $tongtien, $ghichu){
+        $sql= "INSERT INTO donhang(id_taikhoan, ten_nguoinhan, email_nguoinhan, sdt_nguoinhan, diachi_nguoinhan, id_pttt, tongtien,  ghichu)
+         VALUES ($id_taikhoan, '$ten_nguoinhan', '$email_nguoinhan', '$sdt_nguoinhan', '$diachi_nguoinhan', '$id_pttt', $tongtien,  '$ghichu')";
         $donhangnew = pdo_execute($sql); 
         return $donhangnew ;
     }
@@ -13,7 +13,9 @@
     function loadall_donhang($id_taikhoan){
         $sql = "SELECT donhang.id,ten_nguoinhan,sdt_nguoinhan,diachi_nguoinhan,pttt,tongtien,ghichu,trangthai_dh FROM `donhang` 
         join trangthaidonhang on trangthaidonhang.id=donhang.id_trangthai
-        WHERE id_taikhoan=$id_taikhoan";
+        join phuongthucthanhtoan on phuongthucthanhtoan.id = donhang.id_pttt
+        WHERE id_taikhoan=$id_taikhoan
+        order by donhang.id";
         $donhang = pdo_query($sql);
         return $donhang;  
     }
@@ -28,7 +30,9 @@
     }
     function loadall_donhang_admin(){
         $sql = "SELECT donhang.id,ten_nguoinhan,sdt_nguoinhan,diachi_nguoinhan,pttt,tongtien,ghichu,trangthai_dh,ngaydat,id_trangthai FROM `donhang` 
-        join trangthaidonhang on trangthaidonhang.id=donhang.id_trangthai";
+        join trangthaidonhang on trangthaidonhang.id=donhang.id_trangthai
+        join phuongthucthanhtoan on phuongthucthanhtoan.id = donhang.id_pttt
+        order by donhang.id";
         $donhang = pdo_query($sql);
         return $donhang;  
     }function update_donhang($id_trangthai,$id_donhang){

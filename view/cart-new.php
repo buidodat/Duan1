@@ -4,8 +4,10 @@
      include "../model/taikhoan.php";
      include "../model/pdo.php";
     $listgiohang =loadall_giohang($taikhoan['id']);
+    $tongtien=0;
     foreach($listgiohang as $giohang):
     extract($giohang);
+    $tongtien +=$gia*$soluong;
 ?>
     <tr>
     <th class="text-center" scope="row">
@@ -48,4 +50,8 @@
         <a href="index.php?act=thanhtoan&id_giohang=<?=$id?>" class="btn btn-dark btn--lg">Đặt Hàng</a>
     </td>
     </tr>
-<?php endforeach ?>
+    <?php endforeach ?>
+    <tr style="background:#F0F8FF;">
+                <td class="text-center"  colspan="6" ><h4 style="font-weight: bold;color:#191970">Tổng Tiền Hàng:</h4></td>
+                <td class="text-center"  colspan="2"><h5 style="font-weight: bold;color:#191970" ><?=number_format($tongtien,0,",",".")."<u>đ</u>"??""?></h5></td>
+              </tr>

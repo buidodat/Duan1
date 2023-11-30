@@ -62,8 +62,10 @@
             </thead>
             <tbody id="order-cart">
             <?php 
+              $tongtien =0;
               foreach($listgiohang as $giohang):
                 extract($giohang);
+                $tongtien +=$gia*$soluong;
              ?>
               <tr>
                 <th class="text-center" scope="row">
@@ -107,6 +109,10 @@
                 </td>
               </tr>
               <?php endforeach ?>
+              <tr style="background:#F0F8FF;">
+                <td class="text-center"  colspan="6" ><h4 style="font-weight: bold;color:#191970">Tổng Tiền Hàng:</h4></td>
+                <td class="text-center"  colspan="2"><h5 style="font-weight: bold;color:#191970" ><?=number_format($tongtien,0,",",".")."<u>đ</u>"??""?></h5></td>
+              </tr>
             </tbody>
           </table>
         </div>

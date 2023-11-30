@@ -26,12 +26,12 @@ function update_danhmuc($id, $ten,$slogan)
     $sql = "update danhmuc set ten='$ten',slogan='$slogan' where id=$id";
     pdo_execute($sql);
 }
-function name_danhmuc($id_sanpham){
-    $sql = "SELECT danhmuc.ten as tendm FROM  sanpham 
+function check_danhmuc($id_sanpham){
+    $sql = "SELECT danhmuc.id ,danhmuc.ten FROM  sanpham 
     join danhmuc on sanpham.iddm =danhmuc.id
     WHERE sanpham.id = $id_sanpham";
-    $tdm = pdo_query_one($sql);
-    return $tdm['tendm'];
+    $dm = pdo_query_one($sql);
+    return $dm;
 }
 function check_name_danhmuc($iddm){
     $sql = "SELECT ten FROM  danhmuc where id = $iddm";

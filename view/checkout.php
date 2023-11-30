@@ -94,8 +94,8 @@
               <div class="col-lg-12 pttt">
               <label class="lb">Phương thức thanh toán:</label>
                 <div class="nut_radio" >
-                  <input type="radio" class="ip" name="pttt" value="Thanh toán khi giao hàng" checked> Thanh toán khi giao hàng (COD) <br>
-                  <input type="radio" class="ip" name="pttt" value="2"> Ví điện tử ZaloPay
+                  <input type="radio" class="ip" name="id_pttt" value="1" checked> Thanh toán khi giao hàng (COD) <br>
+                  <input type="radio" class="ip" name="id_pttt" value="2"> Thanh toán bằng VNPAY
                 </div>
               </div>
               <div class="additional-info-wrap">

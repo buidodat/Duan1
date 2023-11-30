@@ -85,11 +85,22 @@
         join danhmuc on sanpham.iddm = danhmuc.id
         where iddm = $iddm and trangthai = 1
         group by sanpham.id
-        order by sanpham.id asc ";
+        order by sanpham.id asc 
+        limit 5 ";
         $spnew = pdo_query($sql);
         return $spnew;
     }
-
+    function cac_sp_lienquan($iddm,$id_sanpham){
+        $sql = "SELECT slogan,sanpham.id ,sanpham.ten as tensp ,danhmuc.ten as tendm,hinh,xuatxu,phongcach,soluong ,gia,sum(soluong) as tongsoluong ,max(gia) as giamax,min(gia) as giamin from sanpham
+        left join sanpham_thetich on sanpham.id = sanpham_thetich.id_sanpham  
+        left join thetich on thetich.id = sanpham_thetich.id_thetich
+        join danhmuc on sanpham.iddm = danhmuc.id
+        where iddm = $iddm and trangthai = 1 and sanpham.id <> $id_sanpham
+        group by sanpham.id
+        order by sanpham.id asc ";
+        $splq = pdo_query($sql);
+        return $splq;
+    }
     function load_thetich_in_sanpham($id){
         $sql = "select sanpham_thetich.id, thetich,gia from sanpham_thetich 
         join thetich on thetich.id = sanpham_thetich.id_thetich

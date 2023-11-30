@@ -17,6 +17,7 @@ ob_start();
     if (isset($_GET['act']) && ($_GET['act'] != "")) {
         $act = $_GET['act'];
         switch ($act) {
+
             case 'cuahang':
                 // gán trước nếu không có đỡ lỗi dòng 30
                 $iddm = 0 ; $loc ="";
@@ -31,24 +32,27 @@ ob_start();
                 $listsp =loadall_sanpham_thetich_chitiet($iddm,$loc);
                 include "view/shop.php";
                 break;
+
             case 'gioithieu':
                 include "view/about-us.php";
                 break;
+
             case 'sanphamct':
                 $id_sanpham = $_GET['id_sanpham'];
                 $sp_tt =loadall_sanpham_thetich_view($id_sanpham);
                 $thetich_in_sanpham =load_thetich_in_sanpham($id_sanpham);
-                $name_dm=name_danhmuc($id_sanpham);
+                $danhmuc=check_danhmuc($id_sanpham);
+                $name_dm =$danhmuc['ten'];
+                $iddm =$danhmuc['id'];
                 $hinhanh =hinhanh_sanpham($id_sanpham);
-                include "view/single-product.php";
-                break;
-                
-            case 'themvaogiohang':
-                $id_sanpham = $_GET['id_sanpham'];
+                $splq =cac_sp_lienquan($iddm,$id_sanpham);
+                //them vào giỏ hàng
                 if(isset($_POST['themgiohang'])){
                     extract($_POST);
+                    //kiểm tra người dùng đăng nhập hay chưa nếu chưua thì yêu cầu đăng nhập 
                     if(isset($taikhoan['id'])){
-                        $check = check_giohang($id_sanpham_thetich,$taikhoan['id']);// check xem sản phẩm này đã có trong giỏ hàng chưa , nếu đã có thì + thêm số lương khách hàng mới thêm
+                        // check xem sản phẩm này đã có trong giỏ hàng chưa , nếu đã có thì + thêm số lượng
+                        $check = check_giohang($id_sanpham_thetich,$taikhoan['id']);
                         $tongkho = check_tongkho($id_sanpham_thetich);
                         if(is_array($check)){
                             $soluong +=$check['soluong'];
@@ -65,6 +69,7 @@ ob_start();
                         include "view/yeu-cau-dang-nhap.php";
                     }
                 }
+                include "view/single-product.php";
                 break;
             case 'giohang':
                 if(isset($taikhoan['id'])){
@@ -84,32 +89,108 @@ ob_start();
                 }
                 break;
             case 'thanhtoan':
-                //hiển thị
+                //mua tất cả sp trong giỏ hàng
+                $id_giohang='';
                 $listsanpham =loadall_giohang($taikhoan['id']);
-                $id_giohang="";
+                //mua 1 sản phẩm trong giỏ hàng
                 if(isset($_GET['id_giohang'])&&$_GET['id_giohang']){
                     $listsanpham =mua1_giohang($taikhoan['id'],$_GET['id_giohang']);
-                    $id_giohang=$_GET['id_giohang'];
                 }
                 $tong_gia_don_hang=tong_gia_don_hang($taikhoan['id'],$id_giohang);
                 ///bấm nút đặt hàng
                 if(isset($_POST['dathang'])){
                     extract($_POST);
-                    $checkid =insert_donhang($taikhoan['id'], $ten_nguoinhan, $email_nguoinhan,
-                    $sdt_nguoinhan, $diachi_nguoinhan, $pttt,
-                    $tongtien, $ghichu);
-                    $id_donhang =$checkid;
-                    foreach($listsanpham as $sp){
-                        extract($sp);
-                        insert_donhangchitiet($id_donhang,$id_sanpham_thetich,$soluong,$gia);
-                        ///sau khi đặt hàng thành công thì xóa giỏ hàng
-                        delete_giohang($id);
+                    $checkid =insert_donhang($taikhoan['id'], $ten_nguoinhan, $email_nguoinhan, $sdt_nguoinhan, $diachi_nguoinhan, $id_pttt,$tongtien, $ghichu);
+                        $id_donhang =$checkid; 
+                        foreach($listsanpham as $sp){
+                            extract($sp);
+                            insert_donhangchitiet($id_donhang,$id_sanpham_thetich,$soluong,$gia);
+                            ///sau khi đặt hàng thành công thì xóa giỏ hàng
+                            delete_giohang($id);
+                        }
+                    if($_POST['id_pttt']==2){
+                        $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
+                        $vnp_Returnurl = "https://localhost/Duan1/vnpay_php/vnpay_return.php";
+                        $vnp_TmnCode = "UN0L5TCK";//Mã website tại VNPAY 
+                        $vnp_HashSecret = "EXYVEJLRKGRAAWZXKOQMKMEOWVXLENMC"; //Chuỗi bí mật
+                        $vnp_TxnRef = $checkid; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
+                        $vnp_OrderInfo = "Thông tin mua hàng";
+                        $vnp_OrderType = "billpayment";
+                        $vnp_Amount = $tong_gia_don_hang*100;
+                        $vnp_Locale = "vn";
+                        $vnp_BankCode = "";
+                        $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
+                        //Add Params of 2.0.1 Version
+                        // bill
+                        $vnp_Bill_Mobile=$sdt_nguoinhan;
+                        $inputData = array(
+                            "vnp_Version" => "2.1.0",
+                            "vnp_TmnCode" => $vnp_TmnCode,
+                            "vnp_Amount" => $vnp_Amount,
+                            "vnp_Command" => "pay",
+                            "vnp_CreateDate" => date('YmdHis'),
+                            "vnp_CurrCode" => "VND",
+                            "vnp_IpAddr" => $vnp_IpAddr,
+                            "vnp_Locale" => $vnp_Locale,
+                            "vnp_OrderInfo" => $vnp_OrderInfo,
+                            "vnp_OrderType" => $vnp_OrderType,
+                            "vnp_ReturnUrl" => $vnp_Returnurl,
+                            "vnp_TxnRef" => $vnp_TxnRef,
+                            //
+                            // "vnp_Bill_ten_nguoinhan" =>$ten_nguoinhan,
+                            // "vnp_Bill_email_nguoinhan"=>$email_nguoinhan,
+                            "vnp_Inv_Phone"=>"0965263725"
+                            // "vnp_Bill_diachi_nguoinhan" =>$diachi_nguoinhan,
+                            // "vnp_Bill_pttt"=>$pttt,
+                            // "vnp_Bill_ghichu"=>$ghichu
+                        );
+
+                        if (isset($vnp_BankCode) && $vnp_BankCode != "") {
+                            $inputData['vnp_BankCode'] = $vnp_BankCode;
+                        }
+                        if (isset($vnp_Bill_State) && $vnp_Bill_State != "") {
+                            $inputData['vnp_Bill_State'] = $vnp_Bill_State;
+                        }
+
+                        //var_dump($inputData);
+                        ksort($inputData);
+                        $query = "";
+                        $i = 0;
+                        $hashdata = "";
+                        foreach ($inputData as $key => $value) {
+                            if ($i == 1) {
+                                $hashdata .= '&' . urlencode($key) . "=" . urlencode($value);
+                            } else {
+                                $hashdata .= urlencode($key) . "=" . urlencode($value);
+                                $i = 1;
+                            }
+                            $query .= urlencode($key) . "=" . urlencode($value) . '&';
+                        }
+
+                        $vnp_Url = $vnp_Url . "?" . $query;
+                        if (isset($vnp_HashSecret)) {
+                            $vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret);//  
+                            $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
+                        }
+                        $returnData = array('code' => '00'
+                            , 'message' => 'success'
+                            , 'data' => $vnp_Url);
+                            if (isset($_POST['id_pttt'])) {
+                                header('Location: ' . $vnp_Url);
+                                die();
+                            } else {
+                                echo json_encode($returnData);
+                            }
                     }
                     header("location:index.php?act=don-hang-cua-ban");
                 }
+        
                 include "view/checkout.php";
                 break;
             case 'don-hang-cua-ban':
+                if(isset($_GET['vnp_ResponseCode'])&&$_GET['vnp_ResponseCode']='00'){
+                    ;
+                }
                 $listdonhang=loadall_donhang($taikhoan['id']);
                 include "view/don-hang-cua-ban.php";
                 break;
