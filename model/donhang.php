@@ -43,5 +43,11 @@
         $sql = "Update donhang set id_trangthai =4 where id = $id_donhang";
         pdo_execute($sql);
     }
+    function tongdonhang(){
+        $sql = "SELECT COUNT(*) AS tongdonhang FROM donhang
+        WHERE MONTH(ngaydat) = MONTH(NOW()) AND YEAR(ngaydat) = YEAR(NOW());";
+        $tongdonhang = pdo_query_one($sql);
+        return $tongdonhang['tongdonhang'];
+    }
 
 ?>

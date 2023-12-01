@@ -144,9 +144,20 @@
         $spnew = pdo_query($sql);
         return $spnew;
     }
+    //tổng kho của 1 biến thể
     function check_tongkho($id_sanpham_thetich){
         $sql = "select soluong from sanpham_thetich";
         $tongkho = pdo_query_one($sql);
         return $tongkho['soluong'];  
+    }function tongsanpham(){
+        $sql = "select sum(soluong) as tongsp from sanpham_thetich";
+        $tongsp = pdo_query_one($sql);
+        return $tongsp['tongsp'];
+    }
+    function sanphamsaphet(){
+        $sql = "select count(*) as tongspsaphet from sanpham_thetich
+        where soluong <=10 ";
+        $sp = pdo_query_one($sql);
+        return $sp['tongspsaphet'];
     }
 ?>

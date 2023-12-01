@@ -56,4 +56,9 @@ function isEmail($email){
     $checkEmail = filter_var($email,FILTER_VALIDATE_EMAIL);
     return $checkEmail;
 }
+function tongtaikhoan(){
+    $sql = "select count(*) as tongtk from taikhoan";
+        $tongtk = pdo_query_one($sql);
+        return $tongtk['tongtk'];
+}
 ?>
