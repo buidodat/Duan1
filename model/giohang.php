@@ -49,7 +49,9 @@
         return $check['tonggia'];
     }
     function delete_giohang($id){
-        $sql = "delete from giohang where id=".$id;
-        pdo_execute($sql);
+        if($id>0){
+            $sql = "delete from giohang where id=".$id;
+            pdo_execute($sql);
+        }
     }
 ?>

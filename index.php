@@ -79,14 +79,19 @@ ob_start();
                         include "view/yeu-cau-dang-nhap.php";
                     }
                 }
+                // lấy số lượng và id-sanpham-bienthe người dùng muốn đặt hàng ngay
+                if(isset($_POST['dathangngay'])){
+                    $soluong =$_POST['soluong'];
+                    $id_sanpham_thetich=$_POST['id_sanpham_thetich'];
+                    header("Location:index.php?act=thanhtoan&id_sanpham_thetich=$id_sanpham_thetich&soluong=$soluong");
+                }
                 include "view/single-product.php";
                 break;
             case 'giohang':
-                if(isset($taikhoan['id'])){
+                if(isset($taikhoan)){
                     $listgiohang =loadall_giohang($taikhoan['id']);
                     include "view/cart.php";
                 }else{
-                    echo "<script> checkdangnhap();</script>";
                     include "view/yeu-cau-dang-nhap.php";
                 }
                 break;
@@ -99,6 +104,10 @@ ob_start();
                 }
                 break;
             case 'thanhtoan':
+                if(empty($taikhoan)){
+                    include "view/yeu-cau-dang-nhap.php";
+                    die();
+                }
                 //mua tất cả sp trong giỏ hàng
                 $id_giohang='';
                 $listsanpham =loadall_giohang($taikhoan['id']);
@@ -107,6 +116,24 @@ ob_start();
                     $listsanpham =mua1_giohang($taikhoan['id'],$_GET['id_giohang']);
                 }
                 $tong_gia_don_hang=tong_gia_don_hang($taikhoan['id'],$id_giohang);
+                //Đặt hàng ngay ở đơn hàng chi tiết
+                if(isset($_GET['id_sanpham_thetich'])&&isset($_GET['soluong'])){
+                    $id_sanpham_thetich=$_GET['id_sanpham_thetich'];
+                    $sptt_muangay=check_gia_ten_thetich_in_sp_tt($id_sanpham_thetich);
+                    $gia=$sptt_muangay['gia']; //  Để lưu vào dtb bảng đơn hàng chi tiết
+                    $ten=$sptt_muangay['ten'];  //  Để hiển thị  ở trang checkout (thanh toán)
+                    $thetich=$sptt_muangay['thetich'];  //  Để hiển thị  ở trang checkout (thanh toán)
+                    $soluong =$_GET['soluong'];   //  Để lưu vào dtb bảng đơn hàng chi tiết
+                    $listsanpham=[[
+                        'id_sanpham_thetich'=>$id_sanpham_thetich,
+                        'soluong'=>$soluong,
+                        'gia'=>$gia,
+                        'ten'=>$ten,
+                        'thetich'=>$thetich,
+                        'id'=>''
+                    ]];
+                    $tong_gia_don_hang=$gia*$soluong; //  Để lưu vào dtb bảng đơn hàng chi tiết
+                }
                 ///bấm nút đặt hàng
                 if(isset($_POST['dathang'])){
                     extract($_POST);
@@ -161,7 +188,6 @@ ob_start();
                         if (isset($vnp_Bill_State) && $vnp_Bill_State != "") {
                             $inputData['vnp_Bill_State'] = $vnp_Bill_State;
                         }
-
                         //var_dump($inputData);
                         ksort($inputData);
                         $query = "";
@@ -192,6 +218,7 @@ ob_start();
                                 echo json_encode($returnData);
                             }
                     }
+                    require_once("PHPMailer/sendmail.php");
                     header("location:index.php?act=don-hang-cua-ban");
                 }
         

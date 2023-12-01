@@ -50,6 +50,7 @@
 <!-- product-single start -->
 <section class="product-single theme1 pt-60">
   <div class="container">
+    <!-- div sản phẩm  -->
     <div class="row">
       <div class="col-lg-6 mb-5 mb-lg-0">
         <div>
@@ -69,6 +70,7 @@
       </div>
       <div class="col-lg-6">
           <span style="color:red"><?=$_COOKIE['thongbao']??""?></span>
+          <!-- load all sản phẩm biến thể -->
           <?php 
             foreach($sp_tt as $sp): 
             extract($sp);
@@ -78,6 +80,7 @@
               <h2 class="title mb-20"><?=$ten?></h2>
             </div>
             <div class="d-flex align-items-center mb-30">
+              <!-- load all thể tích mà sản phẩm có -->
               <?php 
                 $i=-1;
                 foreach($thetich_in_sanpham as $tt){
@@ -87,11 +90,9 @@
                         <strong>'.$tt["thetich"].'</strong> <br>
                         <p>'.number_format($tt["gia"],0,",",".").'<u>đ</u></p>
                       </span>
-                      <input type="hidden" name="id_sanpham_thetich" value='.$tt["id"].'>';
-                  
+                      <input type="hidden" name="id_sanpham_thetich" value='.$tt["id"].'>'; 
                 }
               ?> 
-      
             </div>
             <div class="product-body mb-40">
               <div class="d-flex align-items-center mb-30">
@@ -122,9 +123,17 @@
                           Thêm Vào Giỏ Hàng
                         </span>
                       </button>
+                      <button type="submit" name="dathangngay">
+                        <span class="btn btn-dark btn--xl mt-5 mt-sm-0">
+                          <span class="me-2"><i class="ion-android-add"></i></span>
+                          Đặt Hàng
+                        </span>
+                      </button>
                     </div>
                   </div>
                   <input type="hidden" name="id_sanpham_thetich" value="<?=$id?>">
+                  <input type="hidden" name="gia" value="<?=$gia?>">
+
                 </form>
               <p>
                 Mô tả: <?=$mota?>
@@ -160,6 +169,7 @@
         <?php endforeach; ?>
       </div>
     </div>
+    <!-- end div sản phẩm -->
     <br>
     <div class="binhluan">
       <div class="title">

@@ -160,4 +160,12 @@
         $sp = pdo_query_one($sql);
         return $sp['tongspsaphet'];
     }
+    function check_gia_ten_thetich_in_sp_tt($id_sanpham_thetich){
+        $sql = "SELECT gia,ten,thetich from sanpham_thetich
+        join sanpham on sanpham_thetich.id_sanpham = sanpham.id
+        join thetich on sanpham_thetich.id_thetich =thetich.id
+        where sanpham_thetich.id=$id_sanpham_thetich";
+        $sptt = pdo_query_one($sql);
+        return $sptt;
+    }
 ?>
