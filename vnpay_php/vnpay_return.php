@@ -134,7 +134,7 @@
                 <div class="form-group">
 
                     <label >Số tiền:</label>
-                    <label><?php echo $_GET['vnp_Amount'] ?></label>
+                    <label><?php echo number_format($_GET['vnp_Amount']/100,0,",",".")."<u>đ</u>" ?></label>
                 </div>  
                 <div class="form-group">
                     <label >Nội dung thanh toán:</label>
