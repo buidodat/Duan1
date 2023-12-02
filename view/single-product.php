@@ -195,13 +195,13 @@
             <br>
             <table>
             <tr>
-              <td> <b>Nội dung:</b> <?php echo $noidung ?></td>
+              <td> <b><?=$hoten?></b> </td>
             </tr>
             <tr>
-            <td> <b>ID người dùng:</b> <?php echo $id_taikhoan?></td>
+            <td> <?php echo $noidung ?></td>
             </tr>
             <tr>
-            <td> <b>Ngày bình luận: </b><?php echo date("Y-m-d", strtotime($ngaybinhluan)) ?></td>
+            <td> <b></b><?php echo date("d/m/Y", strtotime($ngaybinhluan)) ?></td>
             </tr>
             </table>
             <br>

@@ -20,6 +20,48 @@
 </nav>
 <!-- breadcrumb-section end -->
 <style>
+                .magiamgia {
+  display: flex;
+  justify-content: space-between;
+  max-width: 300px;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.nhap {
+  flex: 1;
+  margin-right: 10px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.apdung input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.apdung input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Nếu bạn muốn thêm hiệu ứng hover cho ô nhập mã giảm giá */
+.nhap input[type="text"]:hover {
+  border-color: #6fa5db;
+}
+              </style>
+<style>
         .phivc{
           float:right;
           margin-right:10px;
@@ -145,14 +187,14 @@
                   <li><?=number_format($tong_gia_don_hang,0,",","."). " <u>đ</u>"?></li>
                 </ul>
               </div>
-              <!-- <div class="magiamgia">
+              <div class="magiamgia">
                 <div class="nhap">
                   <input type="text" name="" id="" placeholder="Nhập mã giảm giá">
                 </div> 
                 <div class="apdung">
                   <input type="submit" value="Áp dụng">
                 </div>          
-              </div> -->
+              </div>
             </div>
           </div>
           <div class="Place-order mt-25">

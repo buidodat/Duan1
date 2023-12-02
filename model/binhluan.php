@@ -1,9 +1,10 @@
 <?php
 function loadall_binhluan($id_sanpham)
 {
-    $sql = "SELECT * FROM binhluan WHERE 1";
+    $sql = "SELECT binhluan.id,hoten,noidung,ngaybinhluan,id_taikhoan FROM binhluan 
+    join taikhoan on taikhoan.id =binhluan.id_taikhoan";
     if ($id_sanpham > 0) {
-        $sql .= " AND id_sanpham = $id_sanpham";
+        $sql .= " WHERE 1 AND id_sanpham = $id_sanpham";
         $sql .= " order by id desc";
         $listbinhluan = pdo_query($sql);
         return $listbinhluan;
