@@ -123,9 +123,16 @@
         </div>
       </div>
     </div>
+    <?php 
+       $link ="index.php?act=thanhtoan";
+      if(empty($listgiohang)){
+        $link="";
+        $thongbao ="alert('Bạn chưa có sản phẩm nào trong giỏ hàng')";
+      }
+    ?>
     <div class="Place-order mt-25" style="text-align:right">
-            <a class="btn btn--lg btn-primary my-2 my-sm-0" href="index.php?act=thanhtoan" >Đặt Hàng</a>
-          </div>
+      <a onclick="<?=$thongbao??""?>" class="btn btn--lg btn-primary my-2 my-sm-0" href="<?=$link?>" >Đặt Hàng</a>
+    </div>
   </div>
 
 </section>

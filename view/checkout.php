@@ -187,14 +187,6 @@ input[type="text"] {
                   <li><?=number_format($tong_gia_don_hang,0,",","."). " <u>đ</u>"?></li>
                 </ul>
               </div>
-              <div class="magiamgia">
-                <div class="nhap">
-                  <input type="text" name="" id="" placeholder="Nhập mã giảm giá">
-                </div> 
-                <div class="apdung">
-                  <input type="submit" value="Áp dụng">
-                </div>          
-              </div>
             </div>
           </div>
           <div class="Place-order mt-25">

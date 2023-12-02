@@ -134,6 +134,9 @@ ob_start();
                     ]];
                     $tong_gia_don_hang=$gia*$soluong; //  Để lưu vào dtb bảng đơn hàng chi tiết
                 }
+                if(empty($listsanpham)){
+                    header("location:index.php");
+                }
                 ///bấm nút đặt hàng
                 if(isset($_POST['dathang'])){
                     extract($_POST);
