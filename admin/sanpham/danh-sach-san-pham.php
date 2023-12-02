@@ -51,6 +51,11 @@
                                         $suasp ="index.php?act=sua-san-pham&id_sanpham=$id";
                                         $danhsachbienthe ="index.php?act=danh-sach-bien-the&id_sanpham=$id";
                                         $themmoibienthe ="index.php?act=them-moi-bien-the&id_sanpham=$id";
+                                        $thongbao='';
+                                        if(check_thetich_in_sanpham($id)==3){
+                                            $themmoibienthe="";
+                                            $thongbao = "alert('Sản phẩm đã đủ biến thể, không thể thêm!')";
+                                        }
                                 ?>
                                 <tr>
                                     <td><?=$id?></td>
@@ -82,7 +87,7 @@
                                                 <i class="fas fa-eye"></i>
                                             </button>   
                                         </a>
-                                        <a href="<?=$themmoibienthe?>">
+                                        <a onclick="<?=$thongbao??""?>" href="<?=$themmoibienthe?>">
                                             <button class="btn btn-add btn-sm trash" type="button" title="Thêm"
                                                 ><i class="fas fa-plus"></i> 
                                             </button>   

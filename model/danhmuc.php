@@ -38,3 +38,7 @@ function check_name_danhmuc($iddm){
     $tdm = pdo_query_one($sql);
     return $tdm['ten'];
 }
+function fk_danhmuc($iddm){
+    $sql = "SELECT * FROM sanpham  WHERE iddm = $iddm";
+    return pdo_query($sql);
+}

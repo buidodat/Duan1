@@ -32,13 +32,18 @@
                     </option>
                   <?php endforeach ?>
                 </select>
+                <span style="color:red"><?php echo !empty($error['id_thetich'])? $error['id_thetich']:false ?></span>
               </div>
               <div class="form-group col-md-3">
                 <label class="control-label">Giá</label>
+                <br>
+                <span style="color:red"><?php echo !empty($error['gia'])? $error['gia']:false ?></span>
                 <input class="form-control" type="number" name="gia">
               </div>
               <div class="form-group col-md-3">
                 <label class="control-label">Số lượng</label>
+                <br>
+                <span style="color:red"><?php echo !empty($error['soluong'])? $error['soluong']:false ?></span>
                 <input class="form-control" type="number" name="soluong">
               </div>
           </div>

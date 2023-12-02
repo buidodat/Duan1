@@ -55,6 +55,15 @@
         $donhang = pdo_query_one($sql);
         return $donhang;  
     }
+    function loadone_donhang_admin($id_donhang){
+        $sql = "SELECT donhang.id,ten_nguoinhan,email_nguoinhan,sdt_nguoinhan,diachi_nguoinhan,pttt,tongtien,tongtien_dathanhtoan,ngaydat,ghichu,trangthai_dh FROM `donhang` 
+        join trangthaidonhang on trangthaidonhang.id=donhang.id_trangthai
+        join phuongthucthanhtoan on phuongthucthanhtoan.id = donhang.id_pttt
+        WHERE donhang.id =$id_donhang 
+        order by donhang.id";
+        $donhang = pdo_query_one($sql);
+        return $donhang;  
+    }
     
     function update_donhang($id_trangthai,$id_donhang,$tongtien_dathanhtoan){
         $sql = "Update donhang set id_trangthai = $id_trangthai";

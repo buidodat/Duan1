@@ -31,8 +31,18 @@ if(isset($taikhoan)){
             if(isset($_POST['themmoi'])&&($_POST['themmoi'])){
               $ten= $_POST['ten']; 
               $slogan = $_POST['slogan'];
-              insert_danhmuc($ten,$slogan);
-              $thongbao= "thêm thành công";
+              // validate
+              $error = [];
+              if (empty(trim($ten))) {
+                $error['ten'] = "Tên danh mục  không được để trống";
+              }
+              if (empty(trim($slogan))) {
+                $error['slogan'] = "Slogan không được để trống";
+              }
+              if (empty($error)) {
+                insert_danhmuc($ten, $slogan);
+                $thongbao = "Thêm thành công";
+              }
             }
             include "danhmuc/them-moi-danh-muc.php";
             break;
@@ -99,8 +109,27 @@ if(isset($taikhoan)){
                   //tải ảnh vài foder upload
                   move_uploaded_file($file['tmp_name'], $foder_hinh);
                 }
-                insert_sanpham($ten, $hinh, $xuatxu , $phongcach , $mota, $iddm);
-                $thongbao= "thêm thành công";
+                $error = [];
+
+                if (empty((trim($ten)))) {
+                  $error['ten'] = "Tên sản phẩm không được bỏ trống";
+                }
+                if (empty((trim($xuatxu)))) {
+                  $error['xuatxu'] = "Xuất sứ không được để trống";
+                }
+                if (empty((trim($phongcach)))) {
+                  $error['phongcach'] = "Phong cách không được để trống";
+                }
+                if (empty((trim($mota)))) {
+                  $error['mota'] = "Mô tả không được để trống";
+                }
+                if (empty(($file))) {
+                  $error['hinh'] = "Hình ảnh không được để trống";
+                }
+                if (empty($error)) {
+                  insert_sanpham($ten, $hinh, $xuatxu, $phongcach, $mota, $iddm);
+                  $thongbao = "thêm thành công";
+                }
               }
               $listdanhmuc = loadall_danhmuc();
               include "sanpham/them-moi-san-pham.php";
@@ -143,12 +172,32 @@ if(isset($taikhoan)){
             include "sanpham/danh-sach-bien-the.php";
             break;
           case "them-moi-bien-the":
-            if(isset($_POST['themmoi'])&&($_POST['themmoi'])){
-              extract($_POST);
-              insert_sanpham_thetich($id_sanpham,$id_thetich,$gia,$soluong);
-              header("location:index.php?act=danh-sach-bien-the&id_sanpham=$id_sanpham");
+            if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+              $id_sanpham = $_GET['id_sanpham'];
+            } else {
+              $id_sanpham = $_POST['id_sanpham'];
             }
-            $id_sanpham = $_GET['id_sanpham'];
+            if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
+              $id_sanpham = $_POST['id_sanpham'];
+              $gia = $_POST['gia'];
+              $soluong = $_POST['soluong'];
+              // validate
+              $error = [];
+              if (empty(trim($gia))) {
+                $error['gia'] = "Giá không được để trống";
+              }
+              if (empty(trim($soluong))) {
+                $error['soluong'] = "Số lượng không được để trống";
+              }
+  
+              if (empty($id_thetich)) {
+                $error['id_thetich'] = 'Vui lòng chọn thể tích';
+              }
+              if (empty($error)) {
+                insert_sanpham_thetich($id_sanpham, $id_thetich, $gia, $soluong);
+                header("location:index.php?act=danh-sach-bien-the&id_sanpham=$id_sanpham");
+              }
+            }
             $sanpham =loadone_sanpham($id_sanpham);
             $check_thetich =check_thetich($id_sanpham);
             $listthetich = loadall_thetich();
@@ -245,6 +294,7 @@ if(isset($taikhoan)){
           case "chi-tiet-don-hang":
             if(isset($_GET['id_donhang'])){
               $id_donhang=$_GET['id_donhang'];
+              $ttdonhang =loadone_donhang_admin($id_donhang);
               $list_dhct=loadall_donhangchitiet_admin($id_donhang);
             }
             include "donhang/chi-tiet-don-hang.php";

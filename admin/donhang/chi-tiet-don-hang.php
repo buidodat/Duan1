@@ -9,6 +9,41 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="tile">
+                    <style>
+                        .chitietdonhang{
+                            width:50%;
+                        }
+                        .list{
+                            padding: 0;
+                            margin: 0;
+                        }
+                        .list li{
+                            list-style-type:none;
+                            padding: 0;
+                            margin: 0;
+                        }
+                        .list p{
+                            padding: 0;
+                            margin: 0;
+                        }
+                    </style>
+                    <div class="chitietdonhang" style="width:50%;padding:20px">
+                        <h5>Thông tin đơn hàng</h5>
+                        <ul class="list">
+                            <p><b>Tên người nhận:</b><?=" ".$ttdonhang['ten_nguoinhan']??""?></p>
+                            <li><b>Email:</b><?=" ".$ttdonhang['email_nguoinhan']??""?></li>
+                            <li><b>Số điện thoại:</b><?=" ".$ttdonhang['sdt_nguoinhan']??""?></li>
+                            <li><b>Ngày đặt hàng:</b><?=" ".$ttdonhang['ngaydat']??""?></li>
+                            <li><b>Phương thức thanh toán:</b><?=" ".$ttdonhang['pttt']??""?></li>
+                            <li><b>Tổng tiền đơn hàng:</b><?=" ".number_format($ttdonhang['tongtien'],0,",",".")."<u>đ</u>"??""?></li>
+                            <li><b>Đã thanh toán:</b><?=" ".number_format($ttdonhang['tongtien_dathanhtoan'],0,",",".")."<u>đ</u>"??""?></li>
+                            <li><b>Số tiền còn phải thanh toán:</b><?=" ".number_format($ttdonhang['tongtien']-$ttdonhang['tongtien_dathanhtoan'],0,",",".")."<u>đ</u>"??""?></li>
+                            <li><b>Địa chỉ:</b></li>
+                            <li><?=$ttdonhang['diachi_nguoinhan']??""?></li>
+                            <li><b>Ghi chú:</b></li>
+                            <li><?=$ttdonhang['ghichu']??""?></li>
+                        </ul>
+                    </div>
                     <div class="tile-body">
                         <div class="row element-button">
                         </div>
@@ -35,7 +70,7 @@
                                     <td><img src="../upload/<?=$hinh?>" alt="" width="80px"></td>
                                     <td><?=$thetich?></td>
                                     <td><?=$soluong?></td>
-                                    <?=$giatien=$soluong*$gia?>
+                                    <?php $giatien=$soluong*$gia?>
                                     <td><?=number_format($giatien,0,",",".")."<u>đ</u>"?></td>
                                 </tr>
                                 <?php endforeach;?>

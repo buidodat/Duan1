@@ -168,4 +168,10 @@
         $sptt = pdo_query_one($sql);
         return $sptt;
     }
+    function check_thetich_in_sanpham($id_sanpham){
+        $sql = "select count(*) tongthetich from sanpham_thetich
+        where id_sanpham =$id_sanpham";
+        $sp = pdo_query_one($sql);
+        return $sp['tongthetich'];
+    }
 ?>
