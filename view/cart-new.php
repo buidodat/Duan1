@@ -23,6 +23,9 @@
         <span class="badge badge-danger position-static"><?=$conlai?></span>
     </td>
     <td class="text-center">
+        <span class="whish-title"><?=number_format($gia,0,",",".")."<u>đ</u>"?></span>
+    </td>
+    <td class="text-center">
         <div class="style">
         <div class="count d-flex justify-content-center">
             <input id="soluong_<?=$id?>" type="number" min="1" max="<?=$conlai?>" step="1" value="<?=$soluong?>" oninput="updateSoLuong(<?=$id?>,<?=$conlai?>)" />
@@ -52,6 +55,6 @@
     </tr>
     <?php endforeach ?>
     <tr style="background:#F0F8FF;">
-                <td class="text-center"  colspan="6" ><h4 style="font-weight: bold;color:#191970">Tổng Tiền Hàng:</h4></td>
+                <td class="text-center"  colspan="7" ><h4 style="font-weight: bold;color:#191970">Tổng Tiền Hàng:</h4></td>
                 <td class="text-center"  colspan="2"><h5 style="font-weight: bold;color:#191970" ><?=number_format($tongtien,0,",",".")."<u>đ</u>"??""?></h5></td>
               </tr>

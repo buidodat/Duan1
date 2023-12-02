@@ -92,10 +92,11 @@
         include "../model/pdo.php";
         include "../model/donhang.php";
         $id_donhang=$_GET['vnp_TxnRef'];
+        $tongtien_dathanhtoan=$_GET['vnp_Amount']/100;
         if($_GET['vnp_ResponseCode']=="00"){
-            update_donhang(3,$id_donhang);
+            update_donhang(1,$id_donhang,$tongtien_dathanhtoan);
         }else{
-            update_donhang(4,$id_donhang);
+            update_donhang(4,$id_donhang,$tongtien_dathanhtoan);
         }
         $vnp_SecureHash = $_GET['vnp_SecureHash'];
         $inputData = array();

@@ -17,11 +17,9 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Người Nhận</th>
-                                    <th>SĐT</th>
-                                    <th>Địa Chỉ</th>
-                                    <th>Ghi chú</th>
-                                    <th>Phương thức thành toán</th>
+                                    <th>Phương thức thanh toán</th>
                                     <th>Trạng Thái</th>
+                                    <th>Ngày Đặt</th>
                                     <th>Tổng Tiền</th>
                                     <th>Chức năng</th>
                                 </tr>
@@ -36,9 +34,6 @@
                                 <tr>
                                     <td><?=$id?></td>
                                     <td><?=$ten_nguoinhan?></td>
-                                    <td><?=$sdt_nguoinhan?></td>
-                                    <td><?=$diachi_nguoinhan?></td>
-                                    <td><?=$ghichu?></td>
                                     <td><?=$pttt?></td>
                                     <?php 
                                         $class_ttdh ="";
@@ -58,16 +53,28 @@
                                         }
                                         $noidung = '" Bạn chắn chắn muốn thay đổi trạng thái đơn hàng chứ ?"';
                                         $kiemtra = "onclick='return confirm(".$noidung.")'";
+                                        $checkhuy ="return confirm('Bạn chắc chắn muốn hủy đơn hàng chứ ?')";
+                                        $huy= "index.php?act=huy-don-hang&id_donhang=$id";
+
                                         if($id_trangthai==3){
                                             $noidung = '"Đơn hàng đã hoàn thành"';
                                             $kiemtra = "onclick='return alert(".$noidung.")'";
+                                            $checkhuy="return alert('Đơn hàng đã hoàn thành không thể hủy')";
+                                            $huy='';
                                         }else if($id_trangthai==4){
                                             $noidung = '"Đơn hàng đã bị hủy"';
                                             $kiemtra = "onclick='return alert(".$noidung.")'";
+                                            $checkhuy="return alert('Đơn hàng này đã được hủy trước đó')";
+                                            $huy='';
                                         }
-                                        $huy= "index.php?act=huy-don-hang&id_donhang=$id";
+                                        if($id_pttt==2){
+                                            $checkhuy="return alert('Thanh toán bằng Vnpay không thể hủy')";
+                                            $huy='';
+                                        }
+
                                     ?>
                                     <td><a <?=$kiemtra?> href="index.php?act=thay-doi-trang-thai&id_donhang=<?=$id?>&id_trangthai=<?=$id_trangthai?>"><span class="badge <?=$class_ttdh?>"><?=$trangthai_dh?></span></a></td>
+                                    <td><?=$ngaydat?></td>
                                     <td><?=number_format($tongtien,0,",",".")."<u>đ</u>"?></td>
                                     <td>
                                         <a href="<?=$dhct?>">
@@ -75,7 +82,8 @@
                                                 <i class="fas fa-eye"></i>
                                             </button>   
                                         </a>
-                                        <a onclick="return confirm('Bạn chắc chắn muốn hủy đơn hàng chứ ?')" href="<?=$huy?>">
+                                        
+                                        <a onclick="<?=$checkhuy?>" href="<?=$huy?>">
                                             <button class="btn btn-eye btn-sm trash" type="button" title="Hủy Đơn Hàng"
                                                 ><i class="fas fa-ban"></i> 
                                             </button>   

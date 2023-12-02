@@ -30,6 +30,7 @@
       background-color: #f4f4f4;
       color: #333;
       outline: none;
+      width:60px;
       /* Ẩn mũi tên điều chỉnh số trong Chrome và Safari */
       -webkit-appearance: textfield;
     }
@@ -54,8 +55,9 @@
                 <th class="text-center" scope="col">Tên sản phẩm</th>
                 <th class="text-center" scope="col">Thể tích</th>
                 <th class="text-center" scope="col">Tổng kho</th>
-                <th class="text-center" scope="col">Số lượng</th>
                 <th class="text-center" scope="col">Giá tiền</th>
+                <th class="text-center" scope="col">Số lượng</th>
+                <th class="text-center" scope="col">Thành tiền</th>
                 <th class="text-center" scope="col">Chức năng</th>
                 <th class="text-center" scope="col">Thanh toán</th>
               </tr>
@@ -79,6 +81,9 @@
                 </td>
                 <td class="text-center">
                   <span class="badge badge-danger position-static"><?=$conlai?></span>
+                </td>
+                <td class="text-center">
+                  <span class="whish-title"><?=number_format($gia,0,",",".")."<u>đ</u>"?></span>
                 </td>
                 <td class="text-center">
                   <div class="style">
@@ -110,7 +115,7 @@
               </tr>
               <?php endforeach ?>
               <tr style="background:#F0F8FF;">
-                <td class="text-center"  colspan="6" ><h4 style="font-weight: bold;color:#191970">Tổng Tiền Hàng:</h4></td>
+                <td class="text-center"  colspan="7" ><h4 style="font-weight: bold;color:#191970">Tổng Tiền Hàng:</h4></td>
                 <td class="text-center"  colspan="2"><h5 style="font-weight: bold;color:#191970" ><?=number_format($tongtien,0,",",".")."<u>đ</u>"??""?></h5></td>
               </tr>
             </tbody>

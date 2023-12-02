@@ -155,7 +155,7 @@ ob_start();
                         $vnp_OrderType = "billpayment";
                         $vnp_Amount = $tong_gia_don_hang*100;
                         $vnp_Locale = "vn";
-                        $vnp_BankCode = "";
+                        $vnp_BankCode = "NCB";
                         $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
                         //Add Params of 2.0.1 Version
                         // bill
@@ -225,16 +225,14 @@ ob_start();
                 include "view/checkout.php";
                 break;
             case 'don-hang-cua-ban':
-                if(isset($_GET['vnp_ResponseCode'])&&$_GET['vnp_ResponseCode']='00'){
-                    ;
-                }
                 $listdonhang=loadall_donhang($taikhoan['id']);
                 include "view/don-hang-cua-ban.php";
                 break;
             case 'chi-tiet-don-hang':
                 if(isset($_GET['id_donhang'])){
                     $id_donhang=$_GET['id_donhang'];
-                    $list_dhct=loadall_donhangchitiet($id_donhang);
+                    $ttdonhang=loadone_donhang($taikhoan['id'],$id_donhang);
+                    $list_dhct=loadall_donhangchitiet($id_donhang,$taikhoan['id']);
                 }
                 include "view/chi-tiet-don-hang.php";
                 break;

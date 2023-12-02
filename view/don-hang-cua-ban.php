@@ -3,11 +3,31 @@
 <!-- breadcrumb-section start -->
 <!-- breadcrumb-section end -->
 <!-- product tab start -->
+<nav class="breadcrumb-section theme1 bg-lighten2 pt-30 pb-30">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-title text-center">
+          <h2 class="title pb-4 text-dark text-capitalize">
+            Đơn Hàng Của Bạn
+          </h2>
+        </div>
+      </div>
+      <div class="col-12">
+        <ol class="breadcrumb bg-transparent m-0 p-0 align-items-center justify-content-center">
+          <li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+          Đơn hàng của bạn
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</nav>
 <section class="whish-list-section theme1 pt-80 pb-80">
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h3 class="title mb-30 pb-25 text-capitalize">Đơn hàng của bạn</h3>
         <div class="table-responsive">
           <table class="table">
             <thead class="thead-light">
@@ -15,10 +35,8 @@
                 <th class="text-center" scope="col">#</th>
                 <th class="text-center" scope="col">Người Nhận</th>
                 <th class="text-center" scope="col">SĐT</th>
-                <th class="text-center" scope="col">Địa chỉ</th>
                 <th class="text-center" scope="col">Phương Thức Thanh Toán</th>
                 <th class="text-center" scope="col">Tổng Tiền</th>
-                <th class="text-center" scope="col">Ghi Chú</th>
                 <th class="text-center" scope="col">Trạng Thái</th>
                 <th class="text-center" scope="col">Action</th>
               </tr>
@@ -28,7 +46,7 @@
               foreach($listdonhang as $key => $donhang):
                 extract($donhang);
              ?>
-              <tr style="font-size:13px;">
+              <tr >
                 <td class="text-center" scope="row">
                   <?=$key+1??""?>
                 </td>
@@ -39,16 +57,10 @@
                   <?=$sdt_nguoinhan??""?>
                 </td>
                 <td class="text-center" scope="row">
-                  <?=$diachi_nguoinhan??""?>
-                </td>
-                <td class="text-center" scope="row">
                   <?=$pttt??""?>
                 </td>
                 <td class="text-center" scope="row">
                   <?=number_format($tongtien,0,",",".")."<u>đ</u>"??""?>
-                </td>
-                <td class="text-center" scope="row">
-                  <?=$ghichu??""?>
                 </td>
                 <td class="text-center " scope="row">
                   <?=$trangthai_dh??""?>

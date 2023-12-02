@@ -231,7 +231,7 @@ if(isset($taikhoan)){
                   $id_trangthai=3;
                   break;
               }
-              update_donhang($id_trangthai,$id_donhang);
+              update_donhang($id_trangthai,$id_donhang,0);
               header("location:index.php?act=danh-sach-don-hang");
             }
             break;
@@ -245,7 +245,7 @@ if(isset($taikhoan)){
           case "chi-tiet-don-hang":
             if(isset($_GET['id_donhang'])){
               $id_donhang=$_GET['id_donhang'];
-              $list_dhct=loadall_donhangchitiet($id_donhang);
+              $list_dhct=loadall_donhangchitiet_admin($id_donhang);
             }
             include "donhang/chi-tiet-don-hang.php";
             break;
