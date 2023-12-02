@@ -1,7 +1,13 @@
 <?php
-function loadall_taikhoan()
+function loadall_taikhoan($kyw,$capbac)
 {
     $sql = "SELECT * FROM taikhoan";
+    if($kyw!=""){
+        $sql .= " Where hoten like '%$kyw%'";
+    }
+    if($capbac!=""){
+        $sql .=" Where capbac =$capbac";
+    }
     $listtaikhoan = pdo_query($sql);
     return $listtaikhoan;
 }

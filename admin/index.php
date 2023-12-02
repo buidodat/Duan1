@@ -232,7 +232,13 @@ if(isset($taikhoan)){
             header("location:index.php?act=danh-sach-bien-the&id_sanpham=$id_sanpham");
             break;
           case "quan-ly-tai-khoan":
-            $listtaikhoan = loadall_taikhoan();
+            $kyw = "";
+            $capbac = "";
+            if (isset($_POST['listok']) && ($_POST['listok'])) {
+              $kyw = $_POST['kyw'];   
+              $capbac = $_POST['capbac'];
+            }
+            $listtaikhoan = loadall_taikhoan($kyw,$capbac);
             include "taikhoan/quan-ly-tai-khoan.php";
             break;
             case "sua-tai-khoan":

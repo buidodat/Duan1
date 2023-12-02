@@ -7,7 +7,16 @@
             <div class="col-md-12">
                 <div class="tile">
                     
-                    <h1>Danh Sách Tài Khoản</h1>
+                    <h2>Danh Sách Tài Khoản</h2>
+                    <form action="index.php?act=quan-ly-tai-khoan" method="post">
+                            <select name="capbac" id="" style="height: 26px; margin-left: 10px; border:solid 1px #dee2e6">
+                                <option value="">Tất Cả</option>
+                                <option value="1">Admin</option>
+                                <option value="0" >Người Dùng</option>
+                            </select>
+                            <input style="width: 75%; float: left;border:solid 1px #dee2e6; padding-left:10px" placeholder="Tìm kiếm tên đăng nhập..." type="text" name="kyw" id="" >
+                            <input style="width: 15%; float: right; backgroud-color:blue; border:solid 1px #dee2e6" type="submit" name="listok" value="OK">
+                        </form>
                     <div class="item-taikhoan">
                         <table>
                             <tr>
