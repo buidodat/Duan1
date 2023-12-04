@@ -95,8 +95,9 @@
         $tongtien_dathanhtoan=$_GET['vnp_Amount']/100;
         if($_GET['vnp_ResponseCode']=="00"){
             update_donhang(1,$id_donhang,$tongtien_dathanhtoan);
+            require_once("../PHPMailer/sendmail.php");
         }else{
-            update_donhang(4,$id_donhang,$tongtien_dathanhtoan);
+            update_donhang(4,$id_donhang,0);
         }
         $vnp_SecureHash = $_GET['vnp_SecureHash'];
         $inputData = array();

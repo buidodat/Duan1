@@ -33,7 +33,7 @@
                             <p><b>Tên người nhận:</b><?=" ".$ttdonhang['ten_nguoinhan']??""?></p>
                             <li><b>Email:</b><?=" ".$ttdonhang['email_nguoinhan']??""?></li>
                             <li><b>Số điện thoại:</b><?=" ".$ttdonhang['sdt_nguoinhan']??""?></li>
-                            <li><b>Ngày đặt hàng:</b><?=" ".$ttdonhang['ngaydat']??""?></li>
+                            <li><b>Ngày đặt hàng:</b><?=" ".date("d/m/Y", strtotime($ttdonhang['ngaydat']))??""?></li>
                             <li><b>Phương thức thanh toán:</b><?=" ".$ttdonhang['pttt']??""?></li>
                             <li><b>Tổng tiền đơn hàng:</b><?=" ".number_format($ttdonhang['tongtien'],0,",",".")."<u>đ</u>"??""?></li>
                             <li><b>Đã thanh toán:</b><?=" ".number_format($ttdonhang['tongtien_dathanhtoan'],0,",",".")."<u>đ</u>"??""?></li>

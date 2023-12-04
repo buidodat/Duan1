@@ -245,7 +245,7 @@ if(isset($taikhoan)){
             if(isset($_GET['id'])&& ($_GET['id'])>0){
                 $taikhoan = loadone_taikhoan($_GET['id']);
             }
-            $listtaikhoan = loadall_taikhoan();
+            $listtaikhoan = loadall_taikhoan('','');
             include "taikhoan/cap-nhat-tai-khoan.php";
             break;
             case "cap-nhat-tai-khoan":
@@ -261,7 +261,7 @@ if(isset($taikhoan)){
                 update_taikhoan($id, $hoten, $email, $sdt, $matkhau, $diachi, $capbac);
                 $thongbao = 'Cập nhật tài khoản thành công';
             }
-            $listtaikhoan = loadall_taikhoan();
+            $listtaikhoan = loadall_taikhoan('','');
             include "taikhoan/cap-nhat-tai-khoan.php";
           case 'xoa-tai-khoan':
             if(isset($_GET['id'])&&($_GET['id'])){

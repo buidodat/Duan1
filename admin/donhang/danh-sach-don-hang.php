@@ -74,7 +74,7 @@
 
                                     ?>
                                     <td><a <?=$kiemtra?> href="index.php?act=thay-doi-trang-thai&id_donhang=<?=$id?>&id_trangthai=<?=$id_trangthai?>"><span class="badge <?=$class_ttdh?>"><?=$trangthai_dh?></span></a></td>
-                                    <td><?=$ngaydat?></td>
+                                    <td><?=date("d/m/Y", strtotime($ngaydat))?></td>
                                     <td><?=number_format($tongtien,0,",",".")."<u>đ</u>"?></td>
                                     <td>
                                         <a href="<?=$dhct?>">

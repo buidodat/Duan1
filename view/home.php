@@ -173,13 +173,6 @@
                           <!-- product links -->
                           <ul class="actions d-flex justify-content-center">
                             <li>
-                              <a class="action" href="wishlist.html">
-                                <span data-bs-toggle="tooltip" data-placement="bottom" title="add to wishlist"
-                                  class="icon-heart">
-                                </span>
-                              </a>
-                            </li>
-                            <li>
                               <a class="action" href="index.php?act=sanphamct&id_sanpham=<?=$spnew['id']?>" >
                                 <span data-bs-toggle="tooltip" data-placement="bottom" title="Xem chi tiết"
                                   class="icon-magnifier"></span>
@@ -193,13 +186,7 @@
                             <h3 class="title">
                               <a href="index.php?act=sanphamct&id_sanpham=<?=$spnew['id']?>"><?=$spnew['tensp']?></a>
                             </h3>
-                            <div class="star-rating">
-                              <span class="ion-ios-star"></span>
-                              <span class="ion-ios-star"></span>
-                              <span class="ion-ios-star"></span>
-                              <span class="ion-ios-star"></span>
-                              <span class="ion-ios-star de-selected"></span>
-                            </div>
+                          
                             <div class="d-flex align-items-center justify-content-between">
                             <?php
                               $gia = number_format($spnew['giamin'],0,",",".")." - ".number_format($spnew['giamax'],0,",",".");

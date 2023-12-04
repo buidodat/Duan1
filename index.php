@@ -158,11 +158,9 @@ ob_start();
                         $vnp_OrderType = "billpayment";
                         $vnp_Amount = $tong_gia_don_hang*100;
                         $vnp_Locale = "vn";
-                        $vnp_BankCode = "NCB";
+                        $vnp_BankCode = "";
                         $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
                         //Add Params of 2.0.1 Version
-                        // bill
-                        $vnp_Bill_Mobile=$sdt_nguoinhan;
                         $inputData = array(
                             "vnp_Version" => "2.1.0",
                             "vnp_TmnCode" => $vnp_TmnCode,
@@ -179,7 +177,6 @@ ob_start();
                             //
                             // "vnp_Bill_ten_nguoinhan" =>$ten_nguoinhan,
                             // "vnp_Bill_email_nguoinhan"=>$email_nguoinhan,
-                            "vnp_Inv_Phone"=>"0965263725"
                             // "vnp_Bill_diachi_nguoinhan" =>$diachi_nguoinhan,
                             // "vnp_Bill_pttt"=>$pttt,
                             // "vnp_Bill_ghichu"=>$ghichu

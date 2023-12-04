@@ -21,14 +21,14 @@
                         <table>
                             <tr>
                                 <!-- <th></th> -->
-                                <th>ID</th>
-                                <th>TÊN ĐĂNG NHẬP</th>
-                                <th>EMAIL</th>
-                                <th>ĐIỆN THOẠI</th>
-                                <th>MẬT KHẨU</th>
-                                <th>ĐỊA CHỈ</th>
-                                <th>CẤP BẬC</th>
-                                <th>CHỨC NĂNG</th>
+                                <th>#</th>
+                                <th>Tên đăng nhập</th>
+                                <th>Email</th>
+                                <th>Điện thoại</th>
+                                <th>Mật khẩu</th>
+                                <th>Địa chỉ</th>
+                                <th>Vai trò</th>
+                                <th>Chức năng</th>
                                 <br>
                             </tr>
                                 <?php

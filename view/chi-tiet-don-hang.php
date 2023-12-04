@@ -99,7 +99,7 @@
             </tr>
             <tr>
               <th scope="col">Ngày đặt hàng:</th>
-              <td scope="col"><?=$ttdonhang['ngaydat']??""?></td>
+              <td scope="col"><?=date("d/m/Y", strtotime($ttdonhang['ngaydat']))??""?></td>
             </tr>
             <tr>
               <th scope="col">Phương thức thanh toán:</th>

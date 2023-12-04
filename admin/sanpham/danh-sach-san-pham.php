@@ -75,7 +75,14 @@
                                         <?=$tongsoluong==''?"Chưa nhập biến thể":($tongsoluong==0?"Hết Hàng":"Còn Hàng");?>
                                         </span>
                                     </td>
-                                    <td><?=$giamin==$giamax?$giamin:$giamin." - ".$giamax;?>đ</td>
+                                    <?php 
+                                        if($giamin==$giamax){
+                                            $gia = number_format($giamin,0,",",".")."<u>đ</u>";
+                                        }else{
+                                            $gia = number_format($giamin,0,",",".")." - ".number_format($giamax,0,",",".")."<u>đ</u>";
+                                        }
+                                    ?>
+                                    <td><?=$gia?></td>
                                     <td><?=$tendm?></td>
                                     <td>
                                         <a href="<?=$suasp?>">

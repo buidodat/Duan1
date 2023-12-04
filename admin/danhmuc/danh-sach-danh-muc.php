@@ -23,8 +23,7 @@
                         <table class="table table-hover table-bordered" id="sampleTable">
                             <thead>
                                 <tr>
-                                    <th width="10"><input type="checkbox" id="all"></th>
-                                    <th>Mã danh mục</th>
+                                    <th>#</th>
                                     <th>Tên danh mục</th>
                                     <th>Slogan</th>
                                     <th>Chức năng</th>
@@ -38,7 +37,6 @@
                                     $suadm ="index.php?act=sua-danh-muc&id_danhmuc=$id";
                                 ?>
                                 <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
                                     <td><?=$id?></td>
                                     <td><?=$ten?></td>
                                     <td><?=$slogan?></td>

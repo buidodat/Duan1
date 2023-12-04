@@ -47,8 +47,7 @@
                         <table class="table table-hover table-bordered" id="sampleTable">
                             <thead>
                                 <tr>
-                                    <th width="10"><input type="checkbox" id="all"></th>
-                                    <th>Mã biến thể</th>
+                                    <th>#</th>
                                     <th>Thể tích</th>
                                     <th>Số lượng</th>
                                     <th>Tình trạng</th>
@@ -66,7 +65,6 @@
                                         $restorebienthe ="index.php?act=khoi-phuc-bien-the&id_sanpham=$id_sanpham&id_bienthe=$id";
                                 ?>
                                 <tr>
-                                <td width="10"><input type="checkbox" name="check1" value="1"></td>
                                     <td><?=$id?></td>
                                     <td><?=$thetich?></td>
                                     <td><?=$soluong?></td>
@@ -75,7 +73,7 @@
                                         <?=$soluong>0?"Còn Hàng":"Hết Hàng";?>
                                         </span>
                                     </td>
-                                    <td><?=$gia?> VNĐ</td>
+                                    <td><?=number_format($gia,0,",",".")."<u>đ</u>"?></td>
                                     <td><?=$trangthai==1?"Hiển Thị":"Ẩn"?></td>
                                     <td>
                                         <?php if($trangthai==1){  ?>

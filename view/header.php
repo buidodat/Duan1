@@ -66,11 +66,11 @@
                   <li> <!--yêu thích-->
                     <a class="offcanvas-toggle">
                       <span class="position-relative">
-                        <form id="search-form" action="#" method="post" class="d-flex">
+                        <!-- <form id="search-form" action="#" method="post" class="d-flex">
                           <input type="text" name="kyw" id="search-text" placeholder="Search..." required>
                           <input type="submit" value="timkiem" id="search-submit">
                           <button id="search_btn"><i class="icon-magnifier"></i></button>
-                        </form>
+                        </form> -->
                       </span>
                     </a>
                   </li>
