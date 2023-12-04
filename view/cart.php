@@ -20,6 +20,45 @@
 </nav>
 <!-- breadcrumb-section end -->
 <style>
+    /* CSS cho checkbox */
+    .checkbox {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-color: #fff;
+      border: 2px solid #2196F3;
+      border-radius: 4px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    /* Khi checkbox được chọn */
+    .checkbox:checked {
+      background-color: #2196F3;
+      border: 2px solid #2196F3;
+    }
+
+    /* Ẩn checkbox mặc định */
+    .checkbox::-ms-check,
+    .checkbox::-ms-expand {
+      display: none;
+    }
+
+    /* Hiển thị chữ "V" khi checkbox được chọn */
+    .checkbox:checked::before {
+      content: '\2713'; /* Ký tự Unicode của chữ "V" */
+      font-size: 16px;
+      color: #fff;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+
 
 
     input[type="number"] {
@@ -43,16 +82,19 @@
   </style>
 <!-- product tab start -->
 <section class="whish-list-section theme1 pt-80 pb-80">
+<form action="index.php?act=thanhtoan" method="post">
   <div class="container">
     <div class="row">
       <div class="col-12">
         <h3 class="title mb-30 pb-25 text-capitalize">Các sản phẩm trong giỏ hàng</h3>
         <div class="table-responsive">
+          <div style="color:red;font-size:17px"><?=$_COOKIE['thongbao']??""?></div>
           <table class="table">
             <thead class="thead-light">
               <tr>
+                <th class="text-center" scope="col"></th>
                 <th class="text-center" scope="col">Hình ảnh</th>
-                <th class="text-center" scope="col">Tên sản phẩm</th>
+                <th class="text-center" scope="col" style="width:28%">Tên sản phẩm</th>
                 <th class="text-center" scope="col">Thể tích</th>
                 <th class="text-center" scope="col">Tổng kho</th>
                 <th class="text-center" scope="col">Giá tiền</th>
@@ -64,15 +106,14 @@
             </thead>
             <tbody id="order-cart">
             <?php 
-              $tongtien =0;
               foreach($listgiohang as $giohang):
                 extract($giohang);
-                $tongtien +=$gia*$soluong;
              ?>
               <tr>
-                <th class="text-center" scope="row">
+                <td class="text-center"><input  type="checkbox" name="id_giohang[]" class="checkbox" value="<?=$id?>" checked></td>
+                <td class="text-center" scope="row">
                   <img src="upload/<?=$hinh?>" alt="img" />
-                </th>
+                </td>
                 <td class="text-center">
                   <span class="whish-title"><?=$ten?></span>
                 </td>
@@ -114,10 +155,7 @@
                 </td>
               </tr>
               <?php endforeach ?>
-              <tr style="background:#F0F8FF;">
-                <td class="text-center"  colspan="7" ><h4 style="font-weight: bold;color:#191970">Tổng Tiền Hàng:</h4></td>
-                <td class="text-center"  colspan="2"><h5 style="font-weight: bold;color:#191970" ><?=number_format($tongtien,0,",",".")."<u>đ</u>"??""?></h5></td>
-              </tr>
+              
             </tbody>
           </table>
         </div>
@@ -131,9 +169,10 @@
       }
     ?>
     <div class="Place-order mt-25" style="text-align:right">
-      <a onclick="<?=$thongbao??""?>" class="btn btn--lg btn-primary my-2 my-sm-0" href="<?=$link?>" >Đặt Hàng</a>
+      <input type="submit" onclick="<?=$thongbao??""?>" class="btn btn--lg btn-primary my-2 my-sm-0" name="dathangdachon" value="Đặt Hàng">
     </div>
   </div>
+  </form>
 
 </section>
 <!-- product tab end -->

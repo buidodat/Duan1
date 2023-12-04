@@ -108,14 +108,29 @@ ob_start();
                     include "view/yeu-cau-dang-nhap.php";
                     die();
                 }
+                if(isset($_POST['dathangdachon'])){
+                    if(empty($_POST['id_giohang'])){
+                        header("location:index.php?act=giohang");
+                        setcookie('thongbao',"**Bạn chưa chọn sản phẩm nào",time());
+                        die;
+                     }
+                    $id_giohang = $_POST['id_giohang'];
+                    $_SESSION['listsanpham'] = $listsanpham = load_giohang_duocchon($id_giohang,$taikhoan['id']);
+                    $tong_gia_don_hang=tong_gia_don_hang($taikhoan['id'],$id_giohang);
+                }
+                if(isset($_SESSION['listsanpham'])){
+                    $listsanpham=$_SESSION['listsanpham'];
+                }
                 //mua tất cả sp trong giỏ hàng
-                $id_giohang='';
-                $listsanpham =loadall_giohang($taikhoan['id']);
+                // $id_giohang='';
+                // $listsanpham =loadall_giohang($taikhoan['id']);
                 //mua 1 sản phẩm trong giỏ hàng
                 if(isset($_GET['id_giohang'])&&$_GET['id_giohang']){
                     $listsanpham =mua1_giohang($taikhoan['id'],$_GET['id_giohang']);
+                    $id_giohang=$_GET['id_giohang'];
+                    $tong_gia_don_hang=tong_gia_don_hang($taikhoan['id'],$id_giohang);
                 }
-                $tong_gia_don_hang=tong_gia_don_hang($taikhoan['id'],$id_giohang);
+                
                 //Đặt hàng ngay ở đơn hàng chi tiết
                 if(isset($_GET['id_sanpham_thetich'])&&isset($_GET['soluong'])){
                     $id_sanpham_thetich=$_GET['id_sanpham_thetich'];
@@ -130,7 +145,7 @@ ob_start();
                         'gia'=>$gia,
                         'ten'=>$ten,
                         'thetich'=>$thetich,
-                        'id'=>''
+                        'id'=>'' // dòng 156 delete giỏ hàng , do mua ngay không thêm vào giỏ hàng nên đặt id là null
                     ]];
                     $tong_gia_don_hang=$gia*$soluong; //  Để lưu vào dtb bảng đơn hàng chi tiết
                 }
@@ -138,7 +153,7 @@ ob_start();
                     header("location:index.php");
                 }
                 ///bấm nút đặt hàng
-                if(isset($_POST['dathang'])){
+                if(isset($_POST['hoantatdathang'])){
                     extract($_POST);
                     $checkid =insert_donhang($taikhoan['id'], $ten_nguoinhan, $email_nguoinhan, $sdt_nguoinhan, $diachi_nguoinhan, $id_pttt,$tongtien, $ghichu);
                         $id_donhang =$checkid; 
@@ -147,6 +162,9 @@ ob_start();
                             insert_donhangchitiet($id_donhang,$id_sanpham_thetich,$soluong,$gia);
                             ///sau khi đặt hàng thành công thì xóa giỏ hàng
                             delete_giohang($id);
+                        }
+                        if(isset($_SESSION['listsanpham'])){
+                            unset($_SESSION['listsanpham']);
                         }
                     if($_POST['id_pttt']==2){
                         $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";

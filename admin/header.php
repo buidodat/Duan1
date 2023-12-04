@@ -61,7 +61,7 @@
             class="app-menu__label">Quản lý tài khoản</span></a></li>
       <li><a class="app-menu__item" href="index.php?act=danh-sach-don-hang"><i class='app-menu__icon bx bx-task'></i><span
             class="app-menu__label">Quản lý đơn hàng</span></a></li>
-      <li><a class="app-menu__item" href="index.php?act=danh-sach-bao-cao-thong-ke"><i
+      <li><a class="app-menu__item" href="index.php?act=bieu-do-thong-ke"><i
             class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo thống kê</span></a>
       </li>
       <li><a class="app-menu__item" href="#"><i class='app-menu__icon bx bx-cog'></i><span class="app-menu__label">Cài

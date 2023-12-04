@@ -10,6 +10,7 @@ if(isset($taikhoan)){
     include "../model/taikhoan.php";
     include "../model/donhang.php";
     include "../model/thetich.php";
+    include "../model/thongke.php";
     include "header.php";
     if(isset($_GET['act'])&&($_GET['act']!="")){
         $act=$_GET['act'];
@@ -261,8 +262,7 @@ if(isset($taikhoan)){
                 update_taikhoan($id, $hoten, $email, $sdt, $matkhau, $diachi, $capbac);
                 $thongbao = 'Cập nhật tài khoản thành công';
             }
-            $listtaikhoan = loadall_taikhoan('','');
-            include "taikhoan/cap-nhat-tai-khoan.php";
+            header("location:index.php?act=quan-ly-tai-khoan");
           case 'xoa-tai-khoan':
             if(isset($_GET['id'])&&($_GET['id'])){
                 delete_taikhoan($_GET['id']);
@@ -305,9 +305,25 @@ if(isset($taikhoan)){
             }
             include "donhang/chi-tiet-don-hang.php";
             break;
-          case "bao-cao-thong-ke":
-            break;
-          }
+            case "bieu-do-thong-ke":
+              $listthongke = thongke();
+              $rows = doanhthutheothang();
+              include "baocaothongke/bieu-do-thong-ke.php";
+              break;
+            case "quan-ly-binh-luan":
+              $listbinhluan = loadall_binhluan(0);
+              include "binhluan/quan-ly-binh-luan.php";
+              break;
+            case "xoabl":
+              if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+    
+                delete_binhluan($_GET['id']);
+                
+              }
+              $listbinhluan = loadall_binhluan(0);
+              include "binhluan/quan-ly-binh-luan.php";
+              break;
+            }
     }else{
         include "home.php";
     }

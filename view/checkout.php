@@ -192,7 +192,7 @@ input[type="text"] {
           <div class="Place-order mt-25">
             <input type="hidden" name="gia" value="<?=$sp['gia']?>">
             <input type="hidden" name="tongtien" value="<?=$tong_gia_don_hang?>">
-            <button type="submit" name="dathang"><span class="btn btn--xl btn-block btn-primary" >Hoàn Tất Đặt Hàng</span></button>
+            <button type="submit" name="hoantatdathang"><span class="btn btn--xl btn-block btn-primary" >Hoàn Tất Đặt Hàng</span></button>
           </div>
         </div>
       </div>
