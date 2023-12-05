@@ -23,9 +23,51 @@
   </div>
 </nav>
 <!-- breadcrumb-section end -->
+<style>
+.search-container {
+  display: flex;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto; /* Ý căn giữa form */
+  margin-top:-50px;
+  margin-bottom: 20px; /* Khoảng cách bên dưới 20px */
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #0056b3;
+}
+
+</style>
 <!-- product tab start -->
 <div class="product-tab bg-white pt-80 pb-80">
   <div class="container">
+  <form action="" method="post">
+  <div class="search-container">
+      <input type="text" class="search-input" placeholder="Tìm kiếm..." name="kyw">
+      <input type="submit" value="Tìm Kiếm" class="search-button">
+  </div>
+  </form>
     <div class="grid-nav-wraper bg-lighten2 mb-30">
       <div class="row align-items-center">
         <div class="col-12 col-md-6 mb-3 mb-md-0">
@@ -42,7 +84,7 @@
                   aria-controls="pills-profile" aria-selected="false"><i class="fa fa-list"></i></a>
               </li>
               <li>
-                <span class="total-products text-capitalize">There are 13 products.</span>
+                <!-- <span class="total-products text-capitalize">There are 13 products.</span> -->
               </li>
             </ul>
           </nav>
@@ -85,7 +127,7 @@
               <div class="card-body">
                 <div class="product-thumbnail position-relative" style="height: 450px;" >
                   <a href="index.php?act=sanphamct&id_sanpham=<?=$id?>">
-                    <img class="first-img" src="upload/<?=$hinh?>" alt="thumbnail" style="width: 100% ;"/>
+                    <img class="first-img" src="upload/<?=$hinh?>" alt="thumbnail" style="width: 100% ;height: 420px;"/>
                   </a>
                   <!-- product links -->
                   <ul class="actions d-flex justify-content-center">

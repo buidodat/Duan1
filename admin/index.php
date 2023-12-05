@@ -270,8 +270,16 @@ if(isset($taikhoan)){
             $listtaikhoan = loadall_taikhoan();
             include 'taikhoan/quan-ly-tai-khoan.php';
             break;
+          ////////////-------QUản--------\\\\\\\\\\\\
+          ////////////-----  Lý  --------\\\\\\\\\\\\
+          ////////////------ Đơn --------\\\\\\\\\\\\
+          ////////////-------Hàng--------\\\\\\\\\\\\
           case "danh-sach-don-hang":
-            $list_dh=loadall_donhang_admin();
+            $id_trangthai="";
+            if(isset($_POST['listok'])&&$_POST['listok']!=""){
+              $id_trangthai=$_POST['id_trangthai'];
+            }
+            $list_dh=loadall_donhang_admin($id_trangthai);
             include "donhang/danh-sach-don-hang.php";
             break;
           case "thay-doi-trang-thai":
@@ -290,12 +298,21 @@ if(isset($taikhoan)){
               header("location:index.php?act=danh-sach-don-hang");
             }
             break;
-          case "huy-don-hang":
-            if(isset($_GET['id_donhang'])&&$_GET['id_donhang']>0){
-              $id_donhang=$_GET['id_donhang'];
-              huy_donhang($id_donhang);
-            }
-            header("location:index.php?act=danh-sach-don-hang");
+          case "sua-trang-thai-don-hang":
+            if(isset($_GET['id_donhang'])&&($_GET['id_donhang']>0)){
+              $donhang = loadone_donhang_admin($_GET['id_donhang']);
+              extract($donhang);
+              $listtrangthai= loadall_trangthaidonhang();
+            }            
+            include "donhang/cap-nhat-trang-thai-don-hang.php"; 
+            break;
+          case "cap-nhat-trang-thai-don-hang":
+            if(isset($_POST['id_trangthai'])){
+              $id_trangthai=$_POST['id_trangthai'];
+              $id_donhang=$_POST['id_donhang'];
+              update_donhang($id_trangthai,$id_donhang,0);
+              header("location:index.php?act=danh-sach-don-hang");
+            }       
             break;
           case "chi-tiet-don-hang":
             if(isset($_GET['id_donhang'])){

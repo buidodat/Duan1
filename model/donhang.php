@@ -38,11 +38,14 @@
         $donhang = pdo_query($sql);
         return $donhang;  
     }
-    function loadall_donhang_admin(){
+    function loadall_donhang_admin($id_trangthai){
         $sql = "SELECT donhang.id,ten_nguoinhan,sdt_nguoinhan,diachi_nguoinhan,id_pttt,pttt,tongtien,ghichu,trangthai_dh,ngaydat,id_trangthai FROM `donhang` 
         join trangthaidonhang on trangthaidonhang.id=donhang.id_trangthai
-        join phuongthucthanhtoan on phuongthucthanhtoan.id = donhang.id_pttt
-        order by donhang.id";
+        join phuongthucthanhtoan on phuongthucthanhtoan.id = donhang.id_pttt";
+        if($id_trangthai!=""){
+            $sql .= " where id_trangthai =$id_trangthai";  
+        }
+        $sql .= " order by donhang.id";
         $donhang = pdo_query($sql);
         return $donhang;  
     }
@@ -56,7 +59,7 @@
         return $donhang;  
     }
     function loadone_donhang_admin($id_donhang){
-        $sql = "SELECT donhang.id,ten_nguoinhan,email_nguoinhan,sdt_nguoinhan,diachi_nguoinhan,pttt,tongtien,tongtien_dathanhtoan,ngaydat,ghichu,trangthai_dh FROM `donhang` 
+        $sql = "SELECT donhang.id,ten_nguoinhan,email_nguoinhan,sdt_nguoinhan,diachi_nguoinhan,id_pttt,pttt,tongtien,tongtien_dathanhtoan,ngaydat,ghichu,trangthai_dh ,id_trangthai FROM `donhang` 
         join trangthaidonhang on trangthaidonhang.id=donhang.id_trangthai
         join phuongthucthanhtoan on phuongthucthanhtoan.id = donhang.id_pttt
         WHERE donhang.id =$id_donhang 
@@ -82,6 +85,11 @@
         WHERE MONTH(ngaydat) = MONTH(NOW()) AND YEAR(ngaydat) = YEAR(NOW());";
         $tongdonhang = pdo_query_one($sql);
         return $tongdonhang['tongdonhang'];
+    }
+    function loadall_trangthaidonhang(){
+        $sql = "SELECT * from trangthaidonhang";
+        $listtrangthai = pdo_query($sql);
+        return $listtrangthai;
     }
 
 ?>

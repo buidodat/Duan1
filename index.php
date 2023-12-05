@@ -30,7 +30,11 @@ ob_start();
                 if(isset($_GET['loc'])&&$_GET['loc']!=""){
                     $loc = $_GET['loc'];
                 }
-                $listsp =loadall_sanpham_thetich_chitiet($iddm,$loc);
+                $kyw="";
+                if(isset($_POST['kyw'])){
+                    $kyw=$_POST['kyw'];
+                }
+                $listsp =loadall_sanpham_thetich_chitiet($iddm,$loc,$kyw);
                 include "view/shop.php";
                 break;
 
