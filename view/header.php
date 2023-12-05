@@ -24,7 +24,7 @@
         <div class="row align-items-center">
           <div class="col-6 col-lg-2 col-xl-2">
             <div class="logo">
-              <a href="index.html"><img src="view/assets/img/logo/logomoi.png" alt="logo" /></a>
+              <a href="index.php"><img src="view/assets/img/logo/logomoi.png" alt="logo" /></a>
             </div>
           </div>
           <div class="col-xl-8 col-lg-7 d-none d-lg-block">

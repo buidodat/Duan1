@@ -321,6 +321,8 @@ ob_start();
                     }
                     if(isset($_SESSION['taikhoan'])&&$_SESSION['taikhoan']['capbac']==1){
                         header("location:admin");
+                    } else {
+                        header("location:index.php");
                     }
                 }
                 include "view/account/dangnhap.php";
