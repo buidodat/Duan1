@@ -11,7 +11,7 @@
       </div>
       <div class="col-12">
         <ol class="breadcrumb bg-transparent m-0 p-0 align-items-center justify-content-center">
-          <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+          <li class="breadcrumb-item"><a href="index.php">Trang Chủ</a></li>
           <li class="breadcrumb-item active" aria-current="page">
             Đăng nhập tài khoản của bạn
           </li>

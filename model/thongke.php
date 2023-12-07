@@ -12,7 +12,7 @@ function doanhthutheothang()
         SUM(tongtien) AS tongDoanhThu
     FROM donhang 
     GROUP BY thang, nam
-    ORDER BY nam DESC, thang DESC";
+    ORDER BY nam DESC, thang asC";
     return pdo_query($sql);
 }
     ?>

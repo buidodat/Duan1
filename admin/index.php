@@ -10,6 +10,7 @@ if(isset($taikhoan)){
     include "../model/taikhoan.php";
     include "../model/donhang.php";
     include "../model/thetich.php";
+    include "../model/binhluan.php";
     include "../model/thongke.php";
     include "header.php";
     if(isset($_GET['act'])&&($_GET['act']!="")){
@@ -242,14 +243,14 @@ if(isset($taikhoan)){
             $listtaikhoan = loadall_taikhoan($kyw,$capbac);
             include "taikhoan/quan-ly-tai-khoan.php";
             break;
-            case "sua-tai-khoan":
+          case "sua-tai-khoan":
             if(isset($_GET['id'])&& ($_GET['id'])>0){
                 $taikhoan = loadone_taikhoan($_GET['id']);
             }
             $listtaikhoan = loadall_taikhoan('','');
             include "taikhoan/cap-nhat-tai-khoan.php";
             break;
-            case "cap-nhat-tai-khoan":
+          case "cap-nhat-tai-khoan":
             if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
                 $id = $_POST['id'];
                 $hoten = $_POST['hoten'];
@@ -266,9 +267,36 @@ if(isset($taikhoan)){
           case 'xoa-tai-khoan':
             if(isset($_GET['id'])&&($_GET['id'])){
                 delete_taikhoan($_GET['id']);
+                setcookie('thongbao',"**Xóa tài khoản thành công!",time()+5);
             }
-            $listtaikhoan = loadall_taikhoan();
-            include 'taikhoan/quan-ly-tai-khoan.php';
+            header("location:index.php?act=quan-ly-tai-khoan");
+            break;
+          case "them-moi-tai-khoan":
+            if(isset($_POST['themmoi'])&&($_POST['themmoi'])){
+              extract($_POST);
+              $error = [];
+              if (empty((trim($hoten)))) {
+                $error['hoten'] = "Tên đăng nhập không được bỏ trống";
+              }
+              if (empty((trim($email)))) {
+                $error['email'] = "Email không được để trống";
+              }
+              if (empty((trim($sdt)))) {
+                $error['sdt'] = "Số điện thoại không được để trống";
+              }
+              if (empty((trim($matkhau)))) {
+                $error['matkhau'] = "Mật khẩu không được để trống";
+              }
+              if (empty((trim($diachi)))) {
+                $error['diachi'] = "Địa chỉ không được để trống";
+              }
+              if (empty($error)) {
+                insert_taikhoan_admin($hoten,$email,$sdt,$matkhau,$diachi,$capbac);
+                setcookie('thongbao',"**Thêm tài khoản thành công !",time()+5);
+                header("location:index.php?act=quan-ly-tai-khoan");
+              }
+            }
+            include "taikhoan/them-moi-tai-khoan.php";
             break;
           ////////////-------QUản--------\\\\\\\\\\\\
           ////////////-----  Lý  --------\\\\\\\\\\\\

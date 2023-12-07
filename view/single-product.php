@@ -96,8 +96,8 @@
             </div>
             <div class="product-body mb-40">
               <div class="d-flex align-items-center mb-30">
-                <span class="product-price me-2"><del class="del"><?=$giaao =$gia+10/100*$gia ."<u>đ</u>";?></del>
-                  <span class="onsale"><?=$gia ."<u>đ</u>";?></span></span>
+                <span class="product-price me-2"><del class="del"><?php $giaao =$gia+10/100*$gia; echo number_format($giaao,0,",",".")?></del>
+                  <span class="onsale"><?=number_format($gia,0,",",".") ."<u>đ</u>";?></span></span>
                 <span class="badge position-static bg-dark rounded-0">Sale 10%</span>
               </div>
               <span>Còn lại: <?=$soluong?></span>

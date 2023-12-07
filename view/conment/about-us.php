@@ -6,13 +6,13 @@
     <div class="row">
       <div class="col-12">
         <div class="section-title text-center">
-          <h2 class="title pb-4 text-dark text-capitalize">About Us</h2>
+          <h2 class="title pb-4 text-dark text-capitalize">Liên Hệ</h2>
         </div>
       </div>
       <div class="col-12">
         <ol class="breadcrumb bg-transparent m-0 p-0 align-items-center justify-content-center">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">About Us</li>
+          <li class="breadcrumb-item"><a href="index.html">Trang Chủ</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Liên Hệ</li>
         </ol>
       </div>
     </div>
@@ -136,7 +136,7 @@
             <img src="view/assets/img/service/3.jpg" alt="single-thumb-naile" />
           </div>
           <div class="single-service">
-            <h3 class="title text-capitalize mb-20">About Us</h3>
+            <h3 class="title text-capitalize mb-20">Liên Hệ</h3>
             <p>
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem
               accusantium doloremque laudantium, totam rem aperiam, eaque ipsa

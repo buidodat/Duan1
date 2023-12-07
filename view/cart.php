@@ -85,7 +85,7 @@
 <form action="index.php?act=thanhtoan" method="post">
   <div class="container">
     <div class="row">
-      <div class="col-12">
+      <div class="col-12 text-center">
         <h3 class="title mb-30 pb-25 text-capitalize">Các sản phẩm trong giỏ hàng</h3>
         <div class="table-responsive">
           <div style="color:red;font-size:17px"><?=$_COOKIE['thongbao']??""?></div>

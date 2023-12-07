@@ -67,4 +67,8 @@ function tongtaikhoan(){
         $tongtk = pdo_query_one($sql);
         return $tongtk['tongtk'];
 }
+function insert_taikhoan_admin($hoten,$email,$sdt,$matkhau,$diachi,$capbac){
+    $sql = "INSERT INTO `taikhoan`(hoten,email,sdt,matkhau,diachi,capbac) VALUES('$hoten','$email','$sdt','$matkhau','$diachi',$capbac) ";
+    pdo_execute($sql);
+}
 ?>

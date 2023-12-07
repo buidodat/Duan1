@@ -14,31 +14,23 @@
               </a>
             </div>
             <p class="text mb-30">
-              We are a team of professional designers and developers that create
-              high quality wordpress plugins, Html, React Template.
+              Chúng tôi là một nhóm gồm các nhà thiết kế và phát triển chuyên nghiệp nhắm đưa đến cho người dùng những
+              trải nghiệm hấp dẫn nhất.
             </p>
 
             <div class="social-network">
               <ul class="d-flex">
                 <li>
-                  <a href="https://www.facebook.com/" target="_blank"
-                    ><span class="icon-social-facebook"></span
-                  ></a>
+                  <a href="https://www.facebook.com/" target="_blank"><span class="icon-social-facebook"></span></a>
                 </li>
                 <li>
-                  <a href="https://twitter.com/" target="_blank"
-                    ><span class="icon-social-twitter"></span
-                  ></a>
+                  <a href="https://twitter.com/" target="_blank"><span class="icon-social-twitter"></span></a>
                 </li>
                 <li>
-                  <a href="https://www.youtube.com/" target="_blank"
-                    ><span class="icon-social-youtube"></span
-                  ></a>
+                  <a href="https://www.youtube.com/" target="_blank"><span class="icon-social-youtube"></span></a>
                 </li>
                 <li class="mr-0">
-                  <a href="https://www.instagram.com/" target="_blank"
-                    ><span class="icon-social-instagram"></span
-                  ></a>
+                  <a href="https://www.instagram.com/" target="_blank"><span class="icon-social-instagram"></span></a>
                 </li>
               </ul>
             </div>
@@ -48,13 +40,13 @@
           <div class="footer-widget">
             <div class="border-bottom cbb1 mb-25">
               <div class="section-title">
-                <h2 class="title">Information</h2>
+                <h2 class="title">Thông tin</h2>
               </div>
             </div>
             <!-- footer-menu start -->
             <ul class="footer-menu">
-              <li><a href="index.php?act=gioithieu">About us</a></li>
-              <li><a href="index.php?act=lienhe">Contact us</a></li>
+              <li><a href="index.php?act=gioithieu">Perfume shop</a></li>
+              <li><a href="index.php?act=lienhe">Liên hệ</a></li>
             </ul>
             <!-- footer-menu end -->
           </div>
@@ -63,46 +55,26 @@
           <div class="footer-widget">
             <div class="border-bottom cbb1 mb-25">
               <div class="section-title">
-                <h2 class="title">Social Links</h2>
+                <h2 class="title">Mạng xã hội</h2>
               </div>
             </div>
             <!-- footer-menu start -->
             <ul class="footer-menu">
-              <li><a href="login.html">Login</a></li>
-              <li><a href="index.php?act=taikhoanuser">My account</a></li>
+              <li><a href="index.php?act=dangnhap">Đăng nhập</a></li>
+              <li><a href="index.php?act=taikhoanuser">Thông tin tài khoản</a></li>
             </ul>
             <!-- footer-menu end -->
           </div>
         </div>
         <div class="col-12 col-sm-6 col-lg-4 mb-30">
-          <div class="footer-widget">
-            <div class="border-bottom cbb1 mb-25">
-              <div class="section-title">
-                <h2 class="title">Newsletter</h2>
-              </div>
-            </div>
-            <p class="text mb-20">
-              Subcribe to the TheFace mailing list to receive update on mnew
-              arrivals, special offers and other discount information.
-            </p>
-            <div class="nletter-form mb-35">
-              <form class="form-inline position-relative" 
-                    action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef" 
-                    target="_blank" method="post" >
-                <input class="form-control" type="text" placeholder="Your email address"/>
-                <button class="btn news-letter-btn text-capitalize" type="submit" >
-                  Sign up
-                </button>
-              </form>
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>
   </div>
   <!-- footer bottom end -->
   <!-- coppy-right start -->
-  <div class="coppy-right bg-dark py-15">
+  <!-- <div class="coppy-right bg-dark py-15">
     <div class="container">
       <div class="row">
         <div class="col-12 col-md-6 col-xl-4 order-last order-md-first">
@@ -120,18 +92,19 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- coppy-right end -->
 </footer>
 <!-- footer end -->
-    <script src="view/assets/js/vendor/jquery-3.6.0.min.js"></script>
-    <script src="view/assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
-    <script src="view/assets/js/vendor/modernizr-3.7.1.min.js"></script>
-    <script src="view/assets/js/plugins/jquery-ui.min.js"></script>
-    <script src="view/assets/js/bootstrap.bundle.min.js"></script>
-    <script src="view/assets/js/plugins/plugins.js"></script>
-    <script src="view/assets/js/plugins/ajax-contact.js"></script>
-    <script src="view/assets/js/main.js"></script>
+<script src="view/assets/js/vendor/jquery-3.6.0.min.js"></script>
+<script src="view/assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+<script src="view/assets/js/vendor/modernizr-3.7.1.min.js"></script>
+<script src="view/assets/js/plugins/jquery-ui.min.js"></script>
+<script src="view/assets/js/bootstrap.bundle.min.js"></script>
+<script src="view/assets/js/plugins/plugins.js"></script>
+<script src="view/assets/js/plugins/ajax-contact.js"></script>
+<script src="view/assets/js/main.js"></script>
 
 </body>
+
 </html>

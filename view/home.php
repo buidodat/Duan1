@@ -9,16 +9,14 @@
             <div class="col-12">
               <div class="slider-content">
                 <p class="text animated" data-animation-in="fadeInDown" data-delay-in=".300">
-                  Face Makeup Brush
+                  Dior
                 </p>
                 <h2 class="title animated">
-                  <span class="animated d-block" data-animation-in="fadeInLeft" data-delay-in=".800">Skincare Brush
-                    Set</span>
-                  <span class="animated font-weight-bold" data-animation-in="fadeInRight" data-delay-in="1.5">Sale 30%
-                    Off</span>
+                  <span class="animated d-block" data-animation-in="fadeInLeft" data-delay-in=".800">Sang trọng</span>
+                  <span class="animated font-weight-bold" data-animation-in="fadeInRight" data-delay-in="1.5">Độc đáo</span>
                 </h2>
-                <a href="shop-grid-4-column.html" class="btn btn-outline-primary btn--lg animated mt-45 mt-sm-25"
-                  data-animation-in="fadeInLeft" data-delay-in="1.9">Shop now</a>
+                <a href="index.php?act=cuahang" class="btn btn-outline-primary btn--lg animated mt-45 mt-sm-25"
+                  data-animation-in="fadeInLeft" data-delay-in="1.9">Xem Thêm</a>
               </div>
             </div>
           </div>
@@ -31,17 +29,15 @@
             <div class="col-12">
               <div class="slider-content">
                 <p class="text animated" data-animation-in="fadeInLeft" data-delay-in=".300">
-                  Morneva Shampoo
+                  Chanel
                 </p>
 
                 <h2 class="title">
-                  <span class="animated d-block" data-animation-in="fadeInRight" data-delay-in=".800">scalpcare
-                    Shampoo</span>
-                  <span class="animated font-weight-bold" data-animation-in="fadeInUp" data-delay-in="1.5">Sale 40%
-                    Off</span>
+                  <span class="animated d-block" data-animation-in="fadeInRight" data-delay-in=".800">Cao cấp</span>
+                  <span class="animated font-weight-bold" data-animation-in="fadeInUp" data-delay-in="1.5">Huyền bí</span>
                 </h2>
-                <a href="shop-grid-4-column.html" class="btn btn-outline-primary btn--lg animated mt-45 mt-sm-25"
-                  data-animation-in="fadeInLeft" data-delay-in="1.9">Shop now</a>
+                <a href="index.php?act=cuahang" class="btn btn-outline-primary btn--lg animated mt-45 mt-sm-25"
+                  data-animation-in="fadeInLeft" data-delay-in="1.9">Xem THÊM</a>
               </div>
             </div>
           </div>
@@ -54,16 +50,14 @@
             <div class="col-12">
               <div class="slider-content">
                 <p class="text animated" data-animation-in="fadeInLeft" data-delay-in=".300">
-                  Runway Lip Palette red
+                Calvin Klein
                 </p>
                 <h2 class="title">
-                  <span class="animated d-block" data-animation-in="fadeInRight" data-delay-in=".800">Lipscare
-                    Lipsticks</span>
-                  <span class="animated font-weight-bold" data-animation-in="fadeInUp" data-delay-in="1.5">Sale 60%
-                    Off</span>
+                  <span class="animated d-block" data-animation-in="fadeInRight" data-delay-in=".800">Thời thượng</span>
+                  <span class="animated font-weight-bold" data-animation-in="fadeInUp" data-delay-in="1.5">thanh lịch</span>
                 </h2>
-                <a href="shop-grid-4-column.html" class="btn btn-outline-primary btn--lg animated mt-45 mt-sm-25"
-                  data-animation-in="fadeInLeft" data-delay-in="1.9">Shop now</a>
+                <a href="index.php?act=cuahang" class="btn btn-outline-primary btn--lg animated mt-45 mt-sm-25"
+                  data-animation-in="fadeInLeft" data-delay-in="1.9">Xem THÊM</a>
               </div>
             </div>
           </div>

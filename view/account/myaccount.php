@@ -6,13 +6,13 @@
     <div class="row">
       <div class="col-12">
         <div class="section-title text-center">
-          <h2 class="title pb-4 text-dark text-capitalize">my account</h2>
+          <h2 class="title pb-4 text-dark text-capitalize">Tài khoản</h2>
         </div>
       </div>
       <div class="col-12">
         <ol class="breadcrumb bg-transparent m-0 p-0 align-items-center justify-content-center">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">my account</li>
+          <li class="breadcrumb-item"><a href="index.html">Trang Chủ</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Tài khoản</li>
         </ol>
       </div>
     </div>
@@ -25,7 +25,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h3 class="title text-capitalize mb-30 pb-25">my account</h3>
+        <h3 class="title text-capitalize mb-30 pb-25">Tài khoản</h3>
       </div>
       <!-- My Account Tab Menu Start -->
       <div class="col-lg-3 col-12 mb-30">

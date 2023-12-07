@@ -42,8 +42,9 @@ if(!empty($taikhoan)){
               <input class="form-control" type="text" name="diachi" value="<?php if (isset($diachi) && ($diachi != "")) echo $diachi; ?>">
             </div>
             <div class="form-group col-md-3">
-              <label class="control-label">Cấp bậc</label>
-              <input class="form-control" type="text" name="capbac" value="<?php if (isset($capbac) && ($capbac != "")) echo $capbac ?>">
+              <label class="control-label">Cấp bậc</label><hr> 
+              <span style="margin-right:10px"><input type="radio" name="capbac" value="1" <?=$capbac==1?"checked":""?>> Admin</span>
+              <span><input type="radio" name="capbac" value="0" <?=$capbac==0?"checked":""?>> Người dùng</span>
             </div>
           </div>
           <input type="hidden" name="id" value="<?php echo $id ?>">

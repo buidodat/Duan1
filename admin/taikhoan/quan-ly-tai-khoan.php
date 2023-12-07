@@ -4,11 +4,17 @@
             </ul>
             <div id="clock"></div>
         </div>
+        <div class="row">
             <div class="col-md-12">
                 <div class="tile">
-                    
-                    <h2>Danh Sách Tài Khoản</h2>
-                    <form action="index.php?act=quan-ly-tai-khoan" method="post">
+                    <div class="tile-body">
+                        <div class="row element-button">
+                            <div class="col-sm-2">
+                            <a class="btn btn-add btn-sm" href="index.php?act=them-moi-tai-khoan" title="Thêm"><i class="fas fa-plus"></i>
+                                Thêm mới tài khoản</a>
+                            </div>
+                        </div>
+                        <form action="index.php?act=quan-ly-tai-khoan" method="post">
                             <select name="capbac" id="" style="height: 26px; margin-left: 10px; border:solid 1px #dee2e6">
                                 <option value="">Tất Cả</option>
                                 <option value="1">Admin</option>
@@ -17,6 +23,9 @@
                             <input style="width: 75%; float: left;border:solid 1px #dee2e6; padding-left:10px" placeholder="Tìm kiếm tên đăng nhập..." type="text" name="kyw" id="" >
                             <input style="width: 15%; float: right; backgroud-color:blue; border:solid 1px #dee2e6" type="submit" name="listok" value="OK">
                         </form>
+                        <div style="color:red">
+                            <?=$_COOKIE['thongbao']??""?>
+                        </div>
                     <div class="item-taikhoan">
                         <table>
                             <tr>
@@ -66,10 +75,8 @@
                             ?>
                         </table>
         
-                    <div class="row">
-                    
                     </div>
-                </div>
- </div>                  
+                </div>  
+            </div>                
     </main>
     
