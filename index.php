@@ -121,10 +121,11 @@ if(isset($_GET['act']) && ($_GET['act'] != "")) {
                 }
                 $id_giohang = $_POST['id_giohang'];
                 $_SESSION['listsanpham'] = $listsanpham = load_giohang_duocchon($id_giohang, $taikhoan['id']);
-                $tong_gia_don_hang = tong_gia_don_hang($taikhoan['id'], $id_giohang);
+                $_SESSION['tongtiendonhang']=$tong_gia_don_hang = tong_gia_don_hang($taikhoan['id'], $id_giohang);
             }
-            if(isset($_SESSION['listsanpham'])) {
+            if(isset($_SESSION['listsanpham'])&&isset($_SESSION['tongtiendonhang'])) {
                 $listsanpham = $_SESSION['listsanpham'];
+                $tong_gia_don_hang=$_SESSION['tongtiendonhang'];
             }
             //mua tất cả sp trong giỏ hàng
             // $id_giohang='';

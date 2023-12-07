@@ -29,12 +29,25 @@
       <div class="col-lg-7 col-md-12 ms-auto me-auto">
         <div class="login-register-wrapper">
           <div class="login-register-tab-list nav">
+          <?php
+            if (isset($_SESSION['taikhoan'])) {
+              extract(($_SESSION['taikhoan']));
+            ?>
             <a class="active" href="">
+              <h4>Tài khoản của bạn</h4>
+            </a>
+          <?php
+            } else {
+          ?>
+          <a class="active" href="">
               <h4>Đăng nhập</h4>
             </a>
             <a href="index.php?act=dangky">
               <h4>Đăng ký</h4>
             </a>
+          <?php
+          } 
+          ?>
           </div>
           <div class="tab-content">
             <div id="lg1" class="tab-pane active">
