@@ -11,6 +11,7 @@ function doanhthutheothang()
         YEAR(ngaydat) AS nam, 
         SUM(tongtien) AS tongDoanhThu
     FROM donhang 
+    where id_trangthai=4
     GROUP BY thang, nam
     ORDER BY nam DESC, thang asC";
     return pdo_query($sql);

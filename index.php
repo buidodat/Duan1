@@ -78,7 +78,7 @@ if(isset($_GET['act']) && ($_GET['act'] != "")) {
                     } else {
                         insert_giohang($id_sanpham_thetich, $soluong, $taikhoan['id']);
                     }
-                    setcookie("thongbao", "Bạn đã thêm vào giỏ hàng thành công", time() + 10);
+                    setcookie("thongbaotgh", "Bạn đã thêm vào giỏ hàng thành công", time() + 10);
                     header("Location:index.php?act=sanphamct&id_sanpham=$id_sanpham");
                 } else {
                     include "view/yeu-cau-dang-nhap.php";
@@ -323,7 +323,7 @@ if(isset($_GET['act']) && ($_GET['act'] != "")) {
                 }
                 if(isset($_SESSION['taikhoan']) && $_SESSION['taikhoan']['capbac'] == 1) {
                     header("location:admin");
-                } else {
+                } else if(isset($_SESSION['taikhoan']) && $_SESSION['taikhoan']['capbac'] == 0){
                     header("location:index.php");
                 }
             }

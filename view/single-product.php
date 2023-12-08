@@ -69,7 +69,7 @@
         </div>
       </div>
       <div class="col-lg-6">
-          <span style="color:red"><?=$_COOKIE['thongbao']??""?></span>
+          <span style="color:red"><?=$_COOKIE['thongbaotgh']??""?></span>
           <!-- load all sản phẩm biến thể -->
           <?php 
             foreach($sp_tt as $sp): 
