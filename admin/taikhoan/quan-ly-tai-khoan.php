@@ -64,8 +64,7 @@
                                 
                                 <td>
                         
-                                    <a href="'.$suataikhoan.'"> <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i>
-                                        <a href="'.$xoataikhoan.'"> <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i></button></button> 
+                                    <a href="'.$suataikhoan.'"> <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i> 
                         
                                 </td>
                                 </tr>';

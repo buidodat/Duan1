@@ -183,6 +183,7 @@ if(isset($taikhoan)){
               $id_sanpham = $_POST['id_sanpham'];
               $gia = $_POST['gia'];
               $soluong = $_POST['soluong'];
+              $id_thetich = $_POST['id_thetich'];
               // validate
               $error = [];
               if (empty(trim($gia))) {

@@ -24,3 +24,4 @@ function delete_binhluan($id_sanpham)
     $sql = "DELETE FROM binhluan WHERE id =" . $id_sanpham;
     pdo_execute($sql);
 }
+?>

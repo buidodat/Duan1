@@ -42,3 +42,4 @@ function fk_danhmuc($iddm){
     $sql = "SELECT * FROM sanpham  WHERE iddm = $iddm";
     return pdo_query($sql);
 }
+?>

@@ -18,7 +18,9 @@ include "view/header.php";
 if(isset($_GET['act']) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
     switch($act) {
-
+        case 'trang':
+            include "view/trang.php";
+            break;
         case 'cuahang':
             // gán trước nếu không có đỡ lỗi dòng 30
             $iddm = 0;
@@ -358,14 +360,14 @@ if(isset($_GET['act']) && ($_GET['act'] != "")) {
             include "view/account/quenmk.php";
             break;
         case "quan-ly-tai-khoan":
-            $listtaikhoan = loadall_taikhoan();
+            $listtaikhoan = loadall_taikhoan('','');
             include "taikhoan/quan-ly-tai-khoan.php";
             break;
         case "sua-tai-khoan":
             if(isset($_GET['id']) && ($_GET['id']) > 0) {
                 $taikhoan = loadone_taikhoan($_GET['id']);
             }
-            $listtaikhoan = loadall_taikhoan();
+            $listtaikhoan = loadall_taikhoan('','');
             include "taikhoan/cap-nhat-tai-khoan.php";
             break;
         case "cap-nhat-tai-khoan":
@@ -381,13 +383,13 @@ if(isset($_GET['act']) && ($_GET['act'] != "")) {
                 update_taikhoan($id, $hoten, $email, $sdt, $matkhau, $diachi, $capbac);
                 $thongbao = 'Cập nhật tài khoản thành công';
             }
-            $listtaikhoan = loadall_taikhoan();
+            $listtaikhoan = loadall_taikhoan('','');
             include "taikhoan.php/cap-nhat-tai-khoan.php";
         case 'xoa-tai-khoan':
             if(isset($_GET['id']) && ($_GET['id'])) {
                 delete_taikhoan($_GET['id']);
             }
-            $listtaikhoan = loadall_taikhoan();
+            $listtaikhoan = loadall_taikhoan('','');
             include 'taikhoan.php/quan-ly-tai-khoan.php';
             break;
         case 'thoat':

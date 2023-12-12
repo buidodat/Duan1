@@ -47,15 +47,7 @@
                 </ul>
               </li>
               <li>
-                <a href="#">Trang<i class="ion-ios-arrow-down"></i></a>
-                <ul class="sub-menu">
-                  <!-- <li><a href="index.php?act=thongtin">Tin Tức</a></li> -->
-                  <li><a href="index.php?act=giohang">Giỏ Hàng</a></li>
-                  <!-- <li><a href="index.php?act=thanhtoan">Đơn Hàng</a></li> -->
-                  <li><a href="index.php?act=dangnhap">Đăng nhập & Đăng Ký</a></li>
-                  <!-- <li><a href="index.php?act=taikhoanuser">Thông Tin Tài Khoản</a></li> -->
-                  <!-- <li><a href="index.php?act=spyeuthich">Wishlist Page</a></li> -->
-                </ul>
+                <a href="index.php?act=trang">Giới Thiệu</a>
               </li>
               <!-- <li>
                 <a href="index.php?act=thongtin">Tin Tức</a>

@@ -16,5 +16,4 @@ function doanhthutheothang()
     ORDER BY nam DESC, thang asC";
     return pdo_query($sql);
 }
-    ?>
-    <?php
+?>
