@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 05, 2023 lúc 01:48 PM
+-- Thời gian đã tạo: Th12 12, 2023 lúc 09:07 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -40,7 +40,6 @@ CREATE TABLE `binhluan` (
 --
 
 INSERT INTO `binhluan` (`id`, `noidung`, `id_sanpham`, `id_taikhoan`, `ngaybinhluan`) VALUES
-(1, 'hello', 1, 2, '2023-11-30'),
 (4, 'sản phẩm xịn, chất lượng cao', 1, 2, '2023-11-30'),
 (15, 'Tôi rất thích mùi hương này, nó cực kỳ gợi cảm và quyến rũ', 3, 2, '2023-12-02');
 
@@ -93,10 +92,14 @@ CREATE TABLE `donhang` (
 INSERT INTO `donhang` (`id`, `id_taikhoan`, `ten_nguoinhan`, `email_nguoinhan`, `sdt_nguoinhan`, `diachi_nguoinhan`, `id_pttt`, `tongtien`, `tongtien_dathanhtoan`, `ngaydat`, `ghichu`, `id_trangthai`) VALUES
 (191, 3, 'Bùi Đỗ Đạt ', 'adudanchoi2000@gmail.com', '0965263725', 'Số nhà 28, ngõ giữa , thanh lương,bích hòa ,thanh oai, hà nội.', 1, 249000, 0, '2023-03-30', 'Che nội dung đơn hàng dùm', 4),
 (192, 2, 'Nguyễn Hồng Hải', 'Haihh@fpt.edu.vn', '0327441322', 'Phố cổ , Hoàn kiếm, Hà Nội', 1, 375000000, 0, '2023-04-30', 'Giả vờ bom hàng', 3),
-(193, 2, 'Bùi Đỗ Dương', 'adudanchoi2000@gmail.com', '0988804176', 'Phú lãm, Hà đông, Hà nội', 1, 51700000, 0, '2023-01-30', 'Mua nhiều được giảm dá không sốp', 3),
+(193, 2, 'Bùi Đỗ Dương', 'adudanchoi2000@gmail.com', '0988804176', 'Phú lãm, Hà đông, Hà nội', 1, 51700000, 0, '2023-01-30', 'Mua nhiều được giảm dá không sốp', 4),
 (194, 2, 'Chúa tể bom hàng', 'bomhang666@gmail.com', '0988804176', 'Thâm quyến, Trung quốc', 1, 10538000, 0, '2023-12-01', 'Thích thì bom, không thích cũng bom', 1),
 (195, 2, 'Bùi đỗ đạt', 'datbdph38211@fpt.edu.vn', '096526725', 'Số nhà 101 , thôn trung, Thanh oai, hà nội', 1, 1900000, 0, '2023-08-01', 'che tên đơn hàng dùng please', 2),
-(196, 2, 'Bùi Thị Ánh', 'anhbt2006@gmail.com', '03854566', 'Bích hòa', 1, 5895000, 0, '2023-10-01', 'Mua tặng duy ', 5);
+(196, 2, 'Bùi Thị Ánh', 'anhbt2006@gmail.com', '03854566', 'Bích hòa', 1, 5895000, 0, '2023-10-01', 'Mua tặng duy ', 5),
+(303, 2, 'Bùi Đỗ Đạt', 'datbdph38211@fpt.edu.vn', '0965263725', 'Bích hòa, Thanh oai, Hà nội', 2, 7479000, 7479000, '2023-12-07', '', 4),
+(304, 2, 'dat', 'datbdph38211@fpt.edu.vn', '0965263725', 'Bích hòa, Thanh oai, Hà nội', 2, 2298000, 2298000, '2023-12-08', '', 3),
+(305, 2, 'dat', 'datbdph38211@fpt.edu.vn', '0965263725', 'Bích hòa, Thanh oai, Hà nội', 2, 1996000, 0, '2023-12-09', '3131', 1),
+(306, 2, 'dat', 'datbdph38211@fpt.edu.vn', '0965263725', 'Bích hòa, Thanh oai, Hà nội', 2, 249000, 249000, '2023-12-09', '', 3);
 
 -- --------------------------------------------------------
 
@@ -123,7 +126,16 @@ INSERT INTO `donhangchitiet` (`id`, `id_donhang`, `id_sanpham_thetich`, `soluong
 (110, 193, 14, 40, 230000),
 (111, 194, 2, 22, 479000),
 (112, 195, 19, 5, 380000),
-(113, 196, 16, 5, 1179000);
+(113, 196, 16, 5, 1179000),
+(222, 303, 1, 1, 249000),
+(223, 303, 12, 1, 180000),
+(224, 303, 32, 3, 2350000),
+(225, 304, 1, 2, 249000),
+(226, 304, 10, 1, 300000),
+(227, 304, 3, 3, 500000),
+(228, 305, 1, 4, 249000),
+(229, 305, 3, 2, 500000),
+(230, 306, 1, 1, 249000);
 
 -- --------------------------------------------------------
 
@@ -137,6 +149,14 @@ CREATE TABLE `giohang` (
   `soluong` int(11) NOT NULL,
   `id_taikhoan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `giohang`
+--
+
+INSERT INTO `giohang` (`id`, `id_sanpham_thetich`, `soluong`, `id_taikhoan`) VALUES
+(175, 1, 1, 2),
+(176, 7, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -241,7 +261,8 @@ INSERT INTO `sanpham_thetich` (`id`, `id_sanpham`, `id_thetich`, `gia`, `soluong
 (29, 14, 1, 250000, 30, 1),
 (30, 14, 2, 750000, 80, 1),
 (31, 14, 3, 2500000, 67, 1),
-(32, 3, 3, 2350000, 7, 1);
+(32, 3, 3, 2350000, 7, 1),
+(35, 12, 2, 500000, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -267,7 +288,7 @@ INSERT INTO `taikhoan` (`id`, `hoten`, `email`, `sdt`, `matkhau`, `diachi`, `cap
 (1, 'buidodat', 'datbdph38211@fpt.edu.vn', '0965263725', 'datkk2k4', 'Số nhà 28, ngõ giữa thôn thanh lươnghh', 1),
 (2, 'dat', 'datbdph38211@fpt.edu.vn', '0965263725', 'datkk2k4', 'Bích hòa, Thanh oai, Hà nội', 0),
 (3, 'nguyentuananh', 'anhntph46933@fpt.edu.vn', '0327441322', '123456', 'Phố cổ, Hoàn kiếm, Hà Nội', 1),
-(7, 'luc', 'luctcph37171@fpt.edu.vn', '0965263725', '123', '1', 0);
+(10, 'nguyenngockhanh', 'khanhnnph48284@fpt.edu.vn', '0988804176', 'khanh123', 'Phố Cổ, Hoàn Kiếm, Hà Nội', 1);
 
 -- --------------------------------------------------------
 
@@ -413,19 +434,19 @@ ALTER TABLE `danhmuc`
 -- AUTO_INCREMENT cho bảng `donhang`
 --
 ALTER TABLE `donhang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=295;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=307;
 
 --
 -- AUTO_INCREMENT cho bảng `donhangchitiet`
 --
 ALTER TABLE `donhangchitiet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=207;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=231;
 
 --
 -- AUTO_INCREMENT cho bảng `giohang`
 --
 ALTER TABLE `giohang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=150;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
 
 --
 -- AUTO_INCREMENT cho bảng `phuongthucthanhtoan`
@@ -443,13 +464,13 @@ ALTER TABLE `sanpham`
 -- AUTO_INCREMENT cho bảng `sanpham_thetich`
 --
 ALTER TABLE `sanpham_thetich`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `thetich`
