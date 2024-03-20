@@ -27,7 +27,7 @@
                                 ?>
                             </select>
                             <input style="width: 75%; float: left;border:solid 1px #dee2e6" type="text" name="kyw" id="">
-                            <input style="width: 15%; float: right; backgroud-color:blue; border:solid 1px #dee2e6" type="submit" name="listok" value="OK">
+                            <input style="width: 15%; float: right; border:solid 1px #dee2e6" type="submit" name="listok" value="OK">
                         </form>
                         </div>
                         <!-- //form tìm kiếm -->

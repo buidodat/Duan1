@@ -87,7 +87,7 @@
         return $tongdonhang['tongdonhang'];
     }
     function loadall_trangthaidonhang(){
-        $sql = "SELECT * from trangthaidonhang";
+        $sql = "SELECT * from trangthaidonhang where id <> 5";
         $listtrangthai = pdo_query($sql);
         return $listtrangthai;
     }
